@@ -3,7 +3,7 @@
 # Configuration (adjust only if needed)
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $DataDir = Join-Path $ScriptDir 'data'
-$ContainerName = "n8n"
+$ContainerName = "aaaj-backend-n8n"
 $Image = "n8nio/n8n:latest"
 $HostPort = 5678
 $ContainerPort = 5678
