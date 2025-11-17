@@ -8,8 +8,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Callable, Iterable, List, Optional, Sequence, Union
 
-#--------------------------------------Init---------------------------------------------------------
-
 REPO_ROOT = Path(__file__).resolve().parents[2]
 RAW_RESPONSES_PATH = REPO_ROOT / "data" / "raw" / "responses.json"
 OUTPUT_DIR = REPO_ROOT / "data" / "output"
@@ -287,9 +285,10 @@ def _post_payload(payload: dict) -> List[dict]:
 def _save_outputs(judgements: Iterable[dict], output_dir: Path) -> List[Path]:
     """Write judgement objects to files in ``output_dir`` and return paths.
 
-    Each judgement dict must contain a "response" key whose value will be
-    used as the filename prefix. Files are written as JSON with pretty
-    indentation. Judgements missing the "response" key are skipped.
+    Each judgement dict must contain a "response" key (response_id) and a "field"
+    key (e.g., "topical_correctness", "grammar"). Creates a folder for each
+    response_id and saves each field as a separate JSON file within that folder:
+    output/{response_id}/{response_id}_{field}.json
 
     Args:
         judgements: Iterable of judgement dicts as returned from the webhook.
@@ -301,13 +300,31 @@ def _save_outputs(judgements: Iterable[dict], output_dir: Path) -> List[Path]:
     saved_paths: List[Path] = []
     for judgement in judgements:
         response_id = judgement.get("response")
+        field_name = judgement.get("field")
+
         if not response_id:
             logger.warning("Skipping webhook entry without response id: %s", judgement)
             continue
-        target = output_dir / f"{response_id}_judged.json"
+
+        if not field_name:
+            logger.warning("Skipping webhook entry without field name: %s", judgement)
+            continue
+
+        # Create folder for this response_id
+        response_folder = output_dir / response_id
+        response_folder.mkdir(parents=True, exist_ok=True)
+
+        # Create filename: response_id_field.json
+        filename = f"{response_id}_{field_name}.json"
+        target = response_folder / filename
+
+        # Save the entire judgement object as JSON
         with target.open("w", encoding="utf-8") as handle:
             json.dump(judgement, handle, ensure_ascii=False, indent=2)
+
         saved_paths.append(target)
+        logger.info("Saved %s", target.relative_to(output_dir))
+
     return saved_paths
 
 
@@ -321,7 +338,7 @@ def _dispatch_entries(
     """Send each entry to the webhook (or a provided post function) and save results.
 
     This function sends all entries to the webhook in parallel using a thread pool.
-    Each webhook response (which may itself be a list of judgements) is then
+    Each webhook response (which may itself be a list of judgements) is then 
     persisted to ``output_dir`` using ``_save_outputs``.
 
     Args:
@@ -337,13 +354,13 @@ def _dispatch_entries(
     _ensure_output_dir(output_dir)
     saved: List[Path] = []
     sender = post_fn or _post_payload
-
+    
     if dry_run:
         for entry in entries:
             response_id = entry.get("response", "<unknown>")
             logger.info("Dry-run enabled, skipping webhook call for %s", response_id)
         return saved
-
+    
     # Send all requests in parallel
     def send_one(entry: dict) -> List[dict]:
         """Send a single entry and return judgements."""
@@ -354,13 +371,13 @@ def _dispatch_entries(
         except Exception as exc:
             logger.error("Failed to dispatch response %s: %s", response_id, exc)
             return []
-
+    
     # Use ThreadPoolExecutor to send requests in parallel
     max_workers = min(len(entries), 10)  # Limit concurrent requests to 10
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         # Submit all tasks
         future_to_entry = {executor.submit(send_one, entry): entry for entry in entries}
-
+        
         # Collect results as they complete
         for future in as_completed(future_to_entry):
             entry = future_to_entry[future]
@@ -371,7 +388,7 @@ def _dispatch_entries(
                 logger.info("Completed response %s", response_id)
             except Exception as exc:
                 logger.error("Exception processing response %s: %s", response_id, exc)
-
+    
     return saved
 
 #--------------------------------------Senders---------------------------------------------------------
@@ -572,10 +589,10 @@ if __name__ == "__main__":
     # main(response_ids=["3c5e25b6-2d4d-3d84-b01c-0264c3a5ba50", "02693406-15df-33d5-b424-219ac8ab2054"])
 
     # Or send first 5:
-    #main(count=5)
+    # main(count=5)
 
     # Or send 5 random:
-    main(count=5, randomize=True)
+    # main(count=5, randomize=True)
 
     # Or send single ID:
-    # main(response_id="ae54d7e0-62df-3e53-9bea-3e107a6e5801")
+    main(response_id="ae54d7e0-62df-3e53-9bea-3e107a6e5801")
