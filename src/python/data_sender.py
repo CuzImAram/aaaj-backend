@@ -8,6 +8,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Callable, Iterable, List, Optional, Sequence, Union
 
+#--------------------------------------Init---------------------------------------------------------
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 RAW_RESPONSES_PATH = REPO_ROOT / "data" / "raw" / "responses.json"
 OUTPUT_DIR = REPO_ROOT / "data" / "output"
