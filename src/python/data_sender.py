@@ -10,7 +10,7 @@ from typing import Callable, Iterable, List, Optional, Sequence, Union
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 RAW_RESPONSES_PATH = REPO_ROOT / "data" / "raw" / "responses.json"
-OUTPUT_DIR = REPO_ROOT / "data" / "output"
+OUTPUT_DIR = REPO_ROOT / "data" / "output" / "agent_judgement"
 WEBHOOK_ENV_VAR = "WEBHOOK_N8N_START_AGENTS"
 DEFAULT_RANDOM_COUNT = 1
 REQUEST_TIMEOUT_SECONDS = 60
@@ -285,10 +285,9 @@ def _post_payload(payload: dict) -> List[dict]:
 def _save_outputs(judgements: Iterable[dict], output_dir: Path) -> List[Path]:
     """Write judgement objects to files in ``output_dir`` and return paths.
 
-    Each judgement dict must contain a "response" key (response_id) and a "field"
-    key (e.g., "topical_correctness", "grammar"). Creates a folder for each
-    response_id and saves each field as a separate JSON file within that folder:
-    output/{response_id}/{response_id}_{field}.json
+    Each judgement dict must contain a "response" key (response_id). The webhook
+    returns all fields for a response in a single object. Each judgement is saved
+    as a single JSON file: output/{response_id}/{response_id}.json
 
     Args:
         judgements: Iterable of judgement dicts as returned from the webhook.
@@ -300,22 +299,17 @@ def _save_outputs(judgements: Iterable[dict], output_dir: Path) -> List[Path]:
     saved_paths: List[Path] = []
     for judgement in judgements:
         response_id = judgement.get("response")
-        field_name = judgement.get("field")
 
         if not response_id:
             logger.warning("Skipping webhook entry without response id: %s", judgement)
-            continue
-
-        if not field_name:
-            logger.warning("Skipping webhook entry without field name: %s", judgement)
             continue
 
         # Create folder for this response_id
         response_folder = output_dir / response_id
         response_folder.mkdir(parents=True, exist_ok=True)
 
-        # Create filename: response_id_field.json
-        filename = f"{response_id}_{field_name}.json"
+        # Create filename: response_id.json
+        filename = f"{response_id}.json"
         target = response_folder / filename
 
         # Save the entire judgement object as JSON
@@ -586,7 +580,7 @@ def main(
 if __name__ == "__main__":
     # Example usage:
     # Send specific IDs:
-    # main(response_ids=["3c5e25b6-2d4d-3d84-b01c-0264c3a5ba50", "02693406-15df-33d5-b424-219ac8ab2054"])
+    main(response_ids=["3c5e25b6-2d4d-3d84-b01c-0264c3a5ba50", "02693406-15df-33d5-b424-219ac8ab2054"])
 
     # Or send first 5:
     # main(count=5)
@@ -595,4 +589,4 @@ if __name__ == "__main__":
     # main(count=5, randomize=True)
 
     # Or send single ID:
-    main(response_id="ae54d7e0-62df-3e53-9bea-3e107a6e5801")
+    # main(response_id="ae54d7e0-62df-3e53-9bea-3e107a6e5801")
