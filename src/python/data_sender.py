@@ -287,7 +287,7 @@ def _save_outputs(judgements: Iterable[dict], output_dir: Path) -> List[Path]:
 
     Each judgement dict must contain a "response" key (response_id). The webhook
     returns all fields for a response in a single object. Each judgement is saved
-    as a single JSON file: output/{response_id}/{response_id}.json
+    as a single JSON file directly under output_dir: output/agent_judgement/{response_id}.json
 
     Args:
         judgements: Iterable of judgement dicts as returned from the webhook.
@@ -304,13 +304,8 @@ def _save_outputs(judgements: Iterable[dict], output_dir: Path) -> List[Path]:
             logger.warning("Skipping webhook entry without response id: %s", judgement)
             continue
 
-        # Create folder for this response_id
-        response_folder = output_dir / response_id
-        response_folder.mkdir(parents=True, exist_ok=True)
-
-        # Create filename: response_id.json
-        filename = f"{response_id}.json"
-        target = response_folder / filename
+        # Create filename: response_id.json directly in output_dir
+        target = output_dir / f"{response_id}.json"
 
         # Save the entire judgement object as JSON
         with target.open("w", encoding="utf-8") as handle:

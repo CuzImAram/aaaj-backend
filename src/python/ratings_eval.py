@@ -59,56 +59,54 @@ def load_ratings(path: Path = RATINGS_PATH) -> List[dict]:
 def get_agent_judgement(response_id: str, field: str) -> Optional[dict]:
     """Get agent judgement for a specific response and field.
 
-    Looks in the agent_judgement folder for the judgement file. If not found,
-    triggers the data_sender to fetch it from the webhook.
+    Looks in the agent_judgement folder for the flat judgement file
+    `{response_id}.json`. If not found, triggers the data_sender to fetch it
+    from the webhook. Returns a dict shaped like
+    {"output": <field_dict>, "response": response_id, "field": field} for
+    uniform downstream consumption.
 
     Args:
         response_id: The response identifier.
         field: The field name (e.g., "correctness_topical").
 
     Returns:
-        The field-specific judgement dict if found, None otherwise.
+        The field-specific judgement dict wrapped with metadata, or None.
 
     Raises:
         JudgementNotFoundError: if judgement cannot be retrieved.
     """
-    # Check if judgement file already exists (single file with all fields)
-    judgement_file = AGENT_JUDGEMENT_DIR / response_id / f"{response_id}.json"
+    judgement_file = AGENT_JUDGEMENT_DIR / f"{response_id}.json"
 
+    def _load_field_from_file(path: Path) -> Optional[dict]:
+        try:
+            with path.open("r", encoding="utf-8") as f:
+                full = json.load(f)
+            field_data = full.get(field)
+            if field_data is None:
+                logger.warning("Field %s not present in %s", field, path.name)
+                return None
+            return {"output": field_data, "response": response_id, "field": field}
+        except Exception as exc:
+            logger.error("Failed reading %s: %s", path, exc)
+            return None
+
+    # Try existing file first
     if judgement_file.exists():
         logger.debug("Found existing judgement: %s", judgement_file)
-        with judgement_file.open("r", encoding="utf-8") as f:
-            full_judgement = json.load(f)
-            # Extract the specific field from the judgement
-            field_judgement = full_judgement.get(field)
-            if field_judgement:
-                return {"output": field_judgement, "response": response_id, "field": field}
-            else:
-                logger.warning("Field %s not found in judgement for %s", field, response_id)
-                return None
+        found = _load_field_from_file(judgement_file)
+        if found is not None:
+            return found
 
-    # Judgement doesn't exist, fetch it using data_sender
-    logger.info("Judgement not found for %s, fetching from webhook", response_id)
+    # Fetch via webhook and retry
+    logger.info("Judgement not found or missing field for %s, fetching from webhook", response_id)
     try:
         saved_files = send_by_id(response_id, output_dir=AGENT_JUDGEMENT_DIR)
-
-        # Try to find the judgement file
         for saved_file in saved_files:
+            # Expect flat file named {response_id}.json
             if saved_file.name == f"{response_id}.json":
-                with saved_file.open("r", encoding="utf-8") as f:
-                    full_judgement = json.load(f)
-                    # Extract the specific field from the judgement
-                    field_judgement = full_judgement.get(field)
-                    if field_judgement:
-                        return {"output": field_judgement, "response": response_id, "field": field}
-                    else:
-                        logger.warning("Field %s not found in webhook response for %s", field, response_id)
-                        return None
-
-        # If we got here, the file wasn't created
-        logger.warning("Webhook did not create judgement file for %s", response_id)
+                return _load_field_from_file(saved_file)
+        logger.warning("Webhook did not create %s.json for %s", response_id, response_id)
         return None
-
     except Exception as exc:
         raise JudgementNotFoundError(
             f"Failed to retrieve judgement for {response_id}: {exc}"
@@ -492,17 +490,16 @@ if __name__ == "__main__":
     # Example usage:
 
     # Compare specific pair by IDs:
-    #main(
-    #    response_a_id="3c5e25b6-2d4d-3d84-b01c-0264c3a5ba50",
-    #    response_b_id="02693406-15df-33d5-b424-219ac8ab2054",
-    #    fields=["topical_correctness"],
-    #    threshold=2.0
-    #)
+    main(
+        response_a_id="3c5e25b6-2d4d-3d84-b01c-0264c3a5ba50",
+        response_b_id="02693406-15df-33d5-b424-219ac8ab2054",
+        fields=["topical_correctness"],
+        threshold=2.0
+    )
 
     # Other examples:
     # Compare first 5 pairs:
-    main(count=5, threshold=2.0, fields=["topical_correctness"])
+    #main(count=5, threshold=2.0, fields=["topical_correctness"])
 
     # Compare 10 random pairs:
     # main(count=10, randomize=True)
-
