@@ -11,7 +11,7 @@ import random
 from pathlib import Path
 from typing import List, Optional, Sequence
 
-from data_sender import send_by_id, REPO_ROOT
+from data_sender import send_by_id, send_by_ids, REPO_ROOT
 
 # Paths
 RATINGS_PATH = REPO_ROOT / "data" / "raw" / "ratings.json"
@@ -111,6 +111,35 @@ def get_agent_judgement(response_id: str, field: str) -> Optional[dict]:
         raise JudgementNotFoundError(
             f"Failed to retrieve judgement for {response_id}: {exc}"
         ) from exc
+
+
+def ensure_judgements_exist(response_ids: List[str]) -> None:
+    """Ensure all judgement files exist, fetching missing ones in batch.
+
+    Args:
+        response_ids: List of response IDs to check and fetch if needed.
+    """
+    missing_ids = []
+    for response_id in response_ids:
+        judgement_file = AGENT_JUDGEMENT_DIR / f"{response_id}.json"
+        if not judgement_file.exists():
+            missing_ids.append(response_id)
+
+    if missing_ids:
+        logger.info("Fetching %d missing judgement(s): %s", len(missing_ids), missing_ids)
+        send_by_ids(missing_ids, output_dir=AGENT_JUDGEMENT_DIR)
+
+        # Verify all files were created
+        still_missing = []
+        for response_id in missing_ids:
+            judgement_file = AGENT_JUDGEMENT_DIR / f"{response_id}.json"
+            if not judgement_file.exists():
+                still_missing.append(response_id)
+
+        if still_missing:
+            logger.warning("Failed to fetch judgements for: %s", still_missing)
+    else:
+        logger.debug("All %d judgement(s) already exist", len(response_ids))
 
 
 def compare_grades(grade_a: float, grade_b: float, threshold: float) -> str:
@@ -293,6 +322,9 @@ def compare_by_ids(
     if fields is None:
         fields = DEFAULT_FIELDS
 
+    # Ensure both judgements exist before comparing
+    ensure_judgements_exist([response_a_id, response_b_id])
+
     ratings = load_ratings(ratings_path)
 
     # Find the rating entry for this pair
@@ -336,6 +368,20 @@ def compare_first_n(
         fields = DEFAULT_FIELDS
 
     ratings = load_ratings(ratings_path)
+
+    # Collect all response IDs we'll need
+    all_response_ids = []
+    for entry in ratings[:count]:
+        response_a_id = entry.get("response_a")
+        response_b_id = entry.get("response_b")
+        if response_a_id:
+            all_response_ids.append(response_a_id)
+        if response_b_id:
+            all_response_ids.append(response_b_id)
+
+    # Batch fetch all missing judgements
+    ensure_judgements_exist(all_response_ids)
+
     saved_files = []
 
     for i, entry in enumerate(ratings[:count]):
@@ -384,6 +430,19 @@ def compare_random_n(
 
     rng = random.Random(random_seed)
     selected_entries = rng.sample(ratings, min(count, len(ratings)))
+
+    # Collect all response IDs we'll need
+    all_response_ids = []
+    for entry in selected_entries:
+        response_a_id = entry.get("response_a")
+        response_b_id = entry.get("response_b")
+        if response_a_id:
+            all_response_ids.append(response_a_id)
+        if response_b_id:
+            all_response_ids.append(response_b_id)
+
+    # Batch fetch all missing judgements
+    ensure_judgements_exist(all_response_ids)
 
     saved_files = []
 
@@ -490,16 +549,16 @@ if __name__ == "__main__":
     # Example usage:
 
     # Compare specific pair by IDs:
-    main(
-        response_a_id="3c5e25b6-2d4d-3d84-b01c-0264c3a5ba50",
-        response_b_id="02693406-15df-33d5-b424-219ac8ab2054",
-        fields=["topical_correctness"],
-        threshold=2.0
-    )
+    #main(
+    #    response_a_id="3c5e25b6-2d4d-3d84-b01c-0264c3a5ba50",
+    #    response_b_id="02693406-15df-33d5-b424-219ac8ab2054",
+    #    fields=["correctness_topical", "coherence_logical"],
+    #    threshold=2.0
+    #)
 
     # Other examples:
     # Compare first 5 pairs:
-    #main(count=5, threshold=2.0, fields=["topical_correctness"])
+    main(count=5, threshold=2.0, fields=["correctness_topical"], randomize=True)
 
     # Compare 10 random pairs:
     # main(count=10, randomize=True)
