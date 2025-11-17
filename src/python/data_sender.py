@@ -4,6 +4,7 @@ import os
 import random
 import urllib.error
 import urllib.request
+import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Callable, Iterable, List, Optional, Sequence, Union
@@ -491,6 +492,102 @@ def send_by_ids(
     return _dispatch_entries(entries, output_dir=output_dir, post_fn=post_fn, dry_run=dry_run)
 
 
+def send_json(
+    json_data: Optional[dict] = None,
+    *,
+    response: Optional[str] = None,
+    query: Optional[str] = None,
+    references_texts: Optional[List[str]] = None,
+    raw_text: Optional[str] = None,
+    output_dir: Path = OUTPUT_DIR,
+    post_fn: Optional[PostFn] = None,
+    dry_run: bool = False,
+) -> List[Path]:
+    """Send a custom JSON payload to the webhook.
+
+    This method has two usage modes:
+
+    Mode 1: Pass a complete JSON dict
+        send_json(json_data={"response": "...", "query": "...", ...})
+
+    Mode 2: Pass individual fields
+        send_json(response="...", query="...", references_texts=[...], raw_text="...")
+
+    Required schema:
+        {
+            "response": "...",
+            "query": "...",
+            "references_texts": [...],
+            "raw_text": "..."
+        }
+
+    If 'response' field is not provided, a UUID will be automatically generated.
+
+    Args:
+        json_data: Complete JSON dict with all required fields. If provided,
+            individual field arguments are ignored.
+        response: Response ID (optional, will auto-generate UUID if not provided).
+        query: Query string (required if json_data not provided).
+        references_texts: List of reference texts (required if json_data not provided).
+        raw_text: Raw text content (required if json_data not provided).
+        output_dir: Directory to save webhook response files.
+        post_fn: Optional post function for testing.
+        dry_run: If True, skip actual POST to webhook.
+
+    Returns:
+        List of Paths to saved judgement files.
+
+    Raises:
+        ValueError: if required fields (except response) are missing.
+    """
+    # Mode 1: JSON dict provided
+    if json_data is not None:
+        # Validate required fields (response is optional, will be auto-generated)
+        required_fields = ["query", "references_texts", "raw_text"]
+        missing_fields = [f for f in required_fields if f not in json_data]
+
+        if missing_fields:
+            raise ValueError(
+                f"JSON data missing required fields: {', '.join(missing_fields)}. "
+                f"Required: query, references_texts, raw_text (response is optional and will be auto-generated)"
+            )
+
+        # Auto-generate response ID if not provided
+        if "response" not in json_data or not json_data["response"]:
+            json_data["response"] = str(uuid.uuid4())
+            logger.info("Auto-generated response ID: %s", json_data["response"])
+
+        payload = json_data
+        logger.info("Sending custom JSON with response ID: %s", payload.get("response"))
+
+    # Mode 2: Individual arguments provided
+    else:
+        # Validate required arguments (response is optional, will be auto-generated)
+        if query is None:
+            raise ValueError("Missing required argument: 'query'")
+        if references_texts is None:
+            raise ValueError("Missing required argument: 'references_texts'")
+        if raw_text is None:
+            raise ValueError("Missing required argument: 'raw_text'")
+
+        # Auto-generate response ID if not provided
+        if response is None or not response:
+            response = str(uuid.uuid4())
+            logger.info("Auto-generated response ID: %s", response)
+
+        # Build JSON payload
+        payload = {
+            "response": response,
+            "query": query,
+            "references_texts": references_texts,
+            "raw_text": raw_text
+        }
+        logger.info("Sending custom JSON with response ID: %s", response)
+
+    # Send to webhook
+    return _dispatch_entries([payload], output_dir=output_dir, post_fn=post_fn, dry_run=dry_run)
+
+
 def main(
     *,
     count: Optional[int] = None,
@@ -575,13 +672,20 @@ def main(
 if __name__ == "__main__":
     # Example usage:
     # Send specific IDs:
-    main(response_ids=["3c5e25b6-2d4d-3d84-b01c-0264c3a5ba50", "02693406-15df-33d5-b424-219ac8ab2054"])
+    # main(response_ids=["3c5e25b6-2d4d-3d84-b01c-0264c3a5ba50", "02693406-15df-33d5-b424-219ac8ab2054"])
 
     # Or send first 5:
     # main(count=5)
 
     # Or send 5 random:
-    # main(count=5, randomize=True)
+    main(count=2, randomize=True)
 
     # Or send single ID:
     # main(response_id="ae54d7e0-62df-3e53-9bea-3e107a6e5801")
+
+    # Test send_json with auto-generated UUID (response not provided):
+    #send_json(
+    #    query="What is the capital of France?",
+    #    references_texts=["The capital of France is Paris"],
+    #    raw_text="Paris is the capital of France.",
+    #)

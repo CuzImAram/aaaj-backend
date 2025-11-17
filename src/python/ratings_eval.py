@@ -561,4 +561,4 @@ if __name__ == "__main__":
     main(count=5, threshold=2.0, fields=["correctness_topical"], randomize=True)
 
     # Compare 10 random pairs:
-    # main(count=10, randomize=True)
+    #main(count=2, randomize=True)
