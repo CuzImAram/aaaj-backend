@@ -27,6 +27,9 @@ from ratings_eval import (
 # Paths
 KRIPPENDORFF_OUTPUT_DIR = REPO_ROOT / "data" / "output" / "krippendorff"
 
+# Default threshold for grade comparisons
+DEFAULT_THRESHOLD = 7.5
+
 logger = logging.getLogger(__name__)
 
 
@@ -71,17 +74,44 @@ def get_output_filename(
             i += 1
 
 
-def ensure_ratings_exist(response_pairs: List[Tuple[str, str]]) -> None:
-    """Ensure all comparison files exist, creating missing ones in parallel.
+def ensure_ratings_exist(response_pairs: List[Tuple[str, str]], threshold: float = DEFAULT_THRESHOLD) -> None:
+    """Ensure all comparison files exist with the correct threshold, creating missing ones in parallel.
+
+    If a comparison file exists but has a different threshold, it will be deleted
+    and recreated with the correct threshold.
 
     Args:
         response_pairs: List of (response_a_id, response_b_id) tuples.
+        threshold: The threshold to use for grade comparisons. Files with a different
+                  threshold will be deleted and recreated.
     """
     missing_pairs = []
     for response_a_id, response_b_id in response_pairs:
         filename = f"{response_a_id}_{response_b_id}.json"
         comparison_file = COMPARISON_OUTPUT_DIR / filename
-        if not comparison_file.exists():
+
+        if comparison_file.exists():
+            # Check if the file has the correct threshold
+            try:
+                with comparison_file.open("r", encoding="utf-8") as f:
+                    existing_data = json.load(f)
+                existing_threshold = existing_data.get("threshold")
+
+                if existing_threshold != threshold:
+                    logger.info(
+                        "Comparison %s has threshold %.2f, but %.2f is required. Deleting and recreating.",
+                        filename, existing_threshold if existing_threshold else 0, threshold
+                    )
+                    comparison_file.unlink()
+                    missing_pairs.append((response_a_id, response_b_id))
+            except Exception as exc:
+                logger.warning("Failed to read threshold from %s: %s. Will recreate.", filename, exc)
+                try:
+                    comparison_file.unlink()
+                except Exception:
+                    pass
+                missing_pairs.append((response_a_id, response_b_id))
+        else:
             missing_pairs.append((response_a_id, response_b_id))
 
     if missing_pairs:
@@ -95,7 +125,7 @@ def ensure_ratings_exist(response_pairs: List[Tuple[str, str]]) -> None:
                     response_a_id,
                     response_b_id,
                     compare_with_gold=False,
-                    threshold= 7.5
+                    threshold=threshold
                 )
                 logger.info("Created comparison: %s vs %s", response_a_id, response_b_id)
             except Exception as exc:
@@ -321,7 +351,8 @@ def evaluate_krippendorff_by_topics(
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
     is_all_topics: bool = False,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha with per-topic breakdown.
 
@@ -332,6 +363,7 @@ def evaluate_krippendorff_by_topics(
         output_dir: Directory where output will be saved.
         is_all_topics: True if evaluating all topics.
         show_comparisons: If True, include comparison arrays in output. If False, omit them.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to the saved krippendorff JSON file.
@@ -357,7 +389,7 @@ def evaluate_krippendorff_by_topics(
         all_pairs.extend(pairs)
 
     # Ensure all comparison files exist (creates missing ones in parallel)
-    ensure_ratings_exist(all_pairs)
+    ensure_ratings_exist(all_pairs, threshold)
 
     # Calculate alpha for each topic separately
     results = {}
@@ -482,7 +514,8 @@ def evaluate_krippendorff(
     topic_ids: Optional[List[str]] = None,
     is_all_topics: bool = False,
     is_all_ratings: bool = False,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha for given response pairs.
 
@@ -495,6 +528,7 @@ def evaluate_krippendorff(
         is_all_topics: True if evaluating all topics.
         is_all_ratings: True if evaluating all ratings.
         show_comparisons: If True, include comparison arrays in output. If False, omit them.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to the saved krippendorff JSON file.
@@ -505,7 +539,7 @@ def evaluate_krippendorff(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Ensure all comparison files exist (creates missing ones in parallel)
-    ensure_ratings_exist(response_pairs)
+    ensure_ratings_exist(response_pairs, threshold)
 
     # Load all comparisons
     comparisons = []
@@ -621,7 +655,8 @@ def evaluate_by_ids(
     response_pairs: List[Tuple[str, str]],
     fields: Optional[Sequence[str]] = None,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha for specific response ID pairs.
 
@@ -630,11 +665,12 @@ def evaluate_by_ids(
         fields: List of fields to evaluate.
         output_dir: Output directory.
         show_comparisons: If True, include comparison arrays in output.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to saved results.
     """
-    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons)
+    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons, threshold=threshold)
 
 
 def evaluate_first_n(
@@ -642,7 +678,8 @@ def evaluate_first_n(
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha for the first N rating pairs.
 
@@ -652,6 +689,7 @@ def evaluate_first_n(
         ratings_path: Path to ratings.json.
         output_dir: Output directory.
         show_comparisons: If True, include comparison arrays in output.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to saved results.
@@ -666,7 +704,7 @@ def evaluate_first_n(
         if response_a_id and response_b_id:
             response_pairs.append((response_a_id, response_b_id))
 
-    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons)
+    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons, threshold=threshold)
 
 
 def evaluate_random_n(
@@ -675,7 +713,8 @@ def evaluate_random_n(
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha for N random rating pairs.
 
@@ -686,6 +725,7 @@ def evaluate_random_n(
         ratings_path: Path to ratings.json.
         output_dir: Output directory.
         show_comparisons: If True, include comparison arrays in output.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to saved results.
@@ -703,14 +743,15 @@ def evaluate_random_n(
         if response_a_id and response_b_id:
             response_pairs.append((response_a_id, response_b_id))
 
-    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons)
+    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons, threshold=threshold)
 
 
 def evaluate_all(
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha for all rating pairs.
 
@@ -719,6 +760,7 @@ def evaluate_all(
         ratings_path: Path to ratings.json.
         output_dir: Output directory.
         show_comparisons: If True, include comparison arrays in output.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to saved results.
@@ -738,7 +780,8 @@ def evaluate_all(
         fields,
         output_dir,
         is_all_ratings=True,
-        show_comparisons=show_comparisons
+        show_comparisons=show_comparisons,
+        threshold=threshold
     )
 
 
@@ -747,7 +790,8 @@ def evaluate_topic(
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha for all pairs in a specific topic.
 
@@ -757,6 +801,7 @@ def evaluate_topic(
         ratings_path: Path to ratings.json.
         output_dir: Output directory.
         show_comparisons: If True, include comparison arrays in output.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to saved results.
@@ -768,7 +813,8 @@ def evaluate_topic(
         ratings_path,
         output_dir,
         is_all_topics=False,
-        show_comparisons=show_comparisons
+        show_comparisons=show_comparisons,
+        threshold=threshold
     )
 
 
@@ -777,7 +823,8 @@ def evaluate_topics(
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha for all pairs in multiple topics.
 
@@ -787,6 +834,7 @@ def evaluate_topics(
         ratings_path: Path to ratings.json.
         output_dir: Output directory.
         show_comparisons: If True, include comparison arrays in output.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to saved results.
@@ -798,7 +846,8 @@ def evaluate_topics(
         ratings_path,
         output_dir,
         is_all_topics=False,
-        show_comparisons=show_comparisons
+        show_comparisons=show_comparisons,
+        threshold=threshold
     )
 
 
@@ -808,7 +857,8 @@ def evaluate_random_topic(
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha for random topic(s).
 
@@ -820,6 +870,7 @@ def evaluate_random_topic(
         ratings_path: Path to ratings.json.
         output_dir: Output directory.
         show_comparisons: If True, include comparison arrays in output.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to saved results.
@@ -837,17 +888,18 @@ def evaluate_random_topic(
 
     if count == 1:
         logger.info("Randomly selected topic: %s", selected_topics[0])
-        return evaluate_topic(selected_topics[0], fields, ratings_path, output_dir, show_comparisons)
+        return evaluate_topic(selected_topics[0], fields, ratings_path, output_dir, show_comparisons, threshold)
     else:
         logger.info("Randomly selected %d topics: %s", len(selected_topics), selected_topics)
-        return evaluate_topics(selected_topics, fields, ratings_path, output_dir, show_comparisons)
+        return evaluate_topics(selected_topics, fields, ratings_path, output_dir, show_comparisons, threshold)
 
 
 def evaluate_all_topics(
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
-    show_comparisons: bool = True
+    show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD
 ) -> Path:
     """Evaluate Krippendorff's alpha for all topics combined.
 
@@ -856,6 +908,7 @@ def evaluate_all_topics(
         ratings_path: Path to ratings.json.
         output_dir: Output directory.
         show_comparisons: If True, include comparison arrays in output.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
 
     Returns:
         Path to saved results.
@@ -872,7 +925,8 @@ def evaluate_all_topics(
         ratings_path,
         output_dir,
         is_all_topics=True,
-        show_comparisons=show_comparisons
+        show_comparisons=show_comparisons,
+        threshold=threshold
     )
 
 
@@ -892,6 +946,7 @@ def main(
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
     show_comparisons: bool = True,
+    threshold: float = DEFAULT_THRESHOLD,
     log_level: str = "INFO"
 ) -> None:
     """Entry point for Krippendorff's alpha evaluation.
@@ -925,6 +980,8 @@ def main(
         ratings_path: Path to ratings.json.
         output_dir: Directory for output files.
         show_comparisons: If True, include comparison arrays in JSON output. If False, omit them.
+        threshold: The threshold to use for grade comparisons (default: 1.0).
+                  Files with a different threshold will be deleted and recreated.
         log_level: Logging level (string such as "INFO" or "DEBUG").
     """
     if fields is None:
@@ -937,28 +994,28 @@ def main(
 
     # Topic modes take priority
     if topic_id:
-        output_file = evaluate_topic(topic_id, fields, ratings_path, output_dir, show_comparisons)
+        output_file = evaluate_topic(topic_id, fields, ratings_path, output_dir, show_comparisons, threshold)
     elif topic_ids:
-        output_file = evaluate_topics(topic_ids, fields, ratings_path, output_dir, show_comparisons)
+        output_file = evaluate_topics(topic_ids, fields, ratings_path, output_dir, show_comparisons, threshold)
     elif random_topic:
         topic_count = count if count is not None else 1
-        output_file = evaluate_random_topic(topic_count, random_seed, fields, ratings_path, output_dir, show_comparisons)
+        output_file = evaluate_random_topic(topic_count, random_seed, fields, ratings_path, output_dir, show_comparisons, threshold)
     elif all_topics:
-        output_file = evaluate_all_topics(fields, ratings_path, output_dir, show_comparisons)
+        output_file = evaluate_all_topics(fields, ratings_path, output_dir, show_comparisons, threshold)
     # Regular modes
     elif response_pairs:
-        output_file = evaluate_by_ids(response_pairs, fields, output_dir, show_comparisons)
+        output_file = evaluate_by_ids(response_pairs, fields, output_dir, show_comparisons, threshold)
     elif all_ratings:
-        output_file = evaluate_all(fields, ratings_path, output_dir, show_comparisons)
+        output_file = evaluate_all(fields, ratings_path, output_dir, show_comparisons, threshold)
     elif randomize:
         if count is None:
             count = 1
-        output_file = evaluate_random_n(count, random_seed, fields, ratings_path, output_dir, show_comparisons)
+        output_file = evaluate_random_n(count, random_seed, fields, ratings_path, output_dir, show_comparisons, threshold)
     elif count is not None:
-        output_file = evaluate_first_n(count, fields, ratings_path, output_dir, show_comparisons)
+        output_file = evaluate_first_n(count, fields, ratings_path, output_dir, show_comparisons, threshold)
     else:
         # Default: evaluate first pair
-        output_file = evaluate_first_n(1, fields, ratings_path, output_dir)
+        output_file = evaluate_first_n(1, fields, ratings_path, output_dir, show_comparisons, threshold)
 
     logger.info("Krippendorff's alpha evaluation completed: %s", output_file.name)
 
@@ -969,7 +1026,7 @@ if __name__ == "__main__":
     # main(topic_ids=["2024-105741", "2024-5957"], show_comparisons=True)
 
     # Multiple topics WITHOUT comparisons (cleaner output)
-    main(topic_ids=["2024-42497", "2024-44544"], fields=["correctness_topical"], show_comparisons=True)
+    main(topic_ids=["2024-42497", "2024-44544"], threshold= 7.5, fields=["correctness_topical"], show_comparisons=True)
 
     # Random topic: creates krippendorff_topic_<random-id>.json
     # main(random_topic=True)
