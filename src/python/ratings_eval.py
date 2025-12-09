@@ -157,7 +157,7 @@ def compare_grades(grade_a: float, grade_b: float, threshold: float) -> str:
 
     if diff <= threshold:
         return "n"
-    elif grade_a > grade_b:
+    elif grade_a < grade_b:
         return "a"
     else:
         return "b"

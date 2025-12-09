@@ -94,7 +94,8 @@ def ensure_ratings_exist(response_pairs: List[Tuple[str, str]]) -> None:
                 compare_by_ids(
                     response_a_id,
                     response_b_id,
-                    compare_with_gold=False
+                    compare_with_gold=False,
+                    threshold= 7.5
                 )
                 logger.info("Created comparison: %s vs %s", response_a_id, response_b_id)
             except Exception as exc:
@@ -963,16 +964,12 @@ def main(
 
 
 if __name__ == "__main__":
-    # Examples of different modes:
-
-    # Single topic: creates krippendorff_topic_2024-105741.json
-    # main(topic_id="2024-105741")
 
     # Multiple topics with comparisons (default)
-    main(topic_ids=["2024-105741", "2024-5957"], show_comparisons=True)
+    # main(topic_ids=["2024-105741", "2024-5957"], show_comparisons=True)
 
     # Multiple topics WITHOUT comparisons (cleaner output)
-    # main(topic_ids=["2024-105741", "2024-5957"], show_comparisons=False)
+    main(topic_ids=["2024-42497", "2024-44544"], fields=["correctness_topical"], show_comparisons=True)
 
     # Random topic: creates krippendorff_topic_<random-id>.json
     # main(random_topic=True)
@@ -989,3 +986,4 @@ if __name__ == "__main__":
     # Regular mode with specific pairs: creates krippendorff_0.json (numbered)
     # main(response_pairs=[("04d71b5f-a8b0-3ab3-8725-43510f6e21f8", "90f27401-7376-3eea-846c-15d6092292e2"),
     #                      ("158a0f7e-f45b-3bfa-a93a-4733662c2216", "90f27401-7376-3eea-846c-15d6092292e2")])
+    # main(count=2, randomize=True)
