@@ -1026,7 +1026,7 @@ if __name__ == "__main__":
     # main(topic_ids=["2024-105741", "2024-5957"], show_comparisons=True)
 
     # Multiple topics WITHOUT comparisons (cleaner output)
-    main(topic_ids=["2024-42497", "2024-44544"], threshold= 7.5, fields=["correctness_topical"], show_comparisons=True)
+    main(topic_ids=["2024-42497"], threshold= 2.0, show_comparisons=True)
 
     # Random topic: creates krippendorff_topic_<random-id>.json
     # main(random_topic=True)
