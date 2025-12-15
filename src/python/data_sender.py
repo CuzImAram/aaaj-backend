@@ -492,6 +492,29 @@ def send_by_ids(
     return _dispatch_entries(entries, output_dir=output_dir, post_fn=post_fn, dry_run=dry_run)
 
 
+def send_all(
+    *,
+    responses_path: Path = RAW_RESPONSES_PATH,
+    output_dir: Path = OUTPUT_DIR,
+    post_fn: Optional[PostFn] = None,
+    dry_run: bool = False,
+) -> List[Path]:
+    """Send all responses from the responses file.
+
+    Args:
+        responses_path: Path to the source responses.json file.
+        output_dir: Directory to save webhook judgement files.
+        post_fn: Optional post function for testing.
+        dry_run: If True, skip network calls.
+
+    Returns:
+        List of Paths to the saved judgement files.
+    """
+    responses = load_responses(responses_path)
+    logger.info("Sending all %d responses", len(responses))
+    return _dispatch_entries(responses, output_dir=output_dir, post_fn=post_fn, dry_run=dry_run)
+
+
 def send_json(
     json_data: Optional[dict] = None,
     *,
@@ -678,8 +701,8 @@ if __name__ == "__main__":
     # main(count=5)
 
     # Or send 5 random:
-    main(count=1, randomize=True)
-
+    # main(count=1, randomize=True)
+    send_all()
     # Or send single ID:
     # main(response_id="ae54d7e0-62df-3e53-9bea-3e107a6e5801")
 

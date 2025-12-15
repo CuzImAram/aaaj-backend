@@ -21,11 +21,13 @@ from ratings_eval import (
     compare_by_ids,
     DEFAULT_FIELDS,
     RATINGS_PATH,
-    COMPARISON_OUTPUT_DIR
+    COMPARISON_OUTPUT_DIR,
+    COMPARISON_AGENT_COMP_OUTPUT_DIR
 )
 
 # Paths
 KRIPPENDORFF_OUTPUT_DIR = REPO_ROOT / "data" / "output" / "krippendorff"
+KRIPPENDORFF_COMP_OUTPUT_DIR = REPO_ROOT / "data" / "output" / "krippendorff_comp"
 
 # Default threshold for grade comparisons
 DEFAULT_THRESHOLD = 7.5
@@ -74,7 +76,11 @@ def get_output_filename(
             i += 1
 
 
-def ensure_ratings_exist(response_pairs: List[Tuple[str, str]], threshold: float = DEFAULT_THRESHOLD) -> None:
+def ensure_ratings_exist(
+    response_pairs: List[Tuple[str, str]],
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
+) -> None:
     """Ensure all comparison files exist with the correct threshold, creating missing ones in parallel.
 
     If a comparison file exists but has a different threshold, it will be deleted
@@ -84,14 +90,21 @@ def ensure_ratings_exist(response_pairs: List[Tuple[str, str]], threshold: float
         response_pairs: List of (response_a_id, response_b_id) tuples.
         threshold: The threshold to use for grade comparisons. Files with a different
                   threshold will be deleted and recreated.
+        agent_comp: If True, use agent comparison via webhook.
     """
+    output_dir = COMPARISON_AGENT_COMP_OUTPUT_DIR if agent_comp else COMPARISON_OUTPUT_DIR
     missing_pairs = []
     for response_a_id, response_b_id in response_pairs:
         filename = f"{response_a_id}_{response_b_id}.json"
-        comparison_file = COMPARISON_OUTPUT_DIR / filename
+        comparison_file = output_dir / filename
 
         if comparison_file.exists():
-            # Check if the file has the correct threshold
+            # For agent_comp, the file structure is different (list), so skip threshold check
+            if agent_comp:
+                # File exists, no threshold check needed for agent_comp
+                continue
+
+            # Check if the file has the correct threshold (only for non-agent_comp)
             try:
                 with comparison_file.open("r", encoding="utf-8") as f:
                     existing_data = json.load(f)
@@ -125,7 +138,8 @@ def ensure_ratings_exist(response_pairs: List[Tuple[str, str]], threshold: float
                     response_a_id,
                     response_b_id,
                     compare_with_gold=False,
-                    threshold=threshold
+                    threshold=threshold,
+                    agent_comp=agent_comp
                 )
                 logger.info("Created comparison: %s vs %s", response_a_id, response_b_id)
             except Exception as exc:
@@ -148,7 +162,7 @@ def ensure_ratings_exist(response_pairs: List[Tuple[str, str]], threshold: float
         still_missing = []
         for response_a_id, response_b_id in missing_pairs:
             filename = f"{response_a_id}_{response_b_id}.json"
-            comparison_file = COMPARISON_OUTPUT_DIR / filename
+            comparison_file = output_dir / filename
             if not comparison_file.exists():
                 still_missing.append((response_a_id, response_b_id))
 
@@ -158,18 +172,24 @@ def ensure_ratings_exist(response_pairs: List[Tuple[str, str]], threshold: float
         logger.debug("All %d comparison file(s) already exist", len(response_pairs))
 
 
-def load_comparison(response_a_id: str, response_b_id: str) -> Optional[dict]:
+def load_comparison(
+    response_a_id: str,
+    response_b_id: str,
+    agent_comp: bool = False
+) -> Optional[dict]:
     """Load a comparison file for the given response pair.
 
     Args:
         response_a_id: ID of response A.
         response_b_id: ID of response B.
+        agent_comp: If True, load from agent comparison directory.
 
     Returns:
         The comparison dict, or None if it cannot be loaded.
     """
+    output_dir = COMPARISON_AGENT_COMP_OUTPUT_DIR if agent_comp else COMPARISON_OUTPUT_DIR
     filename = f"{response_a_id}_{response_b_id}.json"
-    comparison_file = COMPARISON_OUTPUT_DIR / filename
+    comparison_file = output_dir / filename
 
     try:
         with comparison_file.open("r", encoding="utf-8") as f:
@@ -277,13 +297,15 @@ def get_pairs_for_topics(topic_ids: List[str], ratings_path: Path = RATINGS_PATH
 
 def calculate_alpha_for_field(
     comparisons: List[dict],
-    field: str
+    field: str,
+    agent_comp: bool = False
 ) -> Tuple[Optional[float], List[Tuple[str, str]]]:
     """Calculate Krippendorff's alpha for a specific field.
 
     Args:
         comparisons: List of comparison dicts.
         field: Field name to calculate alpha for.
+        agent_comp: If True, handle agent comparison structure.
 
     Returns:
         Tuple of (alpha value or None, list of (gold_value, agent_value) pairs).
@@ -293,18 +315,43 @@ def calculate_alpha_for_field(
     value_pairs = []
 
     for comp in comparisons:
-        response_a_id = comp.get("response_a")
-        response_b_id = comp.get("response_b")
+        if agent_comp:
+            # Handle list wrapper if present
+            if isinstance(comp, list) and len(comp) > 0:
+                comp_data = comp[0]
+            elif isinstance(comp, dict):
+                comp_data = comp
+            else:
+                logger.warning("Invalid agent comparison format")
+                continue
 
-        fields_data = comp.get("fields", {})
-        field_data = fields_data.get(field)
+            # IDs should have been injected by the caller
+            response_a_id = comp_data.get("response_a")
+            response_b_id = comp_data.get("response_b")
 
-        if field_data is None:
-            logger.warning("Field %s not found in comparison", field)
-            continue
+            if not response_a_id or not response_b_id:
+                logger.warning("Missing response IDs in agent comparison data")
+                continue
 
-        # Get agent winner from comparison file
-        agent_winner = field_data.get("agent_winner")
+            field_data = comp_data.get(field)
+            if field_data is None:
+                logger.warning("Field %s not found in comparison", field)
+                continue
+
+            agent_winner = field_data.get("agent_winner")
+        else:
+            response_a_id = comp.get("response_a")
+            response_b_id = comp.get("response_b")
+
+            fields_data = comp.get("fields", {})
+            field_data = fields_data.get(field)
+
+            if field_data is None:
+                logger.warning("Field %s not found in comparison", field)
+                continue
+
+            # Get agent winner from comparison file
+            agent_winner = field_data.get("agent_winner")
 
         # Get gold winner from ratings.json
         gold_winner = get_gold_winner(response_a_id, response_b_id, field)
@@ -349,10 +396,11 @@ def evaluate_krippendorff_by_topics(
     topic_ids_list: List[str],
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     is_all_topics: bool = False,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha with per-topic breakdown.
 
@@ -360,16 +408,22 @@ def evaluate_krippendorff_by_topics(
         topic_ids_list: List of topic IDs to evaluate.
         fields: List of fields to evaluate. If None, uses DEFAULT_FIELDS.
         ratings_path: Path to ratings.json.
-        output_dir: Directory where output will be saved.
+        output_dir: Directory where output will be saved. If None, uses KRIPPENDORFF_COMP_OUTPUT_DIR
+                   for agent_comp=True, otherwise KRIPPENDORFF_OUTPUT_DIR.
         is_all_topics: True if evaluating all topics.
         show_comparisons: If True, include comparison arrays in output. If False, omit them.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to the saved krippendorff JSON file.
     """
     if fields is None:
         fields = DEFAULT_FIELDS
+
+    # Use appropriate output directory based on agent_comp
+    if output_dir is None:
+        output_dir = KRIPPENDORFF_COMP_OUTPUT_DIR if agent_comp else KRIPPENDORFF_OUTPUT_DIR
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -389,7 +443,7 @@ def evaluate_krippendorff_by_topics(
         all_pairs.extend(pairs)
 
     # Ensure all comparison files exist (creates missing ones in parallel)
-    ensure_ratings_exist(all_pairs, threshold)
+    ensure_ratings_exist(all_pairs, threshold, agent_comp=agent_comp)
 
     # Calculate alpha for each topic separately
     results = {}
@@ -402,8 +456,16 @@ def evaluate_krippendorff_by_topics(
         comparison_ids = []
 
         for response_a_id, response_b_id in pairs:
-            comp = load_comparison(response_a_id, response_b_id)
+            comp = load_comparison(response_a_id, response_b_id, agent_comp=agent_comp)
             if comp is not None:
+                if agent_comp:
+                    # Inject IDs so calculate_alpha_for_field can use them
+                    if isinstance(comp, list) and len(comp) > 0:
+                        comp[0]["response_a"] = response_a_id
+                        comp[0]["response_b"] = response_b_id
+                    elif isinstance(comp, dict):
+                        comp["response_a"] = response_a_id
+                        comp["response_b"] = response_b_id
                 comparisons.append(comp)
                 comparison_ids.append(f"{response_a_id}_{response_b_id}")
 
@@ -416,7 +478,7 @@ def evaluate_krippendorff_by_topics(
         topic_alphas = []
 
         for field in fields:
-            alpha, value_pairs = calculate_alpha_for_field(comparisons, field)
+            alpha, value_pairs = calculate_alpha_for_field(comparisons, field, agent_comp=agent_comp)
 
             if alpha is not None:
                 topic_alphas.append(alpha)
@@ -509,26 +571,29 @@ def evaluate_krippendorff_by_topics(
 def evaluate_krippendorff(
     response_pairs: List[Tuple[str, str]],
     fields: Optional[Sequence[str]] = None,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     prefix: str = "krippendorff",
     topic_ids: Optional[List[str]] = None,
     is_all_topics: bool = False,
     is_all_ratings: bool = False,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha for given response pairs.
 
     Args:
         response_pairs: List of (response_a_id, response_b_id) tuples.
         fields: List of fields to evaluate. If None, uses DEFAULT_FIELDS.
-        output_dir: Directory where output will be saved.
+        output_dir: Directory where output will be saved. If None, uses KRIPPENDORFF_COMP_OUTPUT_DIR
+                   for agent_comp=True, otherwise KRIPPENDORFF_OUTPUT_DIR.
         prefix: Prefix for output filename (used only for regular numbered mode).
         topic_ids: List of topic IDs for topic mode filename.
         is_all_topics: True if evaluating all topics.
         is_all_ratings: True if evaluating all ratings.
         show_comparisons: If True, include comparison arrays in output. If False, omit them.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to the saved krippendorff JSON file.
@@ -536,18 +601,30 @@ def evaluate_krippendorff(
     if fields is None:
         fields = DEFAULT_FIELDS
 
+    # Use appropriate output directory based on agent_comp
+    if output_dir is None:
+        output_dir = KRIPPENDORFF_COMP_OUTPUT_DIR if agent_comp else KRIPPENDORFF_OUTPUT_DIR
+
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Ensure all comparison files exist (creates missing ones in parallel)
-    ensure_ratings_exist(response_pairs, threshold)
+    ensure_ratings_exist(response_pairs, threshold, agent_comp=agent_comp)
 
     # Load all comparisons
     comparisons = []
     comparison_ids = []
 
     for response_a_id, response_b_id in response_pairs:
-        comp = load_comparison(response_a_id, response_b_id)
+        comp = load_comparison(response_a_id, response_b_id, agent_comp=agent_comp)
         if comp is not None:
+            if agent_comp:
+                # Inject IDs so calculate_alpha_for_field can use them
+                if isinstance(comp, list) and len(comp) > 0:
+                    comp[0]["response_a"] = response_a_id
+                    comp[0]["response_b"] = response_b_id
+                elif isinstance(comp, dict):
+                    comp["response_a"] = response_a_id
+                    comp["response_b"] = response_b_id
             comparisons.append(comp)
             comparison_ids.append(f"{response_a_id}_{response_b_id}")
         else:
@@ -563,7 +640,7 @@ def evaluate_krippendorff(
     field_data_map = {}
 
     for field in fields:
-        alpha, value_pairs = calculate_alpha_for_field(comparisons, field)
+        alpha, value_pairs = calculate_alpha_for_field(comparisons, field, agent_comp=agent_comp)
 
         field_key = f"alpha_{field}"
 
@@ -654,32 +731,35 @@ def evaluate_krippendorff(
 def evaluate_by_ids(
     response_pairs: List[Tuple[str, str]],
     fields: Optional[Sequence[str]] = None,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha for specific response ID pairs.
 
     Args:
         response_pairs: List of (response_a_id, response_b_id) tuples.
         fields: List of fields to evaluate.
-        output_dir: Output directory.
+        output_dir: Output directory. If None, uses appropriate default based on agent_comp.
         show_comparisons: If True, include comparison arrays in output.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to saved results.
     """
-    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons, threshold=threshold)
+    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons, threshold=threshold, agent_comp=agent_comp)
 
 
 def evaluate_first_n(
     count: int,
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha for the first N rating pairs.
 
@@ -687,9 +767,10 @@ def evaluate_first_n(
         count: Number of pairs to evaluate.
         fields: List of fields to evaluate.
         ratings_path: Path to ratings.json.
-        output_dir: Output directory.
+        output_dir: Output directory. If None, uses appropriate default based on agent_comp.
         show_comparisons: If True, include comparison arrays in output.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to saved results.
@@ -704,7 +785,7 @@ def evaluate_first_n(
         if response_a_id and response_b_id:
             response_pairs.append((response_a_id, response_b_id))
 
-    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons, threshold=threshold)
+    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons, threshold=threshold, agent_comp=agent_comp)
 
 
 def evaluate_random_n(
@@ -712,9 +793,10 @@ def evaluate_random_n(
     random_seed: Optional[int] = None,
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha for N random rating pairs.
 
@@ -723,9 +805,10 @@ def evaluate_random_n(
         random_seed: Optional seed for reproducibility.
         fields: List of fields to evaluate.
         ratings_path: Path to ratings.json.
-        output_dir: Output directory.
+        output_dir: Output directory. If None, uses appropriate default based on agent_comp.
         show_comparisons: If True, include comparison arrays in output.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to saved results.
@@ -743,24 +826,26 @@ def evaluate_random_n(
         if response_a_id and response_b_id:
             response_pairs.append((response_a_id, response_b_id))
 
-    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons, threshold=threshold)
+    return evaluate_krippendorff(response_pairs, fields, output_dir, show_comparisons=show_comparisons, threshold=threshold, agent_comp=agent_comp)
 
 
 def evaluate_all(
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha for all rating pairs.
 
     Args:
         fields: List of fields to evaluate.
         ratings_path: Path to ratings.json.
-        output_dir: Output directory.
+        output_dir: Output directory. If None, uses appropriate default based on agent_comp.
         show_comparisons: If True, include comparison arrays in output.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to saved results.
@@ -781,7 +866,8 @@ def evaluate_all(
         output_dir,
         is_all_ratings=True,
         show_comparisons=show_comparisons,
-        threshold=threshold
+        threshold=threshold,
+        agent_comp=agent_comp
     )
 
 
@@ -789,9 +875,10 @@ def evaluate_topic(
     topic_id: str,
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha for all pairs in a specific topic.
 
@@ -799,9 +886,10 @@ def evaluate_topic(
         topic_id: The topic ID (query_id) to evaluate.
         fields: List of fields to evaluate.
         ratings_path: Path to ratings.json.
-        output_dir: Output directory.
+        output_dir: Output directory. If None, uses appropriate default based on agent_comp.
         show_comparisons: If True, include comparison arrays in output.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to saved results.
@@ -814,7 +902,8 @@ def evaluate_topic(
         output_dir,
         is_all_topics=False,
         show_comparisons=show_comparisons,
-        threshold=threshold
+        threshold=threshold,
+        agent_comp=agent_comp
     )
 
 
@@ -822,9 +911,10 @@ def evaluate_topics(
     topic_ids: List[str],
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha for all pairs in multiple topics.
 
@@ -832,9 +922,10 @@ def evaluate_topics(
         topic_ids: List of topic IDs (query_id) to evaluate.
         fields: List of fields to evaluate.
         ratings_path: Path to ratings.json.
-        output_dir: Output directory.
+        output_dir: Output directory. If None, uses appropriate default based on agent_comp.
         show_comparisons: If True, include comparison arrays in output.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to saved results.
@@ -847,7 +938,8 @@ def evaluate_topics(
         output_dir,
         is_all_topics=False,
         show_comparisons=show_comparisons,
-        threshold=threshold
+        threshold=threshold,
+        agent_comp=agent_comp
     )
 
 
@@ -856,9 +948,10 @@ def evaluate_random_topic(
     random_seed: Optional[int] = None,
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha for random topic(s).
 
@@ -868,9 +961,10 @@ def evaluate_random_topic(
         random_seed: Optional seed for reproducibility.
         fields: List of fields to evaluate.
         ratings_path: Path to ratings.json.
-        output_dir: Output directory.
+        output_dir: Output directory. If None, uses appropriate default based on agent_comp.
         show_comparisons: If True, include comparison arrays in output.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to saved results.
@@ -888,27 +982,29 @@ def evaluate_random_topic(
 
     if count == 1:
         logger.info("Randomly selected topic: %s", selected_topics[0])
-        return evaluate_topic(selected_topics[0], fields, ratings_path, output_dir, show_comparisons, threshold)
+        return evaluate_topic(selected_topics[0], fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
     else:
         logger.info("Randomly selected %d topics: %s", len(selected_topics), selected_topics)
-        return evaluate_topics(selected_topics, fields, ratings_path, output_dir, show_comparisons, threshold)
+        return evaluate_topics(selected_topics, fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
 
 
 def evaluate_all_topics(
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     show_comparisons: bool = True,
-    threshold: float = DEFAULT_THRESHOLD
+    threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False
 ) -> Path:
     """Evaluate Krippendorff's alpha for all topics combined.
 
     Args:
         fields: List of fields to evaluate.
         ratings_path: Path to ratings.json.
-        output_dir: Output directory.
+        output_dir: Output directory. If None, uses appropriate default based on agent_comp.
         show_comparisons: If True, include comparison arrays in output.
         threshold: The threshold to use for grade comparisons (default: 1.0).
+        agent_comp: If True, use agent comparison via webhook.
 
     Returns:
         Path to saved results.
@@ -926,7 +1022,8 @@ def evaluate_all_topics(
         output_dir,
         is_all_topics=True,
         show_comparisons=show_comparisons,
-        threshold=threshold
+        threshold=threshold,
+        agent_comp=agent_comp
     )
 
 
@@ -944,9 +1041,10 @@ def main(
     all_topics: bool = False,
     fields: Optional[Sequence[str]] = None,
     ratings_path: Path = RATINGS_PATH,
-    output_dir: Path = KRIPPENDORFF_OUTPUT_DIR,
+    output_dir: Optional[Path] = None,
     show_comparisons: bool = True,
     threshold: float = DEFAULT_THRESHOLD,
+    agent_comp: bool = False,
     log_level: str = "INFO"
 ) -> None:
     """Entry point for Krippendorff's alpha evaluation.
@@ -982,6 +1080,7 @@ def main(
         show_comparisons: If True, include comparison arrays in JSON output. If False, omit them.
         threshold: The threshold to use for grade comparisons (default: 1.0).
                   Files with a different threshold will be deleted and recreated.
+        agent_comp: If True, use agent comparison via webhook.
         log_level: Logging level (string such as "INFO" or "DEBUG").
     """
     if fields is None:
@@ -994,28 +1093,28 @@ def main(
 
     # Topic modes take priority
     if topic_id:
-        output_file = evaluate_topic(topic_id, fields, ratings_path, output_dir, show_comparisons, threshold)
+        output_file = evaluate_topic(topic_id, fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
     elif topic_ids:
-        output_file = evaluate_topics(topic_ids, fields, ratings_path, output_dir, show_comparisons, threshold)
+        output_file = evaluate_topics(topic_ids, fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
     elif random_topic:
         topic_count = count if count is not None else 1
-        output_file = evaluate_random_topic(topic_count, random_seed, fields, ratings_path, output_dir, show_comparisons, threshold)
+        output_file = evaluate_random_topic(topic_count, random_seed, fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
     elif all_topics:
-        output_file = evaluate_all_topics(fields, ratings_path, output_dir, show_comparisons, threshold)
+        output_file = evaluate_all_topics(fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
     # Regular modes
     elif response_pairs:
-        output_file = evaluate_by_ids(response_pairs, fields, output_dir, show_comparisons, threshold)
+        output_file = evaluate_by_ids(response_pairs, fields, output_dir, show_comparisons, threshold, agent_comp)
     elif all_ratings:
-        output_file = evaluate_all(fields, ratings_path, output_dir, show_comparisons, threshold)
+        output_file = evaluate_all(fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
     elif randomize:
         if count is None:
             count = 1
-        output_file = evaluate_random_n(count, random_seed, fields, ratings_path, output_dir, show_comparisons, threshold)
+        output_file = evaluate_random_n(count, random_seed, fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
     elif count is not None:
-        output_file = evaluate_first_n(count, fields, ratings_path, output_dir, show_comparisons, threshold)
+        output_file = evaluate_first_n(count, fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
     else:
         # Default: evaluate first pair
-        output_file = evaluate_first_n(1, fields, ratings_path, output_dir, show_comparisons, threshold)
+        output_file = evaluate_first_n(1, fields, ratings_path, output_dir, show_comparisons, threshold, agent_comp)
 
     logger.info("Krippendorff's alpha evaluation completed: %s", output_file.name)
 
@@ -1026,7 +1125,7 @@ if __name__ == "__main__":
     # main(topic_ids=["2024-105741", "2024-5957"], show_comparisons=True)
 
     # Multiple topics WITHOUT comparisons (cleaner output)
-    main(topic_ids=["2024-42497"], threshold= 2.0, show_comparisons=True)
+    main(topic_ids=["2024-42497","2024-66915","2024-96063"], show_comparisons=True)
 
     # Random topic: creates krippendorff_topic_<random-id>.json
     # main(random_topic=True)
@@ -1044,3 +1143,7 @@ if __name__ == "__main__":
     # main(response_pairs=[("04d71b5f-a8b0-3ab3-8725-43510f6e21f8", "90f27401-7376-3eea-846c-15d6092292e2"),
     #                      ("158a0f7e-f45b-3bfa-a93a-4733662c2216", "90f27401-7376-3eea-846c-15d6092292e2")])
     # main(count=2, randomize=True)
+
+    # Test agent comparison as requested
+    # main(response_pairs=[("04d71b5f-a8b0-3ab3-8725-43510f6e21f8", "90f27401-7376-3eea-846c-15d6092292e2"),("04d71b5f-a8b0-3ab3-8725-43510f6e21f8","90f27401-7376-3eea-846c-15d6092292e2")],
+    #      agent_comp=True)

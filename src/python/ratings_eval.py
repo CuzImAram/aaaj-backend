@@ -8,15 +8,18 @@ human gold ratings, computing agreement metrics based on grade comparisons.
 import json
 import logging
 import random
+import urllib.error
+import urllib.request
 from pathlib import Path
 from typing import List, Optional, Sequence
 
-from data_sender import send_by_id, send_by_ids, REPO_ROOT
+from data_sender import send_by_id, send_by_ids, REPO_ROOT, load_responses
 
 # Paths
 RATINGS_PATH = REPO_ROOT / "data" / "raw" / "ratings.json"
 AGENT_JUDGEMENT_DIR = REPO_ROOT / "data" / "output" / "agent_judgement"
 COMPARISON_OUTPUT_DIR = REPO_ROOT / "data" / "output" / "compared_ratings_agent"
+COMPARISON_AGENT_COMP_OUTPUT_DIR = REPO_ROOT / "data" / "output" / "compared_ratings_agent_comp"
 
 # Default fields to compare (based on gold fields in ratings.json)
 DEFAULT_FIELDS = [
@@ -34,6 +37,18 @@ logger = logging.getLogger(__name__)
 
 class JudgementNotFoundError(Exception):
     """Raised when a required judgement file cannot be found or created."""
+
+
+_responses_cache = None
+
+
+def get_responses_map() -> dict:
+    """Get a map of response ID to response data, caching the result."""
+    global _responses_cache
+    if _responses_cache is None:
+        responses = load_responses()
+        _responses_cache = {r["response"]: r for r in responses}
+    return _responses_cache
 
 
 def load_ratings(path: Path = RATINGS_PATH) -> List[dict]:
@@ -161,6 +176,72 @@ def compare_grades(grade_a: float, grade_b: float, threshold: float) -> str:
         return "a"
     else:
         return "b"
+
+
+def compare_pair_with_agent(
+    response_a_id: str,
+    response_b_id: str,
+    responses_map: Optional[dict] = None,
+) -> dict:
+    """Compare two responses using an agent via webhook.
+
+    Args:
+        response_a_id: ID of response A.
+        response_b_id: ID of response B.
+        responses_map: Optional map of response ID to response data.
+
+    Returns:
+        The raw JSON response from the webhook.
+    """
+    if responses_map is None:
+        responses_map = get_responses_map()
+
+    response_a_data = responses_map.get(response_a_id)
+    response_b_data = responses_map.get(response_b_id)
+
+    if not response_a_data or not response_b_data:
+        raise ValueError(f"Response data not found for {response_a_id} or {response_b_id}")
+
+    # Get agent judgements
+    judgement_a_file = AGENT_JUDGEMENT_DIR / f"{response_a_id}.json"
+    judgement_b_file = AGENT_JUDGEMENT_DIR / f"{response_b_id}.json"
+
+    if not judgement_a_file.exists() or not judgement_b_file.exists():
+        ensure_judgements_exist([response_a_id, response_b_id])
+
+    with judgement_a_file.open("r", encoding="utf-8") as f:
+        judgement_a = json.load(f)
+    with judgement_b_file.open("r", encoding="utf-8") as f:
+        judgement_b = json.load(f)
+
+    # Add raw_text to judgements
+    judgement_a["raw_text"] = response_a_data.get("raw_text", "")
+    judgement_b["raw_text"] = response_b_data.get("raw_text", "")
+
+    # Construct payload
+    payload = [
+        {
+            "query": response_a_data.get("query", ""),
+            "references_texts": response_a_data.get("references_texts", [])
+        },
+        judgement_a,
+        judgement_b
+    ]
+
+    # Send to webhook
+    url = "http://localhost:5678/webhook/get-data-for-agents-comp"
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"}
+    )
+
+    try:
+        with urllib.request.urlopen(req) as response:
+            return json.load(response)
+    except urllib.error.URLError as e:
+        logger.error("Failed to call agent comparison webhook: %s", e)
+        raise
 
 
 def compare_pair(
@@ -338,6 +419,7 @@ def compare_by_ids(
     fields: Optional[Sequence[str]] = None,
     threshold: float = 1.0,
     compare_with_gold: bool = False,
+    agent_comp: bool = False,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = COMPARISON_OUTPUT_DIR,
 ) -> Path:
@@ -351,6 +433,7 @@ def compare_by_ids(
         compare_with_gold: If True, compare against gold ratings and include
                           "gold_winner" and "match" fields. If False, only
                           determine winner between the two responses.
+        agent_comp: If True, use agent comparison via webhook.
         ratings_path: Path to ratings.json.
         output_dir: Directory for output files.
 
@@ -365,6 +448,21 @@ def compare_by_ids(
 
     # Ensure both judgements exist before comparing
     ensure_judgements_exist([response_a_id, response_b_id])
+
+    if agent_comp:
+        results = compare_pair_with_agent(response_a_id, response_b_id)
+
+        # Save raw result
+        output_dir = COMPARISON_AGENT_COMP_OUTPUT_DIR
+        output_dir.mkdir(parents=True, exist_ok=True)
+        filename = f"{response_a_id}_{response_b_id}.json"
+        target = output_dir / filename
+
+        with target.open("w", encoding="utf-8") as f:
+            json.dump(results, f, ensure_ascii=False, indent=2)
+
+        logger.info("Saved agent comparison to %s", target.relative_to(output_dir.parent))
+        return target
 
     rating_entry = None
 
@@ -401,6 +499,7 @@ def compare_first_n(
     fields: Optional[Sequence[str]] = None,
     threshold: float = 1.0,
     compare_with_gold: bool = False,
+    agent_comp: bool = False,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = COMPARISON_OUTPUT_DIR,
 ) -> List[Path]:
@@ -413,6 +512,7 @@ def compare_first_n(
         compare_with_gold: If True, compare against gold ratings and include
                           "gold_winner" and "match" fields. If False, only
                           determine winner between the two responses.
+        agent_comp: If True, use agent comparison via webhook.
         ratings_path: Path to ratings.json.
         output_dir: Directory for output files.
 
@@ -439,6 +539,9 @@ def compare_first_n(
 
     saved_files = []
 
+    # Pre-load responses map if using agent comp
+    responses_map = get_responses_map() if agent_comp else None
+
     for i, entry in enumerate(ratings[:count]):
         response_a_id = entry.get("response_a")
         response_b_id = entry.get("response_b")
@@ -449,15 +552,26 @@ def compare_first_n(
 
         logger.info("Comparing pair %d/%d: %s vs %s", i+1, count, response_a_id, response_b_id)
 
-        results = compare_pair(
-            response_a_id,
-            response_b_id,
-            entry if compare_with_gold else None,
-            fields,
-            threshold,
-            compare_with_gold
-        )
-        saved_file = save_comparison(results, output_dir)
+        if agent_comp:
+            results = compare_pair_with_agent(response_a_id, response_b_id, responses_map)
+            output_dir = COMPARISON_AGENT_COMP_OUTPUT_DIR
+            output_dir.mkdir(parents=True, exist_ok=True)
+            filename = f"{response_a_id}_{response_b_id}.json"
+            target = output_dir / filename
+            with target.open("w", encoding="utf-8") as f:
+                json.dump(results, f, ensure_ascii=False, indent=2)
+            saved_file = target
+        else:
+            results = compare_pair(
+                response_a_id,
+                response_b_id,
+                entry if compare_with_gold else None,
+                fields,
+                threshold,
+                compare_with_gold
+            )
+            saved_file = save_comparison(results, output_dir)
+
         saved_files.append(saved_file)
 
     return saved_files
@@ -470,6 +584,7 @@ def compare_random_n(
     fields: Optional[Sequence[str]] = None,
     threshold: float = 1.0,
     compare_with_gold: bool = False,
+    agent_comp: bool = False,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = COMPARISON_OUTPUT_DIR,
 ) -> List[Path]:
@@ -483,6 +598,7 @@ def compare_random_n(
         compare_with_gold: If True, compare against gold ratings and include
                           "gold_winner" and "match" fields. If False, only
                           determine winner between the two responses.
+        agent_comp: If True, use agent comparison via webhook.
         ratings_path: Path to ratings.json.
         output_dir: Directory for output files.
 
@@ -512,6 +628,9 @@ def compare_random_n(
 
     saved_files = []
 
+    # Pre-load responses map if using agent comp
+    responses_map = get_responses_map() if agent_comp else None
+
     for i, entry in enumerate(selected_entries):
         response_a_id = entry.get("response_a")
         response_b_id = entry.get("response_b")
@@ -523,15 +642,26 @@ def compare_random_n(
         logger.info("Comparing pair %d/%d: %s vs %s", i+1, len(selected_entries),
                    response_a_id, response_b_id)
 
-        results = compare_pair(
-            response_a_id,
-            response_b_id,
-            entry if compare_with_gold else None,
-            fields,
-            threshold,
-            compare_with_gold
-        )
-        saved_file = save_comparison(results, output_dir)
+        if agent_comp:
+            results = compare_pair_with_agent(response_a_id, response_b_id, responses_map)
+            output_dir = COMPARISON_AGENT_COMP_OUTPUT_DIR
+            output_dir.mkdir(parents=True, exist_ok=True)
+            filename = f"{response_a_id}_{response_b_id}.json"
+            target = output_dir / filename
+            with target.open("w", encoding="utf-8") as f:
+                json.dump(results, f, ensure_ascii=False, indent=2)
+            saved_file = target
+        else:
+            results = compare_pair(
+                response_a_id,
+                response_b_id,
+                entry if compare_with_gold else None,
+                fields,
+                threshold,
+                compare_with_gold
+            )
+            saved_file = save_comparison(results, output_dir)
+
         saved_files.append(saved_file)
 
     return saved_files
@@ -547,6 +677,7 @@ def main(
     fields: Optional[Sequence[str]] = None,
     threshold: float = 1.0,
     compare_with_gold: bool = False,
+    agent_comp: bool = False,
     ratings_path: Path = RATINGS_PATH,
     output_dir: Path = COMPARISON_OUTPUT_DIR,
     log_level: str = "INFO",
@@ -571,6 +702,7 @@ def main(
                           files will be named with _gold.json suffix. If False,
                           only determine winner between responses without gold
                           comparison.
+        agent_comp: If True, use agent comparison via webhook.
         ratings_path: Path to ratings.json.
         output_dir: Directory for output files.
         log_level: Logging level (string such as "INFO" or "DEBUG").
@@ -590,6 +722,7 @@ def main(
             fields=fields,
             threshold=threshold,
             compare_with_gold=compare_with_gold,
+            agent_comp=agent_comp,
             ratings_path=ratings_path,
             output_dir=output_dir,
         )]
@@ -602,6 +735,7 @@ def main(
             fields=fields,
             threshold=threshold,
             compare_with_gold=compare_with_gold,
+            agent_comp=agent_comp,
             ratings_path=ratings_path,
             output_dir=output_dir,
         )
@@ -611,6 +745,7 @@ def main(
             fields=fields,
             threshold=threshold,
             compare_with_gold=compare_with_gold,
+            agent_comp=agent_comp,
             ratings_path=ratings_path,
             output_dir=output_dir,
         )
@@ -621,6 +756,7 @@ def main(
             fields=fields,
             threshold=threshold,
             compare_with_gold=compare_with_gold,
+            agent_comp=agent_comp,
             ratings_path=ratings_path,
             output_dir=output_dir,
         )
