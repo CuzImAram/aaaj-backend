@@ -1125,11 +1125,11 @@ if __name__ == "__main__":
     # main(topic_ids=["2024-105741", "2024-5957"], show_comparisons=True)
 
     # Multiple topics WITHOUT comparisons (cleaner output)
-    main(topic_ids=["2024-42497","2024-66915","2024-96063"], show_comparisons=True)
-
+    #main(topic_ids=["2024-42497","2024-66915","2024-96063"], agent_comp=True, show_comparisons=True)
+    # main(topic_ids=["2024-42497","2024-66915","2024-96063"], agent_comp=False, show_comparisons=False, threshold=3.0)
     # Random topic: creates krippendorff_topic_<random-id>.json
     # main(random_topic=True)
-
+    #
     # 10 random topics: creates krippendorff_topic_<id1>_<id2>_..._<id10>.json
     # main(count=10, random_topic=True)
 
@@ -1140,8 +1140,8 @@ if __name__ == "__main__":
     # main(all_ratings=True)
 
     # Regular mode with specific pairs: creates krippendorff_0.json (numbered)
-    # main(response_pairs=[("04d71b5f-a8b0-3ab3-8725-43510f6e21f8", "90f27401-7376-3eea-846c-15d6092292e2"),
-    #                      ("158a0f7e-f45b-3bfa-a93a-4733662c2216", "90f27401-7376-3eea-846c-15d6092292e2")])
+    main(response_pairs=[("04d71b5f-a8b0-3ab3-8725-43510f6e21f8", "90f27401-7376-3eea-846c-15d6092292e2"),
+                          ("158a0f7e-f45b-3bfa-a93a-4733662c2216", "90f27401-7376-3eea-846c-15d6092292e2")], agent_comp=True)
     # main(count=2, randomize=True)
 
     # Test agent comparison as requested

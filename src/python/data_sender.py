@@ -498,6 +498,7 @@ def send_all(
     output_dir: Path = OUTPUT_DIR,
     post_fn: Optional[PostFn] = None,
     dry_run: bool = False,
+    skip: bool = False,
 ) -> List[Path]:
     """Send all responses from the responses file.
 
@@ -506,11 +507,43 @@ def send_all(
         output_dir: Directory to save webhook judgement files.
         post_fn: Optional post function for testing.
         dry_run: If True, skip network calls.
+        skip: If True, skip responses that already have output files present in ``output_dir``.
 
     Returns:
         List of Paths to the saved judgement files.
     """
     responses = load_responses(responses_path)
+
+    if skip:
+        # Ensure output dir exists for the existence checks
+        _ensure_output_dir(output_dir)
+
+        to_send: List[dict] = []
+        skipped = 0
+        for resp in responses:
+            response_id = resp.get("response")
+            if not response_id:
+                # If no id, include in send so webhook can assign one
+                to_send.append(resp)
+                continue
+
+            target = output_dir / f"{response_id}.json"
+            if target.exists():
+                skipped += 1
+                logger.debug("Skipping existing output for %s", response_id)
+            else:
+                to_send.append(resp)
+
+        logger.info("send_all: skipping %d existing files, will send %d responses",
+                    skipped, len(to_send))
+
+        if not to_send:
+            logger.info("No responses to send after skipping existing files")
+            return []
+
+        return _dispatch_entries(to_send, output_dir=output_dir, post_fn=post_fn, dry_run=dry_run)
+
+    # Default: send everything
     logger.info("Sending all %d responses", len(responses))
     return _dispatch_entries(responses, output_dir=output_dir, post_fn=post_fn, dry_run=dry_run)
 
@@ -702,7 +735,7 @@ if __name__ == "__main__":
 
     # Or send 5 random:
     # main(count=1, randomize=True)
-    send_all()
+    send_all(skip=True)
     # Or send single ID:
     # main(response_id="ae54d7e0-62df-3e53-9bea-3e107a6e5801")
 
