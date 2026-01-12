@@ -1140,8 +1140,8 @@ if __name__ == "__main__":
     # main(all_ratings=True)
 
     # Regular mode with specific pairs: creates krippendorff_0.json (numbered)
-    main(response_pairs=[("04d71b5f-a8b0-3ab3-8725-43510f6e21f8", "90f27401-7376-3eea-846c-15d6092292e2"),
-                          ("158a0f7e-f45b-3bfa-a93a-4733662c2216", "90f27401-7376-3eea-846c-15d6092292e2")], agent_comp=True)
+    # main(response_pairs=[("04d71b5f-a8b0-3ab3-8725-43510f6e21f8", "90f27401-7376-3eea-846c-15d6092292e2"),
+    #                       ("158a0f7e-f45b-3bfa-a93a-4733662c2216", "90f27401-7376-3eea-846c-15d6092292e2")], agent_comp=True)
     # main(count=2, randomize=True)
 
     # Test agent comparison as requested
