@@ -6,8 +6,8 @@ import random
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-JSON_PATH = os.path.join(BASE_DIR, 'data', 'output_final', 'comp_fully', 'krippendorff_topic_all.json')
-OUTPUT_DIR = os.path.join(BASE_DIR, 'data', 'graphs', 'comp_fully', 'color')
+JSON_PATH = os.path.join(BASE_DIR, 'data', 'output_final', 'comp_zeroshot_without_ref', 'krippendorff_topic_majority.json')
+OUTPUT_DIR = os.path.join(BASE_DIR, 'data', 'graphs', 'comp_zeroshot_without_ref', 'majority', 'color')
 
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -41,29 +41,105 @@ def plot_graph(topics_subset, filename, title_suffix, topic_data, dimensions):
     plt.figure(figsize=(24, 14))
     x = np.arange(len(dimensions))
 
+    handles_normal = []
+    labels_normal = []
+    handles_glowing = []
+    labels_glowing = []
+
     for idx, topic in enumerate(topics_subset):
         values = topic_data[topic]
-        # Plot line connecting dimensions
-        plt.plot(x, values,
+
+        # Calculate fluctuation
+        valid_values = [v for v in values if not np.isnan(v)]
+        diff = 0.0
+        if valid_values:
+            diff = max(valid_values) - min(valid_values)
+
+        # Determine styling based on fluctuation
+        lw = 2
+        opacity = 0.8
+        is_glowing_flag = False
+
+        if diff > 0.6:
+            lw = 7
+            opacity = 1.0
+        elif diff >= 0.4:
+            lw = 4
+            opacity = 1.0
+        elif diff < 0.3:
+            is_glowing_flag = True
+            lw = 3
+            opacity = 1.0
+        else:
+            # Normal
+            lw = 2
+            opacity = 0.8
+
+        c = colors[idx]
+        if is_glowing_flag:
+            c = '#FFD700'  # Shiny Gold
+
+        # If glowing, draw the "glow" behind the main line
+        if is_glowing_flag:
+            plt.plot(x, values,
+                     linewidth=12,
+                     color=c,
+                     alpha=0.3)
+
+        # Plot main line
+        line, = plt.plot(x, values,
                  marker='s',        # Square marker
                  markersize=8,
-                 linewidth=2,
-                 color=colors[idx],
+                 linewidth=lw,
+                 color=c,
                  label=topic,
-                 alpha=0.8,
+                 alpha=opacity,
                  markeredgecolor='black',
                  markeredgewidth=0.5)
+
+        if is_glowing_flag:
+            handles_glowing.append(line)
+            labels_glowing.append(topic)
+        else:
+            handles_normal.append(line)
+            labels_normal.append(topic)
 
     plt.xticks(x, dimensions, rotation=45, ha='right')
     plt.ylabel('Alpha Value')
     plt.title(f'Krippendorff Alpha {title_suffix}')
     plt.grid(True, linestyle=':', alpha=0.6)
 
-    # Legend omit logic if too many
-    if num_topics <= 40:
-        plt.legend(bbox_to_anchor=(1.01, 1), loc='upper left', borderaxespad=0., fontsize='small', title="Topics")
+    # Legend 1: Normal Topics (Top Right)
+    # Only show if not too many, or if user wants all (but usually omit > 40)
+    if num_topics <= 40 and handles_normal:
+        leg1 = plt.legend(handles_normal, labels_normal,
+                          bbox_to_anchor=(1.01, 1),
+                          loc='upper left',
+                          borderaxespad=0.,
+                          fontsize='small',
+                          title="Topics")
+        plt.gca().add_artist(leg1)
+    elif num_topics > 40:
+        print(f"Normal legend omitted due to high number of topics ({num_topics}).")
+
+    # Legend 2: Glowing/Stable Topics (Bottom Right)
+    if handles_glowing:
+        plt.legend(handles_glowing, labels_glowing,
+                   bbox_to_anchor=(1.01, 0),
+                   loc='lower left',
+                   borderaxespad=0.,
+                   fontsize='small',
+                   title="Stable (Gold)")
     else:
-        print(f"Legend omitted due to high number of topics ({num_topics}).")
+        # Show legend even if empty
+        import matplotlib.lines as mlines
+        dummy_handle = mlines.Line2D([], [], color='#FFD700', marker='s', markersize=8, label='(None)')
+        plt.legend([dummy_handle], ['(None)'],
+                   bbox_to_anchor=(1.01, 0),
+                   loc='lower left',
+                   borderaxespad=0.,
+                   fontsize='small',
+                   title="Stable (Gold)")
 
     plt.tight_layout()
     out_file = os.path.join(OUTPUT_DIR, filename)
