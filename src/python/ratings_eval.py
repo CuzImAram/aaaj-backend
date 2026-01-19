@@ -16,7 +16,7 @@ from typing import List, Optional, Sequence
 from data_sender import send_by_id, send_by_ids, REPO_ROOT, load_responses
 
 # Paths
-RATINGS_PATH = REPO_ROOT / "data" / "raw" / "ratings.json"
+RATINGS_PATH = REPO_ROOT / "data" / "raw" / "ratings_majority.json"
 AGENT_JUDGEMENT_DIR = REPO_ROOT / "data" / "output" / "agent_judgement"
 COMPARISON_OUTPUT_DIR = REPO_ROOT / "data" / "output" / "compared_ratings_agent"
 COMPARISON_AGENT_COMP_OUTPUT_DIR = REPO_ROOT / "data" / "output" / "compared_ratings_agent_comp"

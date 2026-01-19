@@ -1127,15 +1127,16 @@ if __name__ == "__main__":
     # Multiple topics WITHOUT comparisons (cleaner output)
     #main(topic_ids=["2024-42497","2024-66915","2024-96063"], agent_comp=True, show_comparisons=True)
     # main(topic_ids=["2024-42497","2024-66915","2024-96063"], agent_comp=False, show_comparisons=False, threshold=3.0)
+    # main(topic_ids=['2024-105741', '2024-109837', '2024-111506', '2024-41563', '2024-41576', '2024-41960', '2024-42014', '2024-42163', '2024-42195'], agent_comp=True, show_comparisons=True)
     # Random topic: creates krippendorff_topic_<random-id>.json
     # main(random_topic=True)
     #
     # 10 random topics: creates krippendorff_topic_<id1>_<id2>_..._<id10>.json
     # main(count=10, random_topic=True)
 
-    # All topics: creates krippendorff_topic_all.json
-    # main(all_topics=True)
-
+    # All topics: creates krippendorff_topic_all.7.5.json
+    main(all_topics=True, agent_comp=True, show_comparisons=True)
+    # main(all_topics=True, threshold=5.0)
     # All ratings (global): creates krippendorff_global_all.json
     # main(all_ratings=True)
 
