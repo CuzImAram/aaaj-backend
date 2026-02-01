@@ -1,0 +1,492 @@
+{
+  "response": "80eeb214-e853-373d-96ab-60f2163aebf8",
+  "query": "how has tourism on the alpine road changed?",
+  "correctness_topical": {
+    "grade": 162,
+    "overall_judgement": "The response contains several factual inaccuracies, contradictions, and irrelevant information when compared to the provided references. Key issues include conflicting visitor numbers, unsupported claims about tourism revenue share, and inclusion of information not directly tied to changes in Alpine tourism. Some statements are partially supported but overstated or lack proper context.",
+    "judgement_details": [
+      {
+        "type": "factual_error",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The claim that the Alps draw '120 million visitors per year' contradicts the reference [1], which states 60–80 million visitors annually. Reference [6] and [7] mention 120 million, but these are isolated and not corroborated by the more specific tourism-focused source [1], which provides a lower and more consistently cited range.",
+        "reference_index": [
+          1,
+          6,
+          7
+        ],
+        "statement": "But in a good season, the Alps are the single most popular tourist region in the world, drawing 120 million visitors per year, who spend a full one tenth of the world's tourism revenue there [2]."
+      },
+      {
+        "type": "factual_error",
+        "severity": "Major",
+        "severity_level": 3,
+        "penalty_value": 100,
+        "explanation": "The statement that visitors to the Alps spend 'a full one tenth of the world's tourism revenue' is not supported by any reference. No source quantifies the Alps' share of global tourism revenue, making this a significant overstatement with no factual basis.",
+        "reference_index": [
+          2
+        ],
+        "statement": "But in a good season, the Alps are the single most popular tourist region in the world, drawing 120 million visitors per year, who spend a full one tenth of the world's tourism revenue there [2]."
+      },
+      {
+        "type": "irrelevant_section",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The mention of coniferous trees being the main forested trees in the Alps is factually correct per reference [5], but it is irrelevant to the query about changes in tourism. This information pertains to forestry, not tourism trends or developments.",
+        "reference_index": [
+          5
+        ],
+        "statement": "Farming and Forestry Coniferous trees are the main trees forested in the Alps [5]."
+      },
+      {
+        "type": "factual_error",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The claim that 'the Alps are the most densely populated high mountain range in the world' appears in reference [2], but no supporting data is provided in the references to confirm this superlative. While the Alps are populated, the absence of comparative data with other high mountain ranges (e.g., the Andes or Himalayas) makes this claim unverifiable and potentially misleading.",
+        "reference_index": [
+          2
+        ],
+        "statement": "The Alps are the most densely populated high mountain range in the world."
+      },
+      {
+        "type": "irrelevant_section",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The detail about 'overwhelming snowfalls' in the past two months affecting tourism is time-specific and transient, not addressing long-term changes in tourism on the Alpine road. It refers to a short-term weather event rather than a trend, making it irrelevant to the broader historical and structural changes implied by the query.",
+        "reference_index": [
+          2
+        ],
+        "statement": "The weather of the past two months, overwhelming snowfalls, has emptied many of the areas' resorts and will certainly have an effect on tourism [2]."
+      },
+      {
+        "type": "omission",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response fails to mention the expansion of tourism infrastructure (e.g., hotels, ski lifts, roads) and the shift from seasonal to year-round tourism, which are directly discussed in references [4] and [3] as key changes in Alpine tourism. These are central to understanding how tourism has evolved.",
+        "reference_index": [
+          3,
+          4
+        ],
+        "statement": "The response does not include information about the development of year-round tourism or infrastructure growth in the Alps."
+      },
+      {
+        "type": "omission",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response omits the impact of climate change on snow reliability and ski tourism, which is a major theme in references [12], [13], [14], and [15], particularly the decline in snow-reliable ski areas and the elevation shift needed for viable skiing. This is a critical aspect of how tourism is changing.",
+        "reference_index": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "statement": "The response does not address how climate change is reducing snow reliability and threatening lower-altitude ski resorts, a major trend affecting Alpine tourism."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 67,
+    "overall_judgement": "The response contains multiple logical coherence issues, including contradictory statistics, inconsistent temporal references, abrupt topic shifts, and structural disorganization. These flaws disrupt the logical flow and undermine the clarity of the argument regarding changes in Alpine tourism.",
+    "judgement_details": [
+      {
+        "type": "contradictory_statistics",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "About 60-80 million people visit the Alps each year as tourists [1].",
+        "explanation": "This claim conflicts with another statement in the same response that asserts the Alps draw '120 million visitors per year' [2]. The coexistence of two vastly different attendance figures without clarification or context creates a logical inconsistency.",
+        "reference_index": [
+          1,
+          2
+        ]
+      },
+      {
+        "type": "inconsistent_temporal_reference",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "The number of tourists visiting the Alps has either been constant or decreasing since the 1980s.",
+        "explanation": "This statement contradicts the later implication of high and possibly increasing tourism levels (e.g., 120 million visitors per year). There is no logical reconciliation between declining/flat trends since the 1980s and the assertion of the Alps being the single most popular tourist region globally in present times.",
+        "reference_index": [
+          0
+        ]
+      },
+      {
+        "type": "abrupt_topic_shift",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "Farming and Forestry Coniferous trees are the main trees forested in the Alps [5].",
+        "explanation": "This sentence appears abruptly at the end of a paragraph focused on tourism impacts and ecological threats, with no transitional logic or clear connection to the preceding discussion. It reads like an isolated fact from a different context, disrupting the thematic flow.",
+        "reference_index": [
+          5
+        ]
+      },
+      {
+        "type": "structural_disorganization",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The Alps are the most densely populated high mountain range in the world. The weather of the past two months, overwhelming snowfalls, has emptied many of the areas' resorts and will certainly have an effect on tourism [2].",
+        "explanation": "This specific, time-bound observation about 'the past two months' is inserted into a general historical and economic analysis of Alpine tourism without contextual integration. It breaks the narrative structure by introducing a transient event into a long-term trend discussion.",
+        "reference_index": [
+          2
+        ]
+      },
+      {
+        "type": "repetition_without_synthesis",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "From a remote, hard-to-live-in region where economy was mainly based on livestock, the Alps turned into one of the most important tourist destinations in Europe, especially in winter [6].",
+        "explanation": "This idea is repeated nearly verbatim in reference [7], and its inclusion in the response lacks progression or development. The repetition does not build upon the prior statement, contributing to redundancy rather than logical advancement.",
+        "reference_index": [
+          6,
+          7
+        ]
+      },
+      {
+        "type": "lack_of_causal_clarity",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "Only tourism can reverse this trend but the number of tourists visiting the Alps has either been constant or decreasing since the 1980s.",
+        "explanation": "The response identifies tourism as the sole solution to economic decline in parts of the Alps but immediately undercuts this by stating tourist numbers have stagnated or declined. This contradiction is not resolved, leaving a logical gap in the argument.",
+        "reference_index": [
+          0
+        ]
+      },
+      {
+        "type": "incoherent_data_integration",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The huge number of tourist visitors to The Alps has led to them becoming the most threatened mountain chain in the world [5]. This is in terms of its fragile ecological and physical system. Farming and Forestry Coniferous trees are the main trees forested in the Alps [5].",
+        "explanation": "The second sentence about coniferous trees is tacked on without any logical connection to the claim about ecological threat. It fails to explain how forestry relates to tourism pressure or ecological fragility, breaking the chain of reasoning.",
+        "reference_index": [
+          5
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 39.5,
+    "overall_judgement": "The response exhibits significant stylistic incoherence, shifting inconsistently between formal academic tone, journalistic phrasing, and fragmented factual statements. There is a lack of uniform voice and narrative flow, with abrupt transitions between sentence structures, variable levels of detail, and inconsistent use of terminology and emphasis.",
+    "judgement_details": [
+      {
+        "type": "inconsistent_tone",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The Alps turned into one of the most important tourist destinations in Europe, especially in winter [6].",
+        "explanation": "This sentence adopts a formal, academic tone with a generalizing structure typical of scholarly writing, which contrasts with later more sensationalist phrasing.",
+        "reference_index": [
+          6
+        ]
+      },
+      {
+        "type": "inconsistent_tone",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The huge number of tourist visitors to The Alps has led to them becoming the most threatened mountain chain in the world [5].",
+        "explanation": "This sentence uses emotionally charged language ('most threatened') and a dramatic tone that deviates from the otherwise neutral, data-driven style of the earlier sentences.",
+        "reference_index": [
+          5
+        ]
+      },
+      {
+        "type": "inconsistent_register",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "Farming and Forestry Coniferous trees are the main trees forested in the Alps [5].",
+        "explanation": "This sentence is grammatically disjointed and appears to be a fragment or note-like insertion, possibly from a different register (e.g., bullet-point notes), which disrupts the prose style of the rest of the response.",
+        "reference_index": [
+          5
+        ]
+      },
+      {
+        "type": "inconsistent_data_presentation",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "About 60-80 million people visit the Alps each year as tourists [1].",
+        "explanation": "This sentence presents a moderate estimate with a cautious tone, but later the response claims '120 million visitors per year' without reconciling the discrepancy, creating inconsistency in data framing and undermining stylistic reliability.",
+        "reference_index": [
+          1
+        ]
+      },
+      {
+        "type": "inconsistent_data_presentation",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "But in a good season, the Alps are the single most popular tourist region in the world, drawing 120 million visitors per year, who spend a full one tenth of the world's tourism revenue there [2].",
+        "explanation": "This sentence uses hyperbolic language ('single most popular', 'full one tenth') and makes an extraordinary claim without contextual qualification, contrasting sharply with the measured, citation-heavy style of adjacent sentences.",
+        "reference_index": [
+          2
+        ]
+      },
+      {
+        "type": "narrative_discontinuity",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The weather of the past two months, overwhelming snowfalls, has emptied many of the areas' resorts and will certainly have an effect on tourism [2].",
+        "explanation": "This sentence introduces a very specific, time-bound observation (‘past two months’) in a report otherwise focused on long-term trends, creating a jarring shift in temporal focus and narrative scope.",
+        "reference_index": [
+          2
+        ]
+      },
+      {
+        "type": "capitalization_inconsistency",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The huge number of tourist visitors to The Alps has led to them becoming the most threatened mountain chain in the world [5].",
+        "explanation": "The capitalization of 'The Alps' in this instance is inconsistent with standard grammatical conventions (where 'the' is lowercase unless starting a sentence), indicating a lack of editorial consistency in style.",
+        "reference_index": [
+          5
+        ]
+      }
+    ]
+  },
+  "coverage_broad": {
+    "grade": 14,
+    "overall_judgement": "The response provides substantial information on tourism in the Alps, including economic impact, visitor numbers, ski infrastructure, and challenges like climate change and depopulation. However, it fails to fully address the *change* in tourism on the alpine road over time, which is the core of the query. The response lacks a structured historical progression, omits specific discussion of 'alpine roads' as a tourism element, and does not balance seasonal, regional, or temporal shifts in tourist behavior. While some temporal references exist (e.g., 'since the 1980s'), the evolution of tourism—particularly in terms of access, infrastructure development, or policy shifts related to roads—is underdeveloped. The focus remains on static facts rather than dynamic change.",
+    "judgement_details": [
+      {
+        "type": "missing_temporal_progression",
+        "severity": "Severe",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "explanation": "The query asks how tourism has *changed*, implying a need for a chronological or evolutionary analysis. The response mentions that tourist numbers have been 'constant or decreasing since the 1980s' and references the 1980s snow shortages, but it does not present a coherent timeline of how tourism on alpine roads has evolved from past to present. There is no clear before-and-after structure or discussion of key turning points in tourism development related to roads.",
+        "reference_index": [
+          0,
+          6,
+          15,
+          16
+        ],
+        "statement": "Only tourism can reverse this trend but the number of tourists visiting the Alps has either been constant or decreasing since the 1980s."
+      },
+      {
+        "type": "narrow_geographic_focus",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response emphasizes economic data and ski tourism in France, Switzerland, Austria, and Italy but underrepresents other Alpine regions such as Slovenia, Germany, and Liechtenstein. This creates a skewed view of tourism change, especially since the query refers to 'the alpine road'—a transnational route—implying a need for broader regional coverage.",
+        "reference_index": [
+          0,
+          1,
+          13
+        ],
+        "statement": "France, Switzerland, Austria and Italy provide over 85% of Europe’s skiing area."
+      },
+      {
+        "type": "missing_infrastructure_evolution",
+        "severity": "Severe",
+        "severity_level": 1,
+        "penalty_value": 0,
+        "explanation": "The query references 'alpine road' tourism, suggesting a focus on road-based access and travel. However, the response discusses ski resorts, lifts, and hotels but fails to describe how road networks, vehicle traffic, or road-based tourism (e.g., scenic drives, cycling, or motor tourism) have changed over time. This omission limits the scope of 'tourism on the alpine road'.",
+        "reference_index": [
+          9,
+          11
+        ],
+        "statement": "Even the lower areas of the Alps have changed a lot in this way, development, population increase and lots of tourist infrastructure such as roads, ski gondolas, hotels, vacation homes, restaurants, skiing runs and sports venues."
+      },
+      {
+        "type": "overemphasis_on_winter_tourism",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response heavily prioritizes winter tourism (skiing, snowboarding, snow reliability) while underrepresenting summer tourism and year-round trends. Although summer activities are briefly mentioned, the analysis of change is disproportionately focused on winter challenges like snowfall and ski resort viability, failing to balance seasonal shifts in tourism patterns.",
+        "reference_index": [
+          2,
+          5,
+          12
+        ],
+        "statement": "The Alps are a very popular destination amongst winter tourists. Ski resorts such as Val d'Isere and Les Deux Alps have been purpose-built."
+      },
+      {
+        "type": "lack_of_policy_and_adaptation_discussion",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "While climate change impacts are noted, the response does not explore how policies, adaptation strategies, or technological changes (e.g., snowmaking, road maintenance, tourism diversification) have altered tourism on alpine roads. This limits the depth of 'change' analysis, especially in response to environmental or economic pressures.",
+        "reference_index": [
+          13,
+          14,
+          15
+        ],
+        "statement": "Under a 4°C warming of climate... practically none of the ski areas in Germany will be left naturally snow-reliable."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 91,
+    "overall_judgement": "The response provides a broad overview of tourism in the Alps, including economic impact, visitor numbers, infrastructure, and climate challenges. However, it lacks deep coverage in several areas, particularly in explaining the historical evolution of tourism, regional variations over time, specific policy responses, and long-term adaptation strategies. While it mentions trends like declining tourist numbers and climate vulnerability, it fails to explore underlying causes, mechanisms, or detailed case studies that would demonstrate depth.",
+    "judgement_details": [
+      {
+        "type": "lack_of_historical_depth",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "The response states that the Alps transformed from a livestock-based economy to a tourist destination but provides no timeline, drivers, or turning points in this transition.",
+        "explanation": "It mentions the shift 'since World War II' in references but does not integrate this into the response with specific decades, technological advances (e.g., cable cars, ski lifts), or cultural shifts (e.g., rise of alpinism) that enabled the tourism boom. This results in a superficial treatment of historical change.",
+        "reference_index": [
+          4,
+          7
+        ],
+        "missing": "Specific historical milestones, such as the golden age of alpinism, development of ski technology, or post-war infrastructure expansion"
+      },
+      {
+        "type": "superficial_causes",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "The response notes that tourist numbers have been 'constant or decreasing since the 1980s' but does not explain why.",
+        "explanation": "It fails to explore contributing factors such as increased competition from other destinations, changing consumer preferences, economic recessions, or early climate impacts—despite references discussing snow shortages in the late 1980s affecting tourism revenue.",
+        "reference_index": [
+          10,
+          15,
+          16
+        ],
+        "missing": "Analysis of socio-economic or environmental causes behind stagnating or declining visitor numbers"
+      },
+      {
+        "type": "lack_of_regional_analysis",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response identifies economic decline in southern France, parts of Italy, and Slovenia but does not compare how tourism has changed differently across Alpine regions.",
+        "explanation": "It misses an opportunity to contrast high-altitude vs. low-altitude resorts, northern vs. southern slopes, or country-specific strategies (e.g., Switzerland’s higher resilience due to elevation), which are present in the references but not synthesized.",
+        "reference_index": [
+          12,
+          13
+        ],
+        "missing": "Comparative regional analysis of tourism trends and adaptation capacities"
+      },
+      {
+        "type": "underdeveloped_climate_impact_mechanisms",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "The response mentions climate change affecting snow reliability but does not explain the mechanisms or thresholds in detail.",
+        "explanation": "While it notes that fewer tourists are coming, it omits specific data from references on how rising temperatures reduce snow cover duration, increase reliance on artificial snowmaking, or shift viable ski altitudes—key elements for deep explanatory power.",
+        "reference_index": [
+          13,
+          14,
+          15
+        ],
+        "missing": "Quantitative thresholds (e.g., 150m rise in snowline per 1°C warming), adaptation limits, or economic tipping points"
+      },
+      {
+        "type": "lack_of_policy_or_adaptation_detail",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response implies tourism must reverse economic decline but does not discuss actual or proposed adaptation strategies.",
+        "explanation": "It fails to include information from references about efforts to extend the tourist season, invest in summer tourism, or implement sustainability policies—critical for understanding how regions are responding to change.",
+        "reference_index": [
+          4,
+          18
+        ],
+        "missing": "Discussion of seasonal diversification, sustainable development initiatives, or community-based tourism models"
+      },
+      {
+        "type": "inconsistent_data_usage",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response cites both 60–80 million and 120 million annual visitors without reconciling the discrepancy.",
+        "explanation": "This creates confusion about actual tourism volume and trends over time. A deeper analysis would clarify whether these figures represent different metrics (e.g., day visitors vs. overnight stays) or time periods, but the response does not attempt this.",
+        "reference_index": [
+          1,
+          2,
+          6
+        ],
+        "missing": "Clarification of data definitions, timeframes, and sources to support accurate interpretation"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 12.5,
+    "overall_judgement": "The response contains multiple internal consistency issues, primarily revolving around conflicting visitor numbers, contradictory statements about tourism trends, and unexplained discrepancies in economic impact claims. These inconsistencies arise from mixing data from different sources without clarifying temporal, regional, or methodological differences.",
+    "judgement_details": [
+      {
+        "type": "Contradictory Statistics",
+        "severity": "Severe",
+        "severity_level": 3,
+        "penalty_value": 0,
+        "statement": "About 60-80 million people visit the Alps each year as tourists [1].",
+        "explanation": "This claim directly contradicts another statement in the same response that says 'the Alps are the single most popular tourist region in the world, drawing 120 million visitors per year' [2]. These two figures cannot both be accurate for annual tourism without clarification on what constitutes a 'visit' or whether the data refers to different time periods or definitions (e.g., overnight stays vs. day visits).",
+        "reference_index": [
+          1,
+          2
+        ],
+        "missing": "No explanation is provided for why two vastly different visitor numbers (60–80 million vs. 120 million) are cited, nor is there clarification on whether these figures refer to the same metric or timeframe."
+      },
+      {
+        "type": "False Consensus / Contradictory Trends",
+        "severity": "Severe",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "statement": "Only tourism can reverse this trend but the number of tourists visiting the Alps has either been constant or decreasing since the 1980s.",
+        "explanation": "This creates a logical contradiction: if tourism is the only solution to economic decline in certain areas, yet tourist numbers have stagnated or declined for decades, the feasibility of tourism-led recovery is undermined. The response presents both claims as factual without reconciling this tension.",
+        "reference_index": [
+          0
+        ],
+        "missing": "There is no discussion of how tourism can reverse economic decline if visitor numbers are not increasing. The response fails to address this core inconsistency in cause-effect logic."
+      },
+      {
+        "type": "Unexplained Contradiction in Economic Performance",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "France has the highest winter season turnover of all these four countries [0,1]. But in a good season, the Alps are the single most popular tourist region in the world, drawing 120 million visitors per year, who spend a full one tenth of the world's tourism revenue there [2].",
+        "explanation": "While France is said to lead in winter turnover, the claim that the entire Alps captures 10% of global tourism spending lacks supporting data and is not reconciled with the earlier, more modest EUR 50 billion annual turnover figure. These two economic claims (national vs. global scale) are presented without contextual linkage or unit compatibility, making them internally inconsistent.",
+        "reference_index": [
+          0,
+          1,
+          2
+        ],
+        "missing": "The response does not convert or compare these figures (e.g., whether EUR 50 billion equates to one-tenth of global tourism revenue), nor does it explain how France's leadership aligns with the broader regional claim."
+      },
+      {
+        "type": "Inconsistent Regional Generalization",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "19% of the area faces increasing economic problems [0]. For 18% of the area, the economy, settlements and cultural heritage are breaking down as people leave [0].",
+        "explanation": "These two overlapping but distinct claims (19% with economic problems, 18% with breakdown in settlements and heritage) are presented as separate facts without clarification on whether they refer to the same or different regions. The near-identical percentages suggest possible overlap, but the response treats them as independent observations without explanation.",
+        "reference_index": [
+          0
+        ],
+        "missing": "There is no attempt to clarify the relationship between these two statistics—whether they are cumulative, overlapping, or regionally distinct—leading to potential misinterpretation."
+      },
+      {
+        "type": "Contradictory Temporal Claims",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The number of tourists visiting the Alps has either been constant or decreasing since the 1980s. [...] But in a good season, the Alps are the single most popular tourist region in the world, drawing 120 million visitors per year.",
+        "explanation": "The claim of stagnation or decline since the 1980s conflicts with the assertion of being the 'most popular tourist region' with 120 million visitors annually. If the number has been flat or falling for decades, the current popularity claim lacks temporal grounding unless contrasted with historical data, which is absent.",
+        "reference_index": [
+          0,
+          2
+        ],
+        "missing": "The response does not reconcile long-term stagnation with peak-season popularity, nor does it provide trend data to support either claim in context."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 66.8
+  }
+}

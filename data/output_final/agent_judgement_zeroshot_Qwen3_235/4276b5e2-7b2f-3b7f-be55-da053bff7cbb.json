@@ -1,0 +1,334 @@
+{
+  "response": "4276b5e2-7b2f-3b7f-be55-da053bff7cbb",
+  "query": "how much support did the patriot act receive?",
+  "correctness_topical": {
+    "grade": 81,
+    "overall_judgement": "The response is largely accurate in describing the support the Patriot Act received, including the House and Senate vote counts and the sole dissenting senator. However, it includes some irrelevant details and one minor factual inaccuracy regarding the timeline of legislative passage. The response also omits key contextual information about bipartisan support mentioned in the references.",
+    "judgement_details": [
+      {
+        "type": "factual_error",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The response states that Congress approved the Patriot Act 'shortly after the infamous terrorist acts' and implies a single vote, but the references clarify a more detailed timeline: the Senate passed its version on October 11, the House on October 12, and the final compromise bill passed the House on October 24 and the Senate on October 25. This simplification misrepresents the legislative process.",
+        "reference_index": [
+          2,
+          6
+        ],
+        "statement": "Congress approved the Patriot Act by an overwhelming margin shortly after the infamous terrorist acts."
+      },
+      {
+        "type": "omission",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response fails to mention that the support for the Patriot Act was bipartisan, as explicitly noted in multiple references. This is a significant omission because it provides context about the political consensus at the time.",
+        "reference_index": [
+          4,
+          9,
+          12,
+          15
+        ],
+        "statement": "The House voted 357-66 in favor of the measure, while the Senate voted 98-1 with only Sen. Russ Feingold, D-Wisc, dissenting."
+      },
+      {
+        "type": "irrelevant_section",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The statement about the law permitting 'roving wiretaps' and 'sneak and peek' warrants, while factually correct, is not directly relevant to the query about 'how much support' the Act received. It shifts focus to provisions of the law rather than legislative backing.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "statement": "The law permits roving wiretaps and so-called “sneak and peek” warrants, adds new terrorist crimes, knocks down the wall between foreign and domestic intelligence, amends the definition of domestic terrorism and makes many other changes too numerous to catalog."
+      },
+      {
+        "type": "irrelevant_section",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The description of the law being '342 pages long' and amending '15 separate federal laws' is factual but tangential to the question of support levels. It adds detail about scope, not approval.",
+        "reference_index": [
+          0,
+          5,
+          8
+        ],
+        "statement": "The massive law, 342 pages long, amends at least 15 separate federal laws, including the Foreign Intelligence Surveillance Act of 1978, the Electronic Communication Privacy Act of 1986, the Computer Fraud and Abuse Act and the Family Education Rights and Privacy Act."
+      },
+      {
+        "type": "irrelevant_section",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The claim that the Act 'greatly expanded the authority of the FBI' and allows spying 'without court approval' introduces policy implications not directly tied to the level of congressional support, making it irrelevant to the query.",
+        "reference_index": [
+          1,
+          2,
+          9
+        ],
+        "statement": "The far-reaching “temporary” act (most of which was made permanent by Congress in 2006) greatly expanded the authority of the FBI and other law enforcement agencies to conduct searches, look at medical and other personal records, such as what materials an individual took out from public libraries, and spy on those suspected of potential terrorist acts without court approval."
+      },
+      {
+        "type": "irrelevant_section",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The statement about the Act aiding in closing borders, detaining terrorists, and cutting off financial resources, while accurate, discusses operational effects rather than legislative support and is thus off-topic.",
+        "reference_index": [
+          2,
+          9
+        ],
+        "statement": "The act and its ancillaries aid federal authorities in their efforts to close off U.S. borders to foreign terrorists, detain and remove terrorists already within U.S. borders, and cut off financial resources utilized by terrorists and terrorist organizations."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 56,
+    "overall_judgement": "The response contains several logical coherence issues, including disorganized structure, lack of clear progression from topic to topic, repetition of information, and inclusion of tangential content not directly tied to the query about the level of support for the Patriot Act. The information about the act's provisions and consequences dominates the response, overshadowing the central question about voting margins and political support.",
+    "judgement_details": [
+      {
+        "type": "disorganized_structure",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "The response begins with contextual background about the War on Terror and Bush’s proposal, then jumps to congressional approval, voting details, the law’s length and amendments, signing date, provisions, expansion of surveillance powers, and finally ancillary effects—without a clear logical or chronological flow.",
+        "explanation": "The information is presented in a fragmented manner, lacking a coherent narrative structure such as introduction → main support data → implications. Instead, it oscillates between voting results, legislative process, content of the law, and its effects, making it difficult to follow the central thread about 'support'.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "type": "repetition",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The voting results (House: 357-66, Senate: 98-1) are mentioned in two separate bullet points, with nearly identical content.",
+        "explanation": "This redundancy disrupts logical flow by reiterating the same data without adding new context or analysis, suggesting poor information organization.",
+        "reference_index": [
+          0,
+          2
+        ]
+      },
+      {
+        "type": "off-topic_expansion",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "Multiple bullet points detail the content and effects of the Patriot Act (e.g., roving wiretaps, library records, foreign detentions) that are not directly relevant to the query about 'how much support' it received.",
+        "explanation": "While these details may be factually accurate, they shift focus away from the core question of political and legislative support, introducing a logical digression that undermines coherence.",
+        "reference_index": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "type": "lack_of_synthesis",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response lists facts about the vote, signing, and provisions but fails to synthesize them into a unified answer about the level of support.",
+        "explanation": "A logically coherent response would summarize the overwhelming bipartisan support as the main point, using the vote counts and signing date as supporting evidence, rather than scattering them among unrelated details.",
+        "reference_index": [
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "type": "inconsistent_focus",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The first bullet point introduces the War on Terror context, but subsequent points alternate between procedural details, legal changes, and surveillance powers without maintaining a consistent focus on legislative support.",
+        "explanation": "This inconsistency in thematic focus weakens the logical progression and confuses the reader about the primary intent of the response.",
+        "reference_index": [
+          0,
+          1,
+          5,
+          6,
+          7
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response demonstrates strong stylistic coherence, maintaining a consistent formal and informative tone throughout. The language is academic and objective, suitable for a factual historical and legislative overview. There are no discernible shifts in register, voice, or style across the statements.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 39,
+    "overall_judgement": "The response provides strong coverage of the initial congressional support for the Patriot Act, including detailed vote counts from both the House and Senate. However, it lacks breadth in discussing the evolution of support over time, such as reauthorization votes in 2005, 2006, and 2011, which showed declining bipartisan consensus. Additionally, while it mentions criticism (e.g., from Sen. Feingold), it does not broadly cover the spectrum of public, legal, and institutional responses that reflect changing levels of support. The response focuses heavily on the law's provisions and implications rather than analyzing the depth and shifts in political and societal support, which limits its broad coverage of the query.",
+    "judgement_details": [
+      {
+        "type": "missing_temporal_coverage",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response only discusses the initial passage of the Patriot Act in 2001 and omits later reauthorization votes that reflect changing levels of support, such as the 2006 and 2011 votes, which had significantly more opposition. This limits the breadth of understanding about how support evolved over time.",
+        "reference_index": [
+          10
+        ],
+        "statement": "In 2006, the Senate passed reauthorization 89–10 and the House 280–138; in 2011, it passed 86–12 in the Senate and 275–144 in the House—showing declining support not reflected in the response."
+      },
+      {
+        "type": "narrow_focus_on_legislative_vote",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "While the response thoroughly covers the 2001 vote breakdown, it fails to expand into broader dimensions of 'support,' such as public opinion, civil liberties debates, judicial challenges, or media reactions, which are essential for a comprehensive view.",
+        "reference_index": [
+          14
+        ],
+        "statement": "The Act was controversial, with legal challenges from the ACLU and Senate Judiciary hearings, indicating significant institutional and civil society pushback not adequately covered."
+      },
+      {
+        "type": "underdeveloped_context_of_opposition",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response notes Sen. Feingold's dissent but does not explore the growing opposition over time or the reasons behind it, such as concerns over civil liberties, indefinite detentions, or secret surveillance, which are critical to understanding the full scope of support.",
+        "reference_index": [
+          9
+        ],
+        "statement": "Opponents criticized the Act for authorizing indefinite detentions, warrantless searches, and expanded use of National Security Letters—key points of controversy that shaped public and political support but are underrepresented."
+      },
+      {
+        "type": "lack_of_public_and_institutional_response_coverage",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response focuses on legislative approval and legal provisions but omits coverage of public opinion, advocacy group responses, or international reactions, all of which contribute to a holistic understanding of 'support.'",
+        "reference_index": [
+          13
+        ],
+        "statement": "A U.S. Court of Appeals ruled secret detentions under the Act unconstitutional in 2002, signaling judicial resistance that reflects a broader institutional skepticism not discussed in the response."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 96,
+    "overall_judgement": "The response provides a factually accurate account of the Patriot Act's passage, including vote counts and key provisions, but lacks deep explanatory context around the nature and implications of the support it received. While it mentions overwhelming legislative approval, it fails to explore the political, social, and emotional climate post-9/11 that contributed to this support, does not analyze bipartisan dynamics in depth, and omits discussion of early criticisms or debates that might have occurred despite the lopsided vote. The explanation of the Act’s content is descriptive but not analytically rich, relying on listing powers rather than explaining their significance or controversy in a nuanced way.",
+    "judgement_details": [
+      {
+        "type": "lack_of_contextual_depth",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "The response states that Congress approved the Patriot Act by an overwhelming margin shortly after the September 11 attacks but does not explore the intense political and public pressure that shaped this support.",
+        "explanation": "A deeper analysis would explain how the national trauma of 9/11 created an environment where swift legislative action was expected, and dissent was politically risky. The response misses the opportunity to discuss how fear, urgency, and patriotism influenced lawmakers’ decisions, which is essential to understanding the depth of support.",
+        "reference_index": [
+          0,
+          1,
+          2
+        ],
+        "missing": "Context about post-9/11 political climate, public sentiment, and pressure on Congress to act"
+      },
+      {
+        "type": "superficial_treatment_of_controversy",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "The response notes that only one senator, Russ Feingold, dissented, but does not elaborate on the early civil liberties concerns or the nature of the opposition.",
+        "explanation": "While Feingold’s dissent is mentioned, the response fails to explain *why* he opposed the Act, what arguments were made at the time about civil liberties, or whether other lawmakers expressed reservations despite voting in favor. This diminishes the depth of understanding about the 'support'—which may have been more ambivalent than the vote count suggests.",
+        "reference_index": [
+          0,
+          5,
+          8
+        ],
+        "missing": "Explanation of Feingold’s rationale, early civil liberties debates, or behind-the-scenes concerns"
+      },
+      {
+        "type": "lack_of_analysis_of_bipartisanship",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response highlights bipartisan vote totals but does not analyze the extent or nature of bipartisan consensus or division.",
+        "explanation": "Although the vote counts are bipartisan, the response does not explore whether support came equally from both parties, if there were notable figures on either side who supported or opposed it, or how party leadership influenced the outcome. This limits the depth of the analysis of political support.",
+        "reference_index": [
+          0,
+          4,
+          9
+        ],
+        "missing": "Breakdown of party-line voting patterns, roles of key Democratic or Republican figures in supporting or resisting"
+      },
+      {
+        "type": "descriptive_rather_than_explanatory",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "The response lists provisions of the Patriot Act (e.g., roving wiretaps, sneak and peek warrants) but does not explain how these provisions were linked to the perceived need for support or why they were controversial.",
+        "explanation": "A deeper response would connect the expansion of surveillance powers to specific intelligence failures pre-9/11 (e.g., lack of information sharing), explain why such tools were seen as necessary by supporters, and contrast that with civil liberties concerns. The current explanation remains at the surface level of 'what' rather than 'why'.",
+        "reference_index": [
+          1,
+          6,
+          9
+        ],
+        "missing": "Causal explanation linking provisions to security needs and civil liberties trade-offs"
+      },
+      {
+        "type": "omission_of_temporal_depth",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "The response mentions that most of the Act was made permanent in 2006 but does not discuss how support evolved over time, which would provide deeper insight into the initial vote.",
+        "explanation": "Understanding the 2001 support requires context about how views changed—e.g., growing skepticism by 2006 due to revelations about surveillance abuses. The absence of this trajectory makes the initial support appear static and unexamined.",
+        "reference_index": [
+          1,
+          3,
+          10
+        ],
+        "missing": "Discussion of how support shifted in reauthorizations, indicating possible regret or reassessment"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 1,
+    "overall_judgement": "The response is largely internally consistent in describing the support the Patriot Act received, accurately reporting the overwhelming congressional approval with specific vote counts and the lone Senate dissenter. However, there are minor inconsistencies in the portrayal of the voting timeline and procedural details across references, which are not directly contradicted in the response but could imply a lack of clarity if deeper procedural context were expected.",
+    "judgement_details": [
+      {
+        "type": "incomplete_context",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Congress approved the Patriot Act by an overwhelming margin shortly after the infamous terrorist acts.",
+        "explanation": "While the statement is accurate in spirit, it omits procedural details present in the references (e.g., multiple versions of the bill in House and Senate, reconciliation process), which could give the false impression of a single, straightforward vote. References [6] and [7] indicate the House and Senate initially passed different versions (USA Act) before agreeing on the final USA PATRIOT Act compromise, which the response does not clarify.",
+        "reference_index": [
+          0,
+          6,
+          7
+        ],
+        "missing": "The response fails to mention that the final bill was a compromise between earlier House and Senate versions, which might mislead readers about the legislative process."
+      },
+      {
+        "type": "ambiguous_temporal_reference",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "President George W. Bush signed the bill into law on October 26, 2001.",
+        "explanation": "This statement is factually correct and supported by multiple references. However, the response does not reconcile slight discrepancies in the references about when each chamber passed the final version (e.g., Senate passage on Oct 11 vs Oct 25), which could create confusion about the timeline. While the response avoids directly conflicting statements, it does not address these variations, potentially leading to implied inconsistency.",
+        "reference_index": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "missing": "Clarification that the final version passed the Senate on October 25 and the House on October 24, resolving earlier versions, would improve internal coherence."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 47
+  }
+}

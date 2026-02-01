@@ -1,0 +1,282 @@
+{
+  "response": "073682bb-f88c-3952-88cb-2edf249ec4c0",
+  "query": "how much support did the patriot act receive?",
+  "correctness_topical": {
+    "grade": 42.5,
+    "overall_judgement": "The response addresses the support for the Patriot Act but fails to provide the specific voting data requested in the query. It includes accurate information about criticisms and civil liberties concerns, but omits key details about the overwhelming congressional support. There are no factual errors, but the response is incomplete and slightly misleading in its framing of 'equal or even more criticism' without context.",
+    "judgement_details": [
+      {
+        "type": "Missing",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The query specifically asks for how much support the Patriot Act received. The response fails to include the actual vote counts from Congress, which are clearly stated in multiple references: the House passed it 357-66 and the Senate 98-1. This quantitative support data is critical to answering the question and is entirely missing.",
+        "reference_index": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          10
+        ],
+        "statement": "Although passed through Congress with widespread support, the Patriot Act received both support and criticism."
+      },
+      {
+        "type": "Misleading / Focus",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The statement that the Patriot Act received 'equal or even more criticism' is not supported by the references and misrepresents the historical context. While criticism existed, especially from civil libertarians, the references emphasize the overwhelming bipartisan support (e.g., 98-1 in the Senate) and do not suggest criticism was equal to or greater than support at the time of passage.",
+        "reference_index": [
+          0,
+          1,
+          4,
+          5,
+          6
+        ],
+        "statement": "But it also received the equal or even more criticism."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The response includes detailed descriptions of the Patriot Act's provisions (e.g., roving wiretaps, sneak and peek warrants, expanded FBI powers) that, while factually supported, are not directly responsive to the query about 'how much support' the Act received. These details shift focus away from the core question of legislative backing.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          9
+        ],
+        "statement": "The law permits roving wiretaps and “sneak and peek” warrants, adds new terrorist crimes, collapses walls between foreign and domestic intelligence, amends the definition of domestic terrorism and makes many other numerous changes. It allows the FBI and other law enforcement agencies to conduct searches, look at medical and other personal records, and spy on those suspected of potential terrorist acts without court approval."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 14.5,
+    "overall_judgement": "The response is generally well-structured and addresses both support and criticism of the Patriot Act. However, it contains several logical coherence issues, including repetition of the same criticisms across multiple paragraphs, abrupt shifts in focus without clear transitions, and a lack of balanced structure when presenting support versus criticism. The flow is disrupted by redundant statements about civil liberties and surveillance powers, which are repeated with minimal variation. Additionally, the claim that the Act received 'equal or even more criticism' lacks clear logical grounding in the preceding support discussion, creating a weak comparative link.",
+    "judgement_details": [
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The Patriot Act has been criticized for weakening protections of civil liberties. Opponents have criticized the law's authorization of indefinite detentions of immigrants; searches through which law enforcement officers search a home or business without the owner’s or the occupant’s permission or knowledge; the expanded use of National Security Letters, which allows the FBI to search telephone, e-mail, and financial records without a court order.",
+        "explanation": "This entire sentence repeats nearly verbatim information already presented in the previous paragraph about civil liberties concerns and specific surveillance powers. The redundancy adds no new insight and disrupts the logical progression by reiterating the same points.",
+        "reference_index": [
+          9
+        ]
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "Although passed through Congress with widespread support, the Patriot Act received both support and criticism. People supported it because the Act defends their homeland and people by providing tools to track down terrorists within their borders. But it also received the equal or even more criticism.",
+        "explanation": "The transition from support to criticism is abrupt and lacks logical balance. The phrase 'equal or even more criticism' introduces a comparative claim that is not substantiated or explained, creating a disjointed shift in argumentation.",
+        "reference_index": [
+          1
+        ]
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The law permits roving wiretaps and “sneak and peek” warrants, adds new terrorist crimes, collapses walls between foreign and domestic intelligence, amends the definition of domestic terrorism and makes many other numerous changes.",
+        "explanation": "This description of the Act's provisions is largely repeated from the references and overlaps with later sentences detailing surveillance powers, creating redundancy without adding new analytical depth.",
+        "reference_index": [
+          0
+        ]
+      },
+      {
+        "type": "Structural Issue",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response begins with enactment context, shifts to provisions, then to support, then to criticism, but returns again to repeat criticism with no clear paragraph-level organization or progression from one idea to the next.",
+        "explanation": "The structure lacks a coherent narrative arc. It moves from factual background to criticism without a balanced exploration of support, and the repeated return to civil liberties concerns without thematic or chronological logic creates a disorganized flow.",
+        "reference_index": []
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a generally formal and informative tone throughout, consistent with an academic or journalistic style. It discusses the Patriot Act's provisions, support, and criticisms in a structured manner. However, there are minor stylistic inconsistencies in phrasing and complexity that slightly disrupt coherence, particularly in the transition between discussing support and criticism. Despite this, the overall style remains largely coherent without major tone, complexity, or perspective shifts.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 25.1,
+    "overall_judgement": "The query asks about the level of support the Patriot Act received, which implies a need to cover both the legislative voting results and the broader spectrum of public, political, and institutional support and opposition. While the response mentions widespread legislative support and some criticism, it fails to provide precise vote counts, omits key details about reauthorization votes over time, and overemphasizes civil liberties criticisms without balancing the discussion with detailed support arguments. It also lacks a clear introductory context defining the scope of 'support' being analyzed.",
+    "judgement_details": [
+      {
+        "type": "Narrow Focus / Tunnel Vision",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response focuses heavily on criticisms of the Patriot Act related to civil liberties, devoting most of the text to concerns about surveillance, detentions, and constitutional rights, while underrepresenting the nature and extent of political and public support beyond a vague mention of 'widespread support'.",
+        "reference_index": [
+          0,
+          1,
+          9,
+          13,
+          19
+        ],
+        "statement": "Although passed through Congress with widespread support, the Patriot Act received both support and criticism. People supported it because the Act defends their homeland and people by providing tools to track down terrorists within their borders. But it also received the equal or even more criticism."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The response omits specific vote counts from the original 2001 passage in Congress, which are directly relevant to measuring legislative support. It also fails to mention subsequent reauthorization votes in 2006 and 2011, which show evolving levels of political support over time.",
+        "reference_index": [
+          0,
+          1,
+          3,
+          10
+        ],
+        "statement": "In the wake of the September 11 terrorist attacks, the US government enacted the Patriot Act."
+      },
+      {
+        "type": "Lack of Context",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "explanation": "The response jumps directly into provisions and controversies of the Patriot Act without first defining what is meant by 'support'—whether legislative, public, partisan, or institutional—leaving the reader without a framework to interpret the discussion that follows.",
+        "reference_index": [],
+        "statement": "In the wake of the September 11 terrorist attacks, the US government enacted the Patriot Act."
+      },
+      {
+        "type": "Superficial Listing",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response lists various provisions of the Patriot Act (e.g., roving wiretaps, sneak and peek warrants) and criticisms (e.g., indefinite detentions, National Security Letters) without adequately explaining how these relate to the level or distribution of support for the Act across different groups.",
+        "reference_index": [
+          0,
+          1,
+          9
+        ],
+        "statement": "The law permits roving wiretaps and “sneak and peek” warrants, adds new terrorist crimes, collapses walls between foreign and domestic intelligence, amends the definition of domestic terrorism and makes many other numerous changes."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 42,
+    "overall_judgement": "The response provides a general overview of the Patriot Act and mentions its passage with widespread support, but fails to deeply cover the specific extent and nature of that support with sufficient detail, examples, or contextual mechanisms. While vote counts are implied in the references, they are not clearly stated in the response, and the evolution of support over time (e.g., reauthorizations) is omitted. The criticism is well-covered, but the 'support' side lacks depth in explaining why and how it was supported beyond vague statements.",
+    "judgement_details": [
+      {
+        "type": "Lack of Examples",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "The response states the Patriot Act passed with 'widespread support' but does not provide specific vote counts or breakdowns from Congress.",
+        "explanation": "Although the references contain detailed voting data (e.g., House 357-66, Senate 98-1), the response only vaguely refers to 'widespread support' without citing these concrete figures, which are central to answering the query about the level of support.",
+        "reference_index": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10
+        ],
+        "missing": "Specific vote tallies from both the House and Senate, including bipartisan breakdowns and the sole dissenting senator."
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "The response mentions people supported the Act because it 'defends their homeland' but does not explain the political, emotional, or institutional mechanisms that drove such strong legislative backing.",
+        "explanation": "It fails to explain *why* the support was so overwhelming—such as the immediate post-9/11 climate, bipartisan fear of appearing soft on terrorism, or strategic framing of the Act as a patriotic necessity—leaving a gap in causal reasoning.",
+        "reference_index": [
+          5,
+          12,
+          17
+        ],
+        "missing": "Analysis of the political and social context that enabled rapid, near-unanimous passage."
+      },
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response briefly notes that the Act received 'equal or even more criticism' but does not quantify or compare the intensity, sources, or evolution of support versus opposition over time.",
+        "explanation": "It treats support and criticism as abstract counterweights without exploring how support changed during reauthorizations (e.g., 2006, 2011), where votes became more divided—a key dimension of 'how much' support it received over time.",
+        "reference_index": [
+          10,
+          14
+        ],
+        "missing": "Temporal analysis of support, including reauthorization votes showing declining consensus."
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response uses non-specific language such as 'widespread support' and 'people supported it' without defining who these people were or what form the support took.",
+        "explanation": "It lacks specificity about whether support came from lawmakers, the public, media, or institutions, and omits polling data, party-line breakdowns, or quotes from key supporters beyond a generic claim about defending the homeland.",
+        "reference_index": [
+          4,
+          12
+        ],
+        "missing": "Identification of key political figures, public opinion data, or institutional endorsements that constituted the 'support'."
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 7,
+    "overall_judgement": "The response contains multiple internal consistency issues related to the portrayal of support for the Patriot Act. While it correctly notes the overwhelming congressional vote, it introduces contradictory characterizations of the level of criticism versus support, creates ambiguity about whether criticism was equal to or greater than support, and fails to attribute subjective claims about criticism to specific sources.",
+    "judgement_details": [
+      {
+        "type": "Unresolved Conflict",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The Patriot Act received both support and criticism. People supported it because the Act defends their homeland and people by providing tools to track down terrorists within their borders. But it also received the equal or even more criticism.",
+        "explanation": "The response creates an unresolved contradiction by stating that the Act received 'widespread support' in Congress (which is accurate per references) but then claims it received 'equal or even more criticism' without clarifying whether this refers to public opinion, legal challenges, or political discourse. This creates a conflict between the factual voting record and the undefined claim about criticism outweighing support.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "missing": "The response fails to specify the scope or source of the 'equal or even more criticism' claim — whether it refers to public opinion, civil liberties groups, or later reauthorization debates — leading to an unexplained contradiction with the documented bipartisan legislative support."
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "But it also received the equal or even more criticism.",
+        "explanation": "This statement presents a subjective assessment of the balance between support and criticism as an objective fact without attribution. The references confirm significant criticism from civil liberties groups and some lawmakers, but do not support a quantified claim that criticism was 'equal or even more' than support, especially given the 98-1 Senate and 357-66 House votes.",
+        "reference_index": [
+          13,
+          9,
+          14
+        ],
+        "missing": "No source is provided to substantiate the comparative claim that criticism matched or exceeded support, making this a false consensus about the relative weight of opposing viewpoints."
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Many of the terms in the act have been perceived as detrimental to civil liberties, a major concern for some Americans.",
+        "explanation": "The phrase 'have been perceived' lacks attribution. While the sentiment is echoed in references [13], [14], and [19], the response fails to specify who holds this perception (e.g., civil libertarians, legal scholars, or the ACLU), presenting a contested viewpoint as a general observation without proper sourcing.",
+        "reference_index": [
+          19
+        ],
+        "missing": "The response should attribute the perception of detriment to civil liberties to specific groups or individuals, such as 'critics argue' or 'the ACLU contends,' rather than stating it as a passive, unattributed fact."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 23.2
+  }
+}

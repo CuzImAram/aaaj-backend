@@ -1,0 +1,441 @@
+{
+  "response": "ae54d7e0-62df-3e53-9bea-3e107a6e5801",
+  "query": "is it dangerous to have wbc over 15,000 without treatment?",
+  "correctness_topical": {
+    "grade": 577,
+    "overall_judgement": "The response contains several factual errors, omissions, and irrelevant sections when evaluated against the provided references. Key issues include incorrect unit conversions, unsupported generalizations about WBC >15,000/mm³ indicating bacterial infection, missing critical context about non-infectious causes and risks, and inclusion of information not directly relevant to the danger of untreated elevated WBC. Some statements are misleading due to lack of qualifying conditions or overgeneralization from specific disease contexts.",
+    "judgement_details": [
+      {
+        "type": "Factual Error",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response states that a WBC count >15,000/mm³ 'strongly suggests a bacterial, particularly a pneumococcal, etiology' as if this is universally true. However, the references [1,2] qualify this as specific to community-acquired pneumonia, not a general rule for all patients with elevated WBC. This overgeneralization misrepresents the source.",
+        "reference_index": [
+          1,
+          2
+        ],
+        "statement": "A WBC count >15,000/mm3 strongly suggests a bacterial, particularly a pneumococcal, etiology"
+      },
+      {
+        "type": "Factual Error",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response claims that in acute myelogenous leukemia (AML), WBC counts are 'usually above 15,000/microL'. However, reference [3] states that 'fewer than 15% of patients have WBC counts <100,000 cells/microL', meaning most AML patients have WBC counts far exceeding 15,000, making the statement factually inaccurate by understating the typical magnitude.",
+        "reference_index": [
+          3
+        ],
+        "statement": "In acute myelogenous leukemia (AML), WBC counts are usually above 15,000/microL and maybe as high as 1 million cells/mm3"
+      },
+      {
+        "type": "Missing",
+        "severity": "Major",
+        "severity_level": 3,
+        "penalty_value": 100,
+        "explanation": "The query asks whether it is dangerous to have a WBC over 15,000 without treatment. The response fails to mention that elevated WBC count itself can be harmful (e.g., leukostasis in leukemia), as noted in reference [10], which warns that untreated leukocytosis may cause bleeding or organ damage. This is a critical omission directly related to the danger of no treatment.",
+        "reference_index": [
+          10
+        ],
+        "statement": "Even with treatment, your leukocytosis may get worse. Without treatment, your leukocytosis may get severe and cause bleeding or damage to your lungs or kidneys."
+      },
+      {
+        "type": "Missing",
+        "severity": "Major",
+        "severity_level": 3,
+        "penalty_value": 100,
+        "explanation": "The response does not mention that corticosteroids and other medications can cause WBC elevation to 15,000 without infection or danger, as stated in reference [19]. This is a common non-dangerous cause of elevated WBC and directly relevant to assessing risk without treatment.",
+        "reference_index": [
+          19
+        ],
+        "statement": "Medicine, not disease, is the most common cause of a high WBC count in this range. Corticosteroids can cause the WBC count to be this high or higher."
+      },
+      {
+        "type": "Missing",
+        "severity": "Major",
+        "severity_level": 3,
+        "penalty_value": 100,
+        "explanation": "The response omits that in Clostridium difficile infection (CDI), a WBC >15,000 is a criterion for severe disease and may require different treatment (e.g., vancomycin), as per references [7,9,14,15,17]. This is a direct link between WBC >15,000 and clinical danger requiring treatment.",
+        "reference_index": [
+          7,
+          9,
+          14,
+          15,
+          17
+        ],
+        "statement": "Criteria proposed for severe CDI (based on expert opinion) include white blood cell count >15,000 cells/mL or serum creatinine ≥1.5 mg/dL"
+      },
+      {
+        "type": "Missing",
+        "severity": "Major",
+        "severity_level": 3,
+        "penalty_value": 100,
+        "explanation": "The response does not include data from reference [0], which shows that WBC >15x10⁹/L (i.e., >15,000/mm³) is associated with significantly higher mortality (10.4% vs <4%) and increased risk of heart failure or shock after myocardial infarction. This is a major omission regarding the prognostic danger of elevated WBC.",
+        "reference_index": [
+          0
+        ],
+        "statement": "Mortality rates were higher in patients with a higher WBC count... 10.4% for WBC count >15x10 9 /L; p=0.03)"
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The statement about pulmonary infiltration in leukemia being associated with WBC >100,000 cells/microL is true but irrelevant to the query about WBC >15,000. It discusses a much higher threshold and a narrow clinical scenario not generalizable to the question of danger at 15,000.",
+        "reference_index": [
+          3
+        ],
+        "statement": "In patients with myelogenous or lymphocytic leukemia, signs of pulmonary infiltration (dyspnea, tachypnea, and hypoxia) may be associated with high blast cell counts (WBC counts above 100,000 cells/microL)"
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The mention of placental abruption in pregnant trauma patients with WBC >20,000/mm³ is context-specific and not relevant to the general question about danger of WBC >15,000 without treatment. It applies to a narrow population and higher threshold.",
+        "reference_index": [
+          6
+        ],
+        "statement": "In pregnant trauma patients, an elevated WBC count on admission (>20,000/mm3) is an indicator of ongoing placental abruption and requires close monitoring"
+      },
+      {
+        "type": "Misleading / Focus",
+        "severity": "Major",
+        "severity_level": 3,
+        "penalty_value": 100,
+        "explanation": "The response opens by stating that WBC 15,000 is 'often a sign of infection' [5], but reference [19] states that medicine (e.g., corticosteroids) is the most common cause of WBC in this range, not infection. Presenting infection as the primary cause is misleading and contradicts the references.",
+        "reference_index": [
+          5,
+          19
+        ],
+        "statement": "A white count of 15,000... is often a sign of an infection, as most labs will have a normal value that is somewhat less than that"
+      },
+      {
+        "type": "Factual Error",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The response cites reference [18] stating that leukocytosis is 'usually accompanied by certain cytologic abnormalities like Dohle bodies or toxic granulation'. However, reference [18] does not state this as a universal rule, and other references do not support that these findings are always or usually present. This is an overstatement not justified by the sources.",
+        "reference_index": [
+          18
+        ],
+        "statement": "Leukocytosis is a response to noxious stimulus that is part of an inflammatory reaction; it is usually accompanied by certain cytologic abnormalities like Dohle bodies or toxic granulation"
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 0,
+    "overall_judgement": "The response is largely logically coherent, with a clear focus on conditions associated with elevated WBC counts (>15,000/mm³) and their clinical implications. It systematically lists various medical scenarios where high WBC counts are observed, supported by referenced data. However, there are minor issues in flow and redundancy, particularly in repeated statements about bacterial pneumonia and poor prognosis with WBC >20,000/mm³. There is no internal contradiction, and the structure—though list-based—is appropriate for the query. The main weakness is the lack of a concluding synthesis that directly answers the danger of untreated WBC >15,000, despite providing evidence that implies risk.",
+    "judgement_details": [
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Repetition/redundancy",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "statement": "A WBC count >15,000/mm3 strongly suggests a bacterial, particularly a pneumococcal, etiology [1,2].",
+        "explanation": "This statement is repeated nearly verbatim in both reference [1] and [2], and appears again in the response, contributing to redundancy without adding new insight.",
+        "reference_index": [
+          1,
+          2
+        ]
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Unclear flow/jumping",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "statement": "A WBC count >20,000/mm3 is associated with a poor prognosis [1,2].",
+        "explanation": "This point is repeated across multiple references ([1], [2], [6]) and appears multiple times in the response, creating unnecessary repetition.",
+        "reference_index": [
+          1,
+          2,
+          6
+        ]
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Structural issue",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "statement": "In acute myelogenous leukemia (AML), WBC counts are usually above 15,000/microL and maybe as high as 1 million cells/mm3 [3].",
+        "explanation": "This statement is introduced abruptly after several points about infection, without a transitional phrase to signal the shift from infectious to hematologic causes of leukocytosis, disrupting the flow.",
+        "reference_index": [
+          3
+        ]
+      },
+      {
+        "type": "Structural Issue",
+        "severity": "Unrated",
+        "severity_level": 0,
+        "penalty_value": 0,
+        "statement": "The response is a bullet-point list without an introduction or conclusion that directly addresses the query: whether a WBC >15,000 without treatment is dangerous.",
+        "explanation": "While the information is relevant, the lack of a synthesizing conclusion or clear introductory framing weakens the logical structure. The response lists associations but does not culminate in a direct answer to the question posed.",
+        "reference_index": []
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistently formal and clinical tone throughout, using appropriate medical terminology and objective language. There are no detectable shifts in tone, complexity, perspective, or style. All statements are presented in a uniform academic/medical voice with consistent use of third-person and technical vocabulary. References are uniformly cited in brackets, supporting the scholarly coherence of the text.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 77.5,
+    "overall_judgement": "The query asks whether a WBC count over 15,000 without treatment is dangerous, which implies a need for a broad discussion covering potential causes, associated risks, clinical implications, and possible outcomes in the absence of treatment. While the response provides detailed examples of conditions linked to elevated WBC counts and mentions prognostic implications in specific diseases, it fails to directly and comprehensively address the core question of danger in the absence of treatment across these conditions. It overemphasizes specific disease associations (e.g., pneumonia, leukemia, CDI) without synthesizing a general risk assessment or discussing when intervention is necessary. Key aspects such as benign causes (e.g., stress, corticosteroids), the significance of WBC trends, and management implications are underrepresented despite being relevant to the query.",
+    "judgement_details": [
+      {
+        "type": "Narrow Focus / Tunnel Vision",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response focuses heavily on listing specific medical conditions (e.g., pneumonia, leukemia, HUS, CDI) where WBC >15,000 is observed, but does not step back to answer the general safety or danger of leaving such a count untreated. It treats the elevated WBC as a marker in various diseases without evaluating the overarching clinical danger of an untreated elevated count.",
+        "reference_index": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          14,
+          15,
+          17
+        ],
+        "statement": "A WBC count >15,000/mm3 strongly suggests a bacterial, particularly a pneumococcal, etiology [1,2]. In acute myelogenous leukemia (AML), WBC counts are usually above 15,000/microL and maybe as high as 1 million cells/mm3 [3]. An elevated polymorphonuclear leukocyte count (particularly >15,000/mm3) on admission is predictive of severe disease and poor prognosis in patients with HUS [1]. In suspected acute mesenteric ischemia, leukocytosis (WBC count ≥15,000/mm3) is common [6]. Criteria proposed for severe CDI include white blood cell count >15,000 cells/mL [7]."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response omits discussion of non-pathological causes of elevated WBC (e.g., stress, corticosteroid use, exercise), which are important in determining whether a WBC >15,000 is truly dangerous. It also fails to address the importance of trend (rising vs. stable) and clinical context (asymptomatic vs. symptomatic), which are critical in assessing risk without treatment.",
+        "reference_index": [
+          19
+        ],
+        "statement": "Medicine, not disease, is the most common cause of a high WBC count in this range. Corticosteroids can cause the WBC count to be this high or higher. Some people just 'normally' have a WBC count in this range [19]."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response does not directly address the implications of *withholding treatment* for an elevated WBC count. It describes when high WBC is associated with poor prognosis but does not clarify whether treating the WBC count itself (vs. the underlying cause) is necessary or what happens if no action is taken—central to the query.",
+        "reference_index": [
+          0,
+          10
+        ],
+        "statement": "Mortality rates were higher in patients with a higher WBC count (>15x10^9/L; p=0.03) [0]. Even with treatment, your leukocytosis may get worse. Without treatment, your leukocytosis may get severe and cause bleeding or damage to your lungs or kidneys [10]."
+      },
+      {
+        "type": "Lack of Context",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The response jumps into disease-specific associations without first defining what a WBC count of 15,000 means in general terms (e.g., units, normal range, significance of mild vs. extreme elevation), making it difficult for a layperson to understand the baseline context.",
+        "reference_index": [
+          18
+        ],
+        "statement": "In adults, the normal leukocyte count is 11.0 x10^9/L leukocytes. Leukocytosis occurs when the count becomes 15,000-20,000 per microliter [18]."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 128,
+    "overall_judgement": "The response provides a broad overview of conditions associated with elevated WBC counts (>15,000/mm³) and cites multiple clinical scenarios and reference-based associations. However, it fails to deeply address the core query—whether an untreated WBC >15,000 is dangerous—by lacking mechanistic explanations for why elevated WBCs are dangerous, omitting concrete examples of patient outcomes without treatment, and relying on generalizations without clarifying risk gradients or causal pathways. While references are cited, the synthesis lacks depth in explaining how and why danger arises in specific contexts.",
+    "judgement_details": [
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "A WBC count >15,000/mm3 strongly suggests a bacterial, particularly a pneumococcal, etiology [1,2].",
+        "explanation": "The response states that a high WBC count suggests bacterial infection but does not explain the physiological mechanism—such as how bacterial pathogens trigger granulopoiesis or neutrophil release from bone marrow, or how cytokine signaling (e.g., IL-1, TNF-α, G-CSF) mediates this response. Without this, the 'why' behind the association remains unexplained.",
+        "reference_index": [
+          1,
+          2
+        ],
+        "missing": "Explanation of the immunological and hematopoietic mechanisms linking bacterial infection to leukocytosis"
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "A WBC count >20,000/mm3 is associated with a poor prognosis [1,2].",
+        "explanation": "The claim about poor prognosis is repeated, but no specific clinical examples or patient data are provided to illustrate what 'poor prognosis' entails—such as mortality rates, organ failure incidence, or ICU admission outcomes in untreated vs. treated patients with such counts.",
+        "reference_index": [
+          1,
+          2
+        ],
+        "missing": "Concrete case examples or outcome statistics demonstrating the clinical impact of untreated high WBC"
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "In acute myelogenous leukemia (AML), WBC counts are usually above 15,000/microL and maybe as high as 1 million cells/mm3 [3].",
+        "explanation": "While the WBC range in AML is stated, the response does not explain why such extreme leukocytosis is dangerous—such as how blast cells cause microvascular occlusion, leukostasis, or cytokine-mediated tissue damage, nor how these lead to stroke, respiratory failure, or early death without treatment.",
+        "reference_index": [
+          3
+        ],
+        "missing": "Pathophysiological explanation of how high blast counts cause life-threatening complications"
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "Many things can cause this leukocytosis... but most commonly it has something to do with an infection [5].",
+        "explanation": "The phrase 'many things' and 'something to do with an infection' are non-specific and vague. It fails to categorize causes (e.g., bacterial vs. viral, stress-induced, drug-induced) or quantify likelihoods, reducing explanatory power.",
+        "reference_index": [
+          5
+        ],
+        "missing": "Specific categorization and relative frequency of causes of leukocytosis"
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "An elevated polymorphonuclear leukocyte count (>15,000/mm3) on admission is predictive of severe disease and poor prognosis in patients with HUS [1].",
+        "explanation": "The statement lacks illustrative examples—such as how elevated WBC correlates with dialysis need, neurological complications, or mortality in HUS patients—and does not compare outcomes in treated versus untreated individuals.",
+        "reference_index": [
+          1
+        ],
+        "missing": "Clinical scenario or data showing the consequences of untreated leukocytosis in HUS"
+      },
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "Leukocytosis is a response to noxious stimulus that is part of an inflammatory reaction; it is usually accompanied by certain cytologic abnormalities like Dohle bodies or toxic granulation [18].",
+        "explanation": "This defines leukocytosis and mentions cytologic findings but does not explain what Dohle bodies or toxic granulation are, how they form (e.g., ribosomal RNA clumping due to rapid neutrophil production), or their clinical significance in assessing infection severity.",
+        "reference_index": [
+          18
+        ],
+        "missing": "Detailed explanation of cytologic abnormalities and their diagnostic relevance"
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "In pregnant trauma patients, an elevated WBC count on admission (>20,000/mm3) is an indicator of ongoing placental abruption and requires close monitoring [6].",
+        "explanation": "The response fails to explain why WBC rises in abruption—such as whether it's due to tissue necrosis, hemorrhage-induced inflammation, or stress response—and how this elevation mechanistically relates to fetal or maternal risk.",
+        "reference_index": [
+          6
+        ],
+        "missing": "Pathophysiological link between placental abruption and leukocytosis"
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "Patients who had a higher white blood cell count have a higher risk of dying or having heart failure after their heart attack [0].",
+        "explanation": "Although reference [0] provides mortality data, the response does not integrate or explain the mechanism—such as how WBC contributes to infarct expansion, microvascular obstruction, or proinflammatory myocardial damage—leaving the causal pathway unclear.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Explanation of how elevated WBC worsens myocardial injury post-infarction"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 23.5,
+    "overall_judgement": "The response presents multiple medical contexts where a WBC count over 15,000/mm³ appears, but fails to consistently clarify whether elevated WBC is dangerous without treatment, conflates diagnostic implications with prognostic ones, and presents some contradictory implications about danger without resolving them. It also attributes clinical significance to WBC levels across diverse conditions without distinguishing context-specific risks, leading to blurred viewpoints and false consensus.",
+    "judgement_details": [
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "A WBC count >15,000/mm3 strongly suggests a bacterial, particularly a pneumococcal, etiology [1,2].",
+        "explanation": "This statement presents a diagnostic inference (bacterial cause) as a general rule, but the references [1,2] specify this applies specifically to community-acquired pneumonia. The response conflates this specific diagnostic context with a universal interpretation of WBC >15,000, ignoring that in other conditions (e.g., leukemia, C. difficile, trauma), the same WBC level has different implications.",
+        "reference_index": [
+          1,
+          2
+        ],
+        "missing": "Contextual limitation: the statement should specify this applies only in suspected pneumonia cases."
+      },
+      {
+        "type": "Unresolved Conflict",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "In atypical pneumonia, the WBC count usually is only minimally elevated, although in severe cases, counts of 20,000 to 30,000/mm3 may be present [1,2].",
+        "explanation": "This creates a contradiction: it first states that atypical pneumonia typically has minimal WBC elevation, then says severe cases can have very high counts. However, it does not reconcile how high WBC (>15,000) should be interpreted—does it rule out atypical pneumonia or not? The response fails to resolve this diagnostic ambiguity.",
+        "reference_index": [
+          1,
+          2
+        ],
+        "missing": "Explanation of how to interpret high WBC in the context of atypical vs. bacterial pneumonia."
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "A white count of 15,000 is often a sign of an infection, as most labs will have a normal value that is somewhat less than that [5].",
+        "explanation": "This presents infection as the default explanation for WBC >15,000, implying broad consensus. However, reference [19] notes that corticosteroids, stress, or familial variation can cause such levels without infection. The response ignores non-infectious causes, creating a false impression that elevated WBC always indicates infection.",
+        "reference_index": [
+          5
+        ],
+        "missing": "Acknowledgement that non-infectious causes (e.g., steroids, stress) are common and must be considered."
+      },
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "An elevated polymorphonuclear leukocyte count (particularly >15,000/mm3) on admission is predictive of severe disease and poor prognosis in patients with HUS [1].",
+        "explanation": "The response uses the same WBC threshold (>15,000) as in pneumonia or leukemia contexts, but here it's a prognostic marker in HUS. It fails to distinguish that the same numeric value has different meanings across diseases—one is diagnostic, another prognostic, another incidental—leading to conflation of clinical interpretations.",
+        "reference_index": [
+          1
+        ],
+        "missing": "Clarification that WBC >15,000 has context-dependent significance (diagnostic vs. prognostic vs. incidental)."
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "Leukocytosis is a response to noxious stimulus that is part of an inflammatory reaction; it is usually accompanied by certain cytologic abnormalities like Dohle bodies or toxic granulation [18].",
+        "explanation": "This presents cytologic abnormalities (Dohle bodies, toxic granulation) as typical features of leukocytosis in general. However, these are specific to 'toxic' changes in neutrophils during severe infection or stress, not all leukocytosis. The response fails to attribute this pattern only to certain types of neutrophilia, implying it's universal.",
+        "reference_index": [
+          18
+        ],
+        "missing": "Specification that these abnormalities are seen in 'toxic neutrophilia', not all forms of elevated WBC."
+      },
+      {
+        "type": "Unresolved Conflict",
+        "severity": "Severe",
+        "severity_level": 1,
+        "penalty_value": 0,
+        "statement": "In acute myelogenous leukemia (AML), WBC counts are usually above 15,000/microL and maybe as high as 1 million cells/mm3 [3].",
+        "explanation": "This implies very high WBC counts are common in AML, but elsewhere the response treats WBC >15,000 as a sign of infection or inflammation. It does not reconcile that the same lab value can indicate either a life-threatening malignancy or a treatable infection—without treatment implications being clearly differentiated. The danger of untreated elevation depends entirely on etiology, which is not addressed.",
+        "reference_index": [
+          3
+        ],
+        "missing": "Discussion of how clinical context determines whether high WBC is immediately dangerous or chronic."
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "A WBC count >20,000/mm3 is associated with a poor prognosis [1,2].",
+        "explanation": "This presents poor prognosis as a universal consequence of high WBC, but prognosis depends on the underlying condition (e.g., pneumonia vs. steroid-induced leukocytosis). Reference [19] shows non-pathological causes can elevate WBC without poor outcomes. The response falsely generalizes a context-specific finding.",
+        "reference_index": [
+          1,
+          2
+        ],
+        "missing": "Clarification that prognosis depends on etiology, not WBC count alone."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 152.1
+  }
+}

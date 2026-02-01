@@ -1,0 +1,369 @@
+{
+  "response": "7f077e7e-1723-3fec-9689-d803a93f2658",
+  "query": "how fast does news stories remain before people get over it",
+  "correctness_topical": {
+    "grade": 14.5,
+    "overall_judgement": "The response partially addresses the query about how fast news stories remain in public attention, drawing on relevant points from the references about the short lifespan of social media stories and the speed of information dissemination. However, it omits specific data from the sources that directly quantify the lifespan of news stories, such as the finding that 82% of interactions with short-form articles occur within the first two days. It also includes a minor irrelevance by discussing journalists' responsibilities without linking it directly to the duration of public attention. While no outright factual errors are present, the response lacks precision and completeness in conveying the most pertinent data available in the references.",
+    "judgement_details": [
+      {
+        "type": "Missing",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response fails to mention specific data from the references indicating how quickly news stories lose attention, such as the finding that 82% of interactions with short-form articles and 74% with long-form articles occur within the first two days of publication. This is directly relevant to the query about how fast people 'get over' news stories.",
+        "reference_index": [
+          15
+        ],
+        "statement": "Both long- and short-form news articles tend to have a very brief life span. Fully 82% of interactions with short-form articles begin within the first two days after publication, as did 74% of long-form interactions."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "explanation": "The statement 'Journalists are responsible for sharing their stories' is not directly relevant to the query about how long news stories remain in public attention. While it touches on dissemination, it does not address duration or public retention, and distracts from the core issue.",
+        "reference_index": [
+          2
+        ],
+        "statement": "Journalists are responsible for sharing their stories."
+      },
+      {
+        "type": "Missing",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response does not include the finding that return visitors spend significantly more time with articles than first-time visitors, which suggests that while initial attention is fleeting, some stories retain engagement. This nuance is missing and could inform a more complete answer about how long stories 'last'.",
+        "reference_index": [
+          15,
+          16
+        ],
+        "statement": "Return visitors to long-form articles spent 277 seconds with the article compared with 123 seconds for users overall. For short-form content, return visitors spent an average of 110 seconds of engaged time with the article compared with 57 seconds for users overall."
+      },
+      {
+        "type": "Misleading / Focus",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response emphasizes the high volume of tweets per second as a reason for short news lifespan, which is valid, but frames it as the primary cause without balancing it with data on actual user engagement duration or return visits. This creates a slightly exaggerated impression of transience without acknowledging that some content maintains longer engagement.",
+        "reference_index": [
+          2,
+          4
+        ],
+        "statement": "With active users in the billions, word travels quickly and then gets lost in the shuffle. Consider that roughly 6,000 tweets are shared per second (per second!) on Twitter. And that’s just one of many social networks. While that makes it a highly effective tool for communicating breaking news, it also makes the lifespan of a news story much shorter than it used to be."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 18.1,
+    "overall_judgement": "The response addresses the speed at which news stories lose public attention, particularly comparing traditional media and social media. However, it suffers from multiple logical coherence issues, including structural disorganization, unclear flow between ideas, repetition of content, and abrupt transitions without proper connective logic. These flaws impair the clarity and effectiveness of the argument.",
+    "judgement_details": [
+      {
+        "type": "Structural Issue",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response is presented as two bullet points with dense, unbroken paragraphs, creating a 'wall of text' effect that lacks clear subheadings or logical segmentation.",
+        "explanation": "The absence of paragraph breaks within each bullet point makes the text difficult to follow. Ideas are densely packed without visual or structural cues to guide the reader through distinct arguments or evidence, undermining readability and logical progression.",
+        "reference_index": [
+          0,
+          2
+        ]
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response jumps from discussing the lifespan of stories on blogs and Twitter to audience behavior on social media, then to tweet volume, without smooth transitions.",
+        "explanation": "The shift from the PEJ study findings directly into audience behavior and then to the statistic about 6,000 tweets per second lacks connecting logic or transitional phrases, creating a disjointed reading experience.",
+        "reference_index": [
+          0,
+          2
+        ]
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "statement": "The phrase 'Business stories that appear in traditional mass media outlets may not have as much direct influence on people as in the past, but they do influence bloggers.' appears twice in the references and is echoed in the response's opening.",
+        "explanation": "This sentence is redundant and appears nearly verbatim in multiple source references ([0] and [1]), suggesting the response draws from overlapping content, leading to unnecessary repetition in the underlying material and potential redundancy in presentation.",
+        "reference_index": [
+          0,
+          1
+        ]
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The idea that social media accelerates news and shortens story lifespan is repeated multiple times using similar phrasing and evidence (e.g., 6,000 tweets per second, short attention spans).",
+        "explanation": "The response reiterates the same core argument—shortened news lifespan due to social media volume and speed—without introducing new layers or deepening the analysis, resulting in conceptual redundancy.",
+        "reference_index": [
+          0,
+          2,
+          5,
+          10
+        ]
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The second bullet point begins by discussing audience behavior, shifts to journalists’ responsibilities, then abruptly discusses clutter and tweet volume, ending with the shortened news lifespan—without clear logical connectors.",
+        "explanation": "The sequence lacks a coherent narrative thread. The mention of 'Journalists are responsible for sharing their stories' appears abruptly and is not developed or connected to the surrounding discussion about user behavior or information overload.",
+        "reference_index": [
+          2
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 10.5,
+    "overall_judgement": "The response exhibits moderate stylistic coherence with some inconsistencies in tone, complexity, and perspective. While it maintains a general informative tone, there are noticeable shifts between formal reporting and casual commentary, as well as fluctuations in sentence structure and voice.",
+    "judgement_details": [
+      {
+        "type": "Tone Clash",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The phrase 'News Today, Gone Tomorrow' uses a casual, headline-style tone that contrasts with the otherwise analytical style of the text.",
+        "explanation": "This colloquial subheading introduces a journalistic flair that diverges from the surrounding expository and data-driven content, creating a tonal inconsistency.",
+        "reference_index": [
+          0
+        ]
+      },
+      {
+        "type": "Complexity Mismatch",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The sentence 'Consider that roughly 6,000 tweets are shared per second (per second!) on Twitter' uses an excited, conversational tone with repetition and exclamation, unlike the rest of the passage.",
+        "explanation": "The use of '(per second!)' with an exclamation mark introduces informal emphasis and emotional language inconsistent with the objective, research-oriented style used elsewhere.",
+        "reference_index": [
+          2
+        ]
+      },
+      {
+        "type": "Perspective Shift",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The text shifts from third-person objective reporting to second-person address with 'Consider that...' and 'You should consider...', introducing a direct appeal not otherwise present.",
+        "explanation": "The use of 'Consider that...' subtly shifts into a directive, second-person engagement with the reader, which contrasts with the otherwise detached, observational narrative style.",
+        "reference_index": [
+          2
+        ]
+      }
+    ]
+  },
+  "coverage_broad": {
+    "grade": 40.1,
+    "overall_judgement": "The query asks about the general speed at which news stories lose public attention, implying a need for a broad analysis covering various media types, story categories, and temporal dynamics. While the response discusses social media's fast news cycle and compares it with traditional media, it exhibits tunnel vision by focusing heavily on virality, platform mechanics (e.g., Twitter), and fake news without fully addressing how long different *types* of stories (e.g., political, celebrity, international) remain salient. It also lacks a synthesized overview of lifespan duration across contexts and omits psychological or societal factors influencing attention spans. Although rich in data points, it fails to integrate them into a cohesive, comprehensive answer to the core question.",
+    "judgement_details": [
+      {
+        "type": "Narrow Focus / Tunnel Vision",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response focuses disproportionately on social media dynamics—especially Twitter—and the mechanics of virality and fake news—while underrepresenting other key factors influencing how long news remains relevant, such as story type, cultural context, or media format. This narrow lens overlooks the broader landscape implied by the general query.",
+        "reference_index": [
+          0,
+          2,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "statement": "Stories that grab attention on social media may do so within hours of their first appearance on the blogosphere, and be gone just as quickly."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The response fails to address how different categories of news (e.g., political scandals, natural disasters, celebrity news) vary in longevity. This is a core aspect of understanding how fast people 'get over' news, yet it is entirely absent.",
+        "reference_index": [],
+        "statement": "The query asks about the general speed at which news stories fade, but the response does not compare durations across story types."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "There is no discussion of psychological or societal factors—such as emotional resonance, repetition in media, or offline discussion—that influence how long news remains salient in public consciousness, despite these being critical to the topic.",
+        "reference_index": [],
+        "statement": "The response does not explore why some stories stick in public memory longer than others beyond platform-driven virality."
+      },
+      {
+        "type": "Lack of Context",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "explanation": "The response jumps directly into comparisons between traditional and social media without first defining or contextualizing the concept of 'news lifespan' or offering a baseline understanding of how attention decay is measured.",
+        "reference_index": [
+          0
+        ],
+        "statement": "Business stories that appear in traditional mass media outlets may not have as much direct influence on people as in the past, but they do influence bloggers."
+      },
+      {
+        "type": "Superficial Listing",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response lists metrics (e.g., 13% of blog stories, 5% of Twitter stories) and platform facts (e.g., 6,000 tweets per second) without synthesizing them into a clear framework for understanding overall news retention trends.",
+        "reference_index": [
+          0,
+          2
+        ],
+        "statement": "The PEJ study found that only 13 percent of top stories on blogs in one week were still grabbing attention the next week. That was only true of 5 percent of stories shared on Twitter."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 32.5,
+    "overall_judgement": "The response addresses the fleeting nature of news on social media versus traditional media and cites data on story lifespan, but fails to provide a comprehensive, mechanistic explanation of how and why attention decays, lacks concrete examples of specific news stories and their decay patterns, and uses vague generalizations about audience behavior without deeper psychological or algorithmic context.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response states that social media stories 'grab attention within hours and are gone just as quickly' without elaborating on the underlying dynamics of attention decay or platform-specific mechanisms.",
+        "explanation": "This is a superficial characterization of news lifespan. It mentions speed but does not explore the cognitive, algorithmic, or social mechanisms (e.g., feed ranking, user fatigue, novelty bias) that cause rapid obsolescence.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Mechanistic explanation of why attention fades so quickly beyond 'clutter' and volume"
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The response references the PEJ study showing only 13% of blog stories and 5% of Twitter stories remain prominent the next week, but provides no specific story examples to illustrate this decay.",
+        "explanation": "Without concrete illustrations—such as how a specific political scandal or celebrity event rose and fell in visibility—the data remains abstract and less informative about real-world dynamics.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Named case studies or tracked stories showing lifecycle from emergence to obsolescence"
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "The response claims that '6,000 tweets per second' contribute to short story lifespan but does not explain how volume translates to displacement in user attention or platform feeds.",
+        "explanation": "It states a fact about tweet volume but fails to connect it to the mechanism of information overload—how algorithmic timelines prioritize novelty, suppress older content, or how user scrolling behavior truncates engagement.",
+        "reference_index": [
+          2
+        ],
+        "missing": "Explanation of how high throughput leads to short retention in user feeds and memory"
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response says 'word travels quickly and then gets lost in the shuffle' without defining 'shuffle' or quantifying 'quickly' beyond isolated stats.",
+        "explanation": "This is a metaphorical and imprecise description. It lacks operational definitions—e.g., half-life of engagement, decay curves, or retention metrics over time—which would make the claim more rigorous.",
+        "reference_index": [
+          2
+        ],
+        "missing": "Precise temporal metrics or models of attention decay (e.g., half-life of virality)"
+      },
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The response mentions that 'journalists are responsible for sharing their stories' but does not explore how journalistic practices have adapted to sustain attention.",
+        "explanation": "It touches on journalist behavior without depth—no discussion of headline optimization, timing strategies, or multi-platform distribution tactics used to extend news lifespan.",
+        "reference_index": [
+          2
+        ],
+        "missing": "In-depth analysis of journalistic countermeasures to short attention spans"
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The McChrystal 'media firestorm' is mentioned briefly but not analyzed in terms of timeline, spread velocity, or platform-specific amplification.",
+        "explanation": "Though a potentially rich example, it is only named without a breakdown of how many hours it took to escalate, which platforms drove it, or how long it remained dominant—missing a chance for deep illustrative analysis.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Detailed timeline and platform-by-platform diffusion analysis of the McChrystal story"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 102.6,
+    "overall_judgement": "The response discusses the short lifespan of news stories, particularly on social media, and contrasts it with traditional media. However, it presents conflicting data about how long people engage with news content without resolving the tension between 'short attention spans' and 'longer engagement with in-depth content.' These contradictions, along with blurred distinctions between story lifespan and user engagement time, create internal inconsistencies.",
+    "judgement_details": [
+      {
+        "type": "Unresolved Conflict",
+        "severity": "Severe",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "statement": "The response claims that news stories on social media have a very short lifespan and are 'gone just as quickly' after gaining attention, yet it does not address data showing that long-form articles receive significantly longer engagement times (e.g., 123 seconds vs. 57 seconds) and that return visitors spend up to 277 seconds on long-form content.",
+        "explanation": "The response emphasizes the fleeting nature of news on social media, citing rapid turnover and high volume of tweets. However, it omits or fails to reconcile this with evidence from the references (e.g., [14], [15], [16]) that users do spend extended time—over two minutes on average—with long-form news, especially when returning to articles. This creates an unresolved conflict between 'short lifespan' and 'measurable long engagement.'",
+        "reference_index": [
+          0,
+          2,
+          14,
+          15,
+          16
+        ],
+        "missing": "The response fails to acknowledge that while news cycles are fast, user engagement with certain types of content can be sustained, suggesting a nuance missing from the analysis."
+      },
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Major",
+        "severity_level": 3,
+        "penalty_value": 100,
+        "statement": "The response conflates the 'lifespan of a news story in the public eye' with 'individual user engagement time,' treating them as the same metric when they are distinct: one measures cultural salience over time, the other measures time spent reading an article.",
+        "explanation": "The response uses statistics about how quickly stories disappear from social media feeds (e.g., 5% of Twitter stories persisting a week) to support claims about short attention spans, but then implicitly links this to how long users spend on articles—without distinguishing between the duration a story remains trending and how long individuals actually read. This blurs two different phenomena.",
+        "reference_index": [
+          0,
+          2,
+          14,
+          15
+        ],
+        "missing": "The response lacks a clear distinction between story virality/decay and depth of user engagement, leading to a misleading narrative about 'how fast people get over news.'"
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The response implies that all news stories now have a uniformly short lifespan due to social media, suggesting a universal trend without acknowledging exceptions such as persistent coverage of major figures like President Trump.",
+        "explanation": "While the response emphasizes the brevity of news cycles, it ignores reference [8], which shows that some stories—like coverage of President Trump—have near-constant presence and do not follow the 'here today, gone tomorrow' pattern. Presenting rapid turnover as the universal rule constitutes false consensus.",
+        "reference_index": [
+          2,
+          8
+        ],
+        "missing": "The response omits acknowledgment of long-tail or sustained news stories, creating an oversimplified and inaccurate generalization."
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "statement": "The claim that 'roughly 6,000 tweets are shared per second' is presented as a general fact without specifying the source or timeframe, despite such metrics typically being time-sensitive and context-dependent.",
+        "explanation": "Although this statistic appears in multiple references ([2], [4], [9]), the response fails to attribute it to any study or organization, presenting it as common knowledge. This undermines credibility and obscures whether the data is current, estimated, or verified.",
+        "reference_index": [
+          2
+        ],
+        "missing": "A proper attribution (e.g., 'according to Twitter's 2013 data') is missing, making the claim appear as an unverified assertion."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 37.8
+  }
+}

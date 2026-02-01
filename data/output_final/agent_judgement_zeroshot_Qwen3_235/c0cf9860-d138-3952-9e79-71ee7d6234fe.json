@@ -1,0 +1,465 @@
+{
+  "response": "c0cf9860-d138-3952-9e79-71ee7d6234fe",
+  "query": "how does the global environment differ from the outdoor environment?",
+  "correctness_topical": {
+    "grade": 85.5,
+    "overall_judgement": "The response contains several factual inaccuracies, misrepresentations, and irrelevant details when compared to the provided references. Key errors include incorrect definitions of Earth's spheres, mischaracterization of the atmosphere and ozone layer, and inclusion of unsupported or extraneous scientific claims. Some correct information is present, especially in the initial comparison of global and outdoor environments, but the later sections deviate significantly from the reference material.",
+    "judgement_details": [
+      {
+        "type": "factual_error",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The atmosphere is incorrectly defined as being 'formed by the ozone layer of the earth.' The ozone layer is a part of the atmosphere (specifically the stratosphere), not the defining component of the entire atmosphere. The atmosphere consists of multiple layers and gases, not just the ozone layer.",
+        "reference_index": [
+          2,
+          3
+        ],
+        "statement": "The atmosphere formed by the ozone layer of the earth [2,3]."
+      },
+      {
+        "type": "factual_error",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The biosphere is incorrectly said to 'include climate, geology, the oceans, and human pollution' as inherent components. While the biosphere interacts with these elements, the references describe the biosphere as the sum of all living organisms and their habitats, not as a container that includes climate or pollution as default components.",
+        "reference_index": [
+          2,
+          3
+        ],
+        "statement": "And by default, the biosphere includes climate, geology, the oceans, and human pollution [2,3]."
+      },
+      {
+        "type": "factual_error",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The claim that the biosphere 'consists of the lower atmosphere, land and oceans, rivers and lakes' is partially correct, but the references define the biosphere more precisely as the sum of all ecosystems or biomes where life exists, not just a list of physical locations. The phrasing oversimplifies and misrepresents the biosphere's scientific definition.",
+        "reference_index": [
+          2,
+          3
+        ],
+        "statement": "The biosphere consists of the lower atmosphere, land and oceans, rivers and lakes, where living beings are found [2,3]."
+      },
+      {
+        "type": "factual_error",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The statement that 'the global environment consists of three main subdivisions: the hydrosphere, the lithosphere, and the atmosphere' is not supported by the references. The references mention these spheres in a general Earth systems context but do not define the 'global environment' as being composed of these three. The global environment is instead discussed in terms of globally impactful phenomena like ozone depletion and climate change.",
+        "reference_index": [
+          2,
+          3
+        ],
+        "statement": "The global environment consists of three main subdivisions: the hydrosphere that includes all components of water, the lithosphere comprising the solid components of the Earth's crust, and the atmosphere formed by the ozone layer of the earth [2,3]."
+      },
+      {
+        "type": "irrelevant_section",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The discussion about primary producers and food webs, while related to ecology, is not relevant to the query about the difference between global and outdoor environments. This information is not mentioned in the references in this context and distracts from the core topic.",
+        "reference_index": [
+          17
+        ],
+        "statement": "The biosphere is the basis of the study of ecology, or the study of life, in which scientists like to study things such as primary producers, which are found at the bottom of food webs, they are good indicators of where other forms of life can be found [17]."
+      },
+      {
+        "type": "factual_error",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The lithosphere is correctly described in reference [17] as including the crust and upper mantle, but this detail is not mentioned in references [2,3], which only mention the crust. The response combines information from different references without distinction, creating a misleading synthesis. Moreover, the initial claim that the global environment is subdivided into these spheres is not supported by the references.",
+        "reference_index": [
+          17
+        ],
+        "statement": "The lithosphere, consists of earth's crust and upper part of its mantle, the atmosphere, the mixture of gases held around the earth by its gravitational pull, and the hydrosphere the sum total of all of earth's water in any form [17]."
+      },
+      {
+        "type": "omission",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The response fails to clarify that the key distinction between global and outdoor environments lies in scale and interconnectedness—global issues like ozone depletion or climate change affect the entire planet, while outdoor environments are local. While this is partially addressed, the deeper systemic interconnectivity emphasized in reference [4] (e.g., atmospheric circulation spreading pollutants globally) is omitted.",
+        "reference_index": [
+          4
+        ],
+        "statement": "The global environment includes aspects of the environment that are globally determined, such as ozone depletion that can affect an individual's health [0,1]."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 81.5,
+    "overall_judgement": "The response begins with a clear comparison between the global and outdoor environments but quickly loses logical coherence through structural disorganization, repetition, and inconsistent focus. It introduces and re-introduces the components of the global environment, contradicts itself in describing the atmosphere and biosphere, and drifts into tangential content about ecology and climate change without clear transitions. The flow is further disrupted by redundant statements and a lack of progression from one idea to the next.",
+    "judgement_details": [
+      {
+        "type": "structural_disorganization",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "The global environment consists of three main subdivisions: the hydrosphere that includes all components of water, the lithosphere comprising the solid components of the Earth's crust, and the atmosphere formed by the ozone layer of the earth [2,3].",
+        "explanation": "This statement incorrectly defines the atmosphere solely as 'formed by the ozone layer,' which is a misrepresentation (the ozone layer is a part of the atmosphere, not its defining feature). It introduces the 'three main subdivisions' but later includes the biosphere as a key component, implying four spheres, which contradicts the initial tripartite structure.",
+        "reference_index": [
+          2,
+          3
+        ]
+      },
+      {
+        "type": "structural_disorganization",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "The biosphere consists of the lower atmosphere, land and oceans, rivers and lakes, where living beings are found [2,3].",
+        "explanation": "This definition of the biosphere is introduced after the claim that the global environment has only three subdivisions, creating structural confusion. The biosphere is presented as both separate from and part of the global environment without clarification, disrupting logical flow.",
+        "reference_index": [
+          2,
+          3
+        ]
+      },
+      {
+        "type": "repetition",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The lithosphere, consists of earth's crust and upper part of its mantle, the atmosphere, the mixture of gases held around the earth by its gravitational pull, and the hydrosphere the sum total of all of earth's water in any form [17].",
+        "explanation": "This restates information already provided about the lithosphere, atmosphere, and hydrosphere, repeating definitions nearly verbatim from earlier in the response. This redundancy breaks logical progression and suggests a lack of cohesive structure.",
+        "reference_index": [
+          17
+        ]
+      },
+      {
+        "type": "contradiction",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "The atmosphere formed by the ozone layer of the earth [2,3].",
+        "explanation": "This contradicts the later, more accurate description of the atmosphere as 'the mixture of gases held around the earth by its gravitational pull' [17]. Presenting the atmosphere as defined by the ozone layer is scientifically incorrect and creates internal inconsistency.",
+        "reference_index": [
+          2,
+          3
+        ]
+      },
+      {
+        "type": "lack_of_progression",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The biosphere is the basis of the study of ecology, or the study of life, in which scientists like to study things such as primary producers, which are found at the bottom of food webs, they are good indicators of where other forms of life can be found [17].",
+        "explanation": "This shifts abruptly from discussing environmental spheres to the study of ecology and food webs without transition or relevance to the original query about the difference between global and outdoor environments. It introduces a new topic without integration into the prior argument.",
+        "reference_index": [
+          17
+        ]
+      },
+      {
+        "type": "repetition",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "All of these spheres interact with one another, with the biosphere touching and having an impact on them all [17].",
+        "explanation": "This idea of interaction among spheres was already implied in earlier descriptions but is repeated without adding new insight, contributing to a circular rather than progressive structure.",
+        "reference_index": [
+          17
+        ]
+      },
+      {
+        "type": "structural_disorganization",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "And by default, the biosphere includes climate, geology, the oceans, and human pollution [2,3].",
+        "explanation": "This vague and imprecise claim ('by default') lacks logical grounding and conflates categories (e.g., 'climate' and 'human pollution' are not components of the biosphere in the same way as land and water). It disrupts the categorization logic established earlier.",
+        "reference_index": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 6,
+    "overall_judgement": "The response exhibits moderate stylistic coherence with minor inconsistencies in tone and phrasing. While the overall style remains academic and informative, there are instances of repetitive definitions, slight shifts in formality, and redundant phrasing that disrupt the flow and uniformity of the writing.",
+    "judgement_details": [
+      {
+        "type": "redundant_definition",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The global environment consists of three main subdivisions: the hydrosphere that includes all components of water, the lithosphere comprising the solid components of the Earth's crust, and the atmosphere formed by the ozone layer of the earth [2,3].",
+        "explanation": "This sentence defines the hydrosphere, lithosphere, and atmosphere in a formal, encyclopedic tone. However, it inaccurately describes the atmosphere as 'formed by the ozone layer,' which is scientifically imprecise and stylistically inconsistent with the more accurate definition provided later.",
+        "reference_index": [
+          2,
+          3
+        ]
+      },
+      {
+        "type": "inconsistent_definition",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The lithosphere, consists of earth's crust and upper part of its mantle, the atmosphere, the mixture of gases held around the earth by its gravitational pull, and the hydrosphere the sum total of all of earth's water in any form [17].",
+        "explanation": "This restatement of the spheres uses a more accurate and formal scientific tone, especially in defining the atmosphere as a mixture of gases. This creates a stylistic inconsistency with the earlier, less precise definition [2,3], making the text feel repetitive and uneven in technical rigor.",
+        "reference_index": [
+          17
+        ]
+      },
+      {
+        "type": "tone_shift",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "scientists like to study things such as primary producers, which are found at the bottom of food webs, they are good indicators of where other forms of life can be found [17].",
+        "explanation": "The phrase 'scientists like to study things such as' introduces a casual, conversational tone that contrasts with the otherwise formal academic style of the response. This shift undermines stylistic coherence.",
+        "reference_index": [
+          17
+        ]
+      },
+      {
+        "type": "redundant_content",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The biosphere consists of the lower atmosphere, land and oceans, rivers and lakes, where living beings are found [2,3]. And by default, the biosphere includes climate, geology, the oceans, and human pollution [2,3].",
+        "explanation": "The second sentence ('And by default...') introduces vague and conceptually ambiguous phrasing ('by default') that is not used elsewhere in the text. It also conflates physical components with abstract influences (e.g., pollution), creating a jarring shift in categorization style.",
+        "reference_index": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  "coverage_broad": {
+    "grade": 4,
+    "overall_judgement": "The response provides a detailed explanation of the global environment, including its components (atmosphere, hydrosphere, lithosphere, biosphere) and interactions among them, as well as examples like ozone depletion and climate change. However, it lacks balanced coverage of the 'outdoor environment' beyond a brief definitional contrast. The discussion of the outdoor environment is minimal, lacking depth, examples, or elaboration on how it differs functionally and spatially from the global environment. This results in a significant imbalance in scope, focusing heavily on the global while underrepresenting the outdoor environment, thus failing to provide a comprehensive comparative analysis.",
+    "judgement_details": [
+      {
+        "type": "narrow_focus_on_one_concept",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response extensively elaborates on the global environment, including its subdivisions and systemic interactions, but provides only a superficial definition of the outdoor environment without further development or examples.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          17
+        ],
+        "statement": "The outdoor environment refers to environmental factors that can directly influence an individual's health, but are specific to that individual's location [0,1]."
+      },
+      {
+        "type": "lack_of_comparative_analysis",
+        "severity": "Unrated",
+        "severity_level": 0,
+        "penalty_value": 0,
+        "explanation": "While both terms are introduced, the response fails to systematically compare or contrast the two environments in terms of scale, scope, human interaction, or policy implications. The comparison remains limited to a single sentence without expansion.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "statement": "The global environment includes aspects of the environment that are globally determined, such as ozone depletion that can affect an individual's health [0,1]. On the other hand, the outdoor environment refers to environmental factors that can directly influence an individual's health, but are specific to that individual's location [0,1]."
+      },
+      {
+        "type": "missing_dimensions_of_outdoor_environment",
+        "severity": "Unrated",
+        "severity_level": 0,
+        "penalty_value": 0,
+        "explanation": "The outdoor environment is not explored in terms of its components (e.g., local air quality, urban green spaces, noise, light pollution), its relationship to human behavior, or how it interfaces with the global environment, resulting in incomplete coverage.",
+        "reference_index": [],
+        "statement": "The outdoor environment refers to environmental factors that can directly influence an individual's health, but are specific to that individual's location [0,1]."
+      },
+      {
+        "type": "overemphasis_on_global_subsystems",
+        "severity": "Unrated",
+        "severity_level": 0,
+        "penalty_value": 0,
+        "explanation": "The response devotes multiple paragraphs to describing the hydrosphere, lithosphere, atmosphere, and biosphere, drawing on multiple references, while offering no equivalent breakdown for the outdoor environment, creating a disproportionate focus.",
+        "reference_index": [
+          2,
+          3,
+          17
+        ],
+        "statement": "The global environment consists of three main subdivisions: the hydrosphere that includes all components of water, the lithosphere comprising the solid components of the Earth's crust, and the atmosphere formed by the ozone layer of the earth [2,3]."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 64,
+    "overall_judgement": "The response provides a basic structural distinction between the global and outdoor environments and describes Earth's spheres, but lacks deep explanatory power, specific examples, and mechanistic explanations required for strong deep coverage. It repeats information, uses vague phrasing, and fails to fully differentiate the two environments in a meaningful, systemic way.",
+    "judgement_details": [
+      {
+        "type": "superficial_definition",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The global environment includes aspects of the environment that are globally determined, such as ozone depletion that can affect an individual's health.",
+        "explanation": "This defines the global environment only by example (ozone depletion) without explaining the systemic, interconnected nature of global processes or how they fundamentally differ in scale, causality, and feedback mechanisms from local outdoor environments.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "missing": "Mechanistic explanation of global-scale processes (e.g., atmospheric circulation, ocean currents) and their long-term, transboundary impacts"
+      },
+      {
+        "type": "incomplete_comparison",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The outdoor environment refers to environmental factors that can directly influence an individual's health, but are specific to that individual's location.",
+        "explanation": "The outdoor environment is described only in terms of spatial specificity and health impact, without elaborating on its components (e.g., local air quality, urban heat islands, noise pollution) or contrasting its temporal and spatial dynamics with the global environment.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "missing": "Concrete examples and systemic description of outdoor environmental factors and how they may or may not scale up to global effects"
+      },
+      {
+        "type": "repetitive_content",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "The global environment consists of three main subdivisions: the hydrosphere... lithosphere... atmosphere... biosphere...",
+        "explanation": "The description of Earth's spheres is repeated across multiple parts of the response with nearly identical wording, suggesting a lack of progressive elaboration or synthesis. This redundancy substitutes for deeper analysis.",
+        "reference_index": [
+          2,
+          3,
+          17
+        ],
+        "missing": "Integration of how these spheres interact dynamically across scales to differentiate global vs. local environmental behavior"
+      },
+      {
+        "type": "inaccurate_description",
+        "severity": "Severe",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "statement": "The atmosphere formed by the ozone layer of the earth",
+        "explanation": "This is scientifically incorrect. The atmosphere is not 'formed by' the ozone layer; rather, the ozone layer is a region within the stratosphere. This reflects a lack of precision that undermines deep understanding.",
+        "reference_index": [
+          2,
+          3
+        ],
+        "missing": "Accurate structural and functional description of atmospheric layers and their roles in global vs. local processes"
+      },
+      {
+        "type": "vague_linkage",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "This level of analysis may seem abstract, but often has practical applications.",
+        "explanation": "The claim of practical applications is made without specifying what those applications are, how they are implemented, or who uses them—missing an opportunity to deepen the explanation with real-world relevance.",
+        "reference_index": [
+          2,
+          3
+        ],
+        "missing": "Specific examples of applied global environmental science (e.g., international climate policy, satellite monitoring)"
+      },
+      {
+        "type": "underdeveloped_example",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "Global climate change, for example, examines how the destruction of an ecosystem, for example, the Amazon rainforest, can lead to a loss of global climate regulation and affect life on a part of the Earth far from the Amazon.",
+        "explanation": "While this example is promising, it lacks mechanistic detail—such as how deforestation affects carbon sequestration, albedo, or atmospheric moisture transport—to explain the actual causal chain from local action to global impact.",
+        "reference_index": [
+          2
+        ],
+        "missing": "Explanation of biogeochemical cycles, teleconnections, or climate feedback loops linking local ecosystems to global systems"
+      },
+      {
+        "type": "missed_interconnection",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "All of these spheres interact with one another, with the biosphere touching and having an impact on them all.",
+        "explanation": "The interaction of spheres is asserted but not elaborated. No specific processes (e.g., photosynthesis affecting atmosphere and hydrosphere, weathering linking biosphere and lithosphere) are described to demonstrate deep understanding.",
+        "reference_index": [
+          17
+        ],
+        "missing": "Detailed examples of cross-sphere interactions that illustrate global environmental dynamics"
+      },
+      {
+        "type": "narrow_scientific_focus",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The biosphere is the basis of the study of ecology... scientists like to study things such as primary producers...",
+        "explanation": "This shifts focus to ecology and food webs without connecting back to the core question about environmental scale. It introduces new concepts without integrating them into a deeper comparison of global vs. outdoor environments.",
+        "reference_index": [
+          17
+        ],
+        "missing": "Linkage between ecological studies and scale-dependent environmental analysis (local vs. global)"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 46,
+    "overall_judgement": "The response contains multiple internal consistency issues, primarily revolving around conflicting definitions of the global environment's components, incorrect attribution of the atmosphere's composition, and contradictory statements about the biosphere's inclusion of other spheres. These inconsistencies suggest a conflation of distinct environmental spheres and an oversimplification or misrepresentation of scientific concepts.",
+    "judgement_details": [
+      {
+        "type": "False Consensus / Misrepresentation of Components",
+        "severity": "Severe",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "statement": "The global environment consists of three main subdivisions: the hydrosphere, the lithosphere, and the atmosphere formed by the ozone layer of the earth.",
+        "explanation": "This is scientifically inaccurate. The atmosphere is not 'formed by the ozone layer'; the ozone layer is a part of the stratosphere within the atmosphere. Presenting the atmosphere as 'formed by the ozone layer' falsely equates a subcomponent with the whole, creating a fundamental misconception.",
+        "reference_index": [
+          2,
+          3
+        ],
+        "missing": "Clarification that the ozone layer is a region within the atmosphere, not its defining or sole component."
+      },
+      {
+        "type": "Contradictory Definitions",
+        "severity": "Severe",
+        "severity_level": 3,
+        "penalty_value": 0,
+        "statement": "The global environment consists of three main subdivisions: the hydrosphere, the lithosphere, and the atmosphere... The biosphere consists of the lower atmosphere, land and oceans, rivers and lakes...",
+        "explanation": "The response first defines the global environment as consisting of three subdivisions (excluding the biosphere), but then separately introduces the biosphere as overlapping with these same spheres. This creates confusion: is the biosphere a fourth component of the global environment, or is it an emergent layer? The lack of hierarchical clarity contradicts standard Earth systems science, where the biosphere interacts with but is distinct from the other spheres.",
+        "reference_index": [
+          2,
+          3
+        ],
+        "missing": "A clear statement that the global environment includes four interconnected spheres: atmosphere, hydrosphere, lithosphere, and biosphere."
+      },
+      {
+        "type": "Inconsistent Attribution of Components",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The lithosphere, consists of earth's crust and upper part of its mantle, the atmosphere, the mixture of gases held around the earth by its gravitational pull, and the hydrosphere the sum total of all of earth's water in any form.",
+        "explanation": "This sentence (from ref [17]) correctly defines the lithosphere, atmosphere, and hydrosphere, but contradicts the earlier definition (ref [2,3]) that described the atmosphere as 'formed by the ozone layer'. This inconsistency in describing the same component undermines the reliability of the information.",
+        "reference_index": [
+          17
+        ],
+        "missing": "A unified and consistent definition of the atmosphere across all references within the response."
+      },
+      {
+        "type": "Overlapping and Ambiguous Inclusion",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "By default, the biosphere includes climate, geology, the oceans, and human pollution.",
+        "explanation": "This is vague and scientifically imprecise. The biosphere does not 'include' climate or geology; rather, it interacts with climatic and geological systems. Similarly, 'the oceans' are part of the hydrosphere, not the biosphere, though they host biospheric activity. This conflation of domains blurs disciplinary boundaries and creates conceptual confusion.",
+        "reference_index": [
+          2,
+          3
+        ],
+        "missing": "Precise language distinguishing between components (e.g., oceans as hydrosphere) and the life they support (biosphere)."
+      },
+      {
+        "type": "Contradictory Scope of Biosphere",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "statement": "All of these spheres interact with one another, with the biosphere touching and having an impact on them all.",
+        "explanation": "This statement (ref [17]) correctly presents the biosphere as interacting with other spheres, which contradicts the earlier implication (ref [2,3]) that the biosphere 'includes' them. The shift from 'includes' to 'interacts with' represents a significant conceptual inconsistency in how the biosphere is framed.",
+        "reference_index": [
+          17
+        ],
+        "missing": "Consistent framing of the biosphere as an interacting system rather than a container of other Earth spheres."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 48.4
+  }
+}

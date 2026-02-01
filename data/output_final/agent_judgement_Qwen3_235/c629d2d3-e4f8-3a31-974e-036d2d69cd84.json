@@ -1,0 +1,325 @@
+{
+  "response": "c629d2d3-e4f8-3a31-974e-036d2d69cd84",
+  "query": "how fast does news stories remain before people get over it",
+  "correctness_topical": {
+    "grade": 72,
+    "overall_judgement": "The response generally aligns with the references regarding the short lifespan of news stories on social media and the role of platforms like Twitter in accelerating the news cycle. However, it makes specific claims that either lack direct support, misrepresent the sources, or introduce information not present in the references. There are also omissions of key nuances and some irrelevant elaborations.",
+    "judgement_details": [
+      {
+        "type": "Factual Error",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The response claims that 'studies reveal that only a small fraction of news shared on blogs and Twitter remains relevant for more than a week, with just 13 percent of blogged stories retaining interest beyond a week and a mere 5 percent on Twitter doing the same,' citing [0,1]. However, the sources state that only 13 percent of top stories on blogs and 5 percent on Twitter were still grabbing attention the next week — meaning the drop-off occurred within one week, not 'beyond a week.' The phrasing in the response inaccurately implies longevity of over a week, when the sources emphasize rapid decline within a week.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "statement": "Studies reveal that only a small fraction of news shared on blogs and Twitter remains relevant for more than a week, with just 13 percent of blogged stories retaining interest beyond a week and a mere 5 percent on Twitter doing the same [0, 1]."
+      },
+      {
+        "type": "Factual Error",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "The response states that the General Stanley McChrystal case 'underscores the volatile and transient nature of news in the modern digital age [0]' and implies the story ended before the Rolling Stone article was published. While [0] confirms the media firestorm erupted due to Twitter, Web reports, and cable news, and that it ended his post in two days, it does not state the story was not yet published. The source says the story 'in two days abruptly ended the general’s post... before the story ever appeared in Rolling Stone' — meaning the print version had not yet been released, but the story was already public. The response misrepresents this timeline by implying the story gained traction before any publication, when in fact it was already public via other media.",
+        "reference_index": [
+          0
+        ],
+        "statement": "The case of General Stanley McChrystal, whose career ended abruptly following a burst of discussions across Twitter and cable news, underscores the volatile and transient nature of news in the modern digital age [0]."
+      },
+      {
+        "type": "Factual Error",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The response claims Twitter is characterized by 'thousands of posts per second' [2,4], but [2] and [4] both specify 'roughly 6,000 tweets are shared per second.' The phrase 'thousands' is vague and understates the specific figure provided in the sources, thus misrepresenting the data.",
+        "reference_index": [
+          2,
+          4
+        ],
+        "statement": "This fast-paced exchange of information, characterized by platforms like Twitter, known for their thousands of posts per second, further accelerates the news cycle beyond traditional media's capabilities [2, 4]."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response discusses how 'stories lacking a visceral or emotional hook may not endure long enough to spark extended discourse, necessitating unique strategies for news outlets to maintain engagement [1,5].' While [1] mentions that bloggers cover stories that elicit emotion, and [5] discusses viral content, the response extrapolates this into a general claim about 'news outlets' needing strategies, which is not directly supported. The sources focus on social media dynamics, not strategic imperatives for news organizations, making this a speculative extension.",
+        "reference_index": [
+          1,
+          5
+        ],
+        "statement": "In this contemporary landscape, stories lacking a visceral or emotional hook may not endure long enough to spark extended discourse, necessitating unique strategies for news outlets to maintain engagement [1, 5]."
+      },
+      {
+        "type": "Missing",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response fails to mention that traditional news media may stay on a major story for weeks or months [0,1], which provides a critical contrast to the short social media cycle. This omission weakens the comparative analysis implied in the query about how fast people 'get over' news, as it ignores the persistence of traditional media coverage.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "statement": "The response does not mention that traditional news media may stay on a major story for weeks or months, unlike social media."
+      },
+      {
+        "type": "Missing",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response does not include data from [15] and [16] showing that 82% of interactions with short-form articles occur within the first two days, rising to 89% by day three — concrete metrics that directly address the lifespan of news stories. These figures would strengthen the response's topical accuracy by providing precise temporal data.",
+        "reference_index": [
+          15,
+          16
+        ],
+        "statement": "Both long- and short-form news articles tend to have a very brief life span. Fully 82% of interactions with short-form articles begin within the first two days after publication, as did 74% of long-form interactions."
+      },
+      {
+        "type": "Misleading / Focus",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response frames the entire discussion around the lifespan of 'news stories' in general, but the sources primarily discuss social media dynamics, particularly blogs and Twitter. This creates a misleading generalization that all news stories today have a short lifespan, while the sources clearly distinguish between traditional media (longer coverage) and social media (shorter attention spans). The response blurs this distinction, potentially misleading the reader about the overall news ecosystem.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "statement": "News stories today have a remarkably short lifespan, often diminishing from public consciousness within hours or days."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 4,
+    "overall_judgement": "The response is logically coherent overall, with a clear structure and consistent argumentation about the short lifespan of news stories in the digital age. It introduces the topic, supports claims with data and examples, and elaborates on contributing factors such as social media velocity and content overload. However, there are minor issues related to repetition and flow that slightly disrupt the otherwise smooth progression of ideas.",
+    "judgement_details": [
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The response states that 'only 13 percent of blogged stories retaining interest beyond a week and a mere 5 percent on Twitter doing the same' and later reiterates similar statistics without adding new insight.",
+        "explanation": "This information is drawn from the same source [0, 1] and is repeated in substance across the first and third paragraphs, creating redundancy. While slight rephrasing occurs, the core data is reiterated unnecessarily, weakening the efficiency of the argument.",
+        "reference_index": [
+          0,
+          1
+        ]
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The transition from the General Stanley McChrystal example to the broader discussion of emotional hooks in news stories is abrupt.",
+        "explanation": "After discussing McChrystal’s case as an example of rapid news dissemination, the text shifts to the idea that stories without emotional hooks fail to endure. While thematically related, the connection is not explicitly drawn, creating a slight zig-zag in logic that could confuse readers about whether the McChrystal story lacked emotional resonance or exemplified virality.",
+        "reference_index": [
+          0,
+          1,
+          5
+        ]
+      },
+      {
+        "type": "Structural Issue",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The final paragraph begins discussing strategies for news outlets but does not fully develop this idea into a conclusion.",
+        "explanation": "The response ends with a forward-looking statement about news organizations navigating a changing environment, but it lacks a synthesized conclusion that ties back to the original question about how fast people 'get over' news. This results in a slightly underdeveloped ending that feels open-ended rather than resolved.",
+        "reference_index": [
+          1,
+          3,
+          4
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistent academic and formal tone throughout, using precise vocabulary and an objective perspective. There are no detectable shifts in tone, complexity, or voice. The style remains aligned with an analytical or research-oriented exposition on the lifespan of news stories in the digital age.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 35.1,
+    "overall_judgement": "The query asks about the duration news stories remain relevant before people 'get over it,' implying a broad examination of news longevity across different contexts, platforms, and types of stories. While the response focuses heavily on the short lifespan of news on social media—especially Twitter and blogs—it largely ignores other key dimensions such as long-lasting political stories, recurring news cycles, investigative journalism, or differences in story retention based on topic (e.g., celebrity vs. policy news). This creates a narrow, platform-specific view that fails to represent the full spectrum of how news longevity varies. Additionally, it lacks a clear definition of 'getting over' a news story and omits counterexamples of enduring stories.",
+    "judgement_details": [
+      {
+        "type": "Narrow Focus / Tunnel Vision",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response fixates on the short lifespan of news on social media platforms like Twitter and blogs, citing specific statistics about retention rates, but fails to address how long different *types* of news (e.g., political scandals, wars, celebrity events, scientific discoveries) last in public attention. It ignores broader factors influencing longevity beyond platform mechanics.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "statement": "Studies reveal that only a small fraction of news shared on blogs and Twitter remains relevant for more than a week, with just 13 percent of blogged stories retaining interest beyond a week and a mere 5 percent on Twitter doing the same."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response does not acknowledge that some news stories—such as those involving major political figures or ongoing crises—can remain in public discourse for extended periods. For example, references mention that coverage of President Trump was 'near-constant,' which contradicts the universal claim of short news lifespan but is not integrated into the analysis.",
+        "reference_index": [
+          8
+        ],
+        "statement": "President Trump Coverage of President Trump, for example, is near-constant. It ebbs and flows and there are slight differences between networks, but for the most part, it’s always there."
+      },
+      {
+        "type": "Lack of Context",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "explanation": "The response assumes the reader understands what is meant by 'people getting over' a news story without defining the concept—whether it refers to emotional disengagement, reduced media coverage, or declining online engagement. This lack of conceptual framing limits the clarity and scope of the discussion.",
+        "reference_index": [],
+        "statement": "News stories today have a remarkably short lifespan, often diminishing from public consciousness within hours or days."
+      },
+      {
+        "type": "Superficial Listing",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response lists factors contributing to short news cycles (e.g., volume of content, emotional hooks, platform speed) without deeply exploring how these interact or vary across different media ecosystems (e.g., traditional vs. digital, national vs. local news). The discussion remains at a surface level, relying on assertions supported by narrow data points.",
+        "reference_index": [
+          1,
+          3,
+          5
+        ],
+        "statement": "This short span is also compounded by the overwhelming volume of content, making it challenging for individual stories to capture lasting attention amidst the constant emergence of new information."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 46,
+    "overall_judgement": "The response provides a moderate level of depth on the short lifespan of news stories in the digital age, supported by statistics and one illustrative example (General McChrystal). However, it lacks deeper explanatory mechanisms, additional concrete examples, and specific data interpretation that would fully satisfy the 'deep_coverage' criterion. While it references studies and platform dynamics, it does not fully unpack the psychological, algorithmic, or structural reasons behind news decay, nor does it explore counterexamples or longitudinal trends in detail.",
+    "judgement_details": [
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "The response states that social media accelerates the news cycle but does not explain how platform algorithms, user behavior, or economic incentives mechanistically contribute to the shortening of news lifespan.",
+        "explanation": "It mentions 'rapid dissemination' and 'thousands of posts per second' as causes, but fails to delve into the underlying mechanisms—such as algorithmic curation favoring novelty, engagement-driven ranking, or the economic pressure on outlets to produce volume over longevity—that actively shorten attention spans.",
+        "reference_index": [
+          2,
+          4
+        ],
+        "missing": "Explanation of algorithmic curation, feedback loops in engagement metrics, or business models driving content velocity"
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "Only one detailed example (General McChrystal) is provided to illustrate the fleeting nature of news, with no additional case studies or comparative events.",
+        "explanation": "A single anecdote is insufficient to demonstrate a broad trend. The response would benefit from contrasting short-lived stories (e.g., viral scandals) with long-lasting ones (e.g., Watergate, climate change) to show variation and the conditions under which stories endure.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Additional real-world examples of news stories with varying durations of public attention"
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "The claim that stories without 'visceral or emotional hook' do not endure is asserted without explaining why emotional content has longer staying power.",
+        "explanation": "The psychological or neurological mechanisms—such as emotional arousal enhancing memory retention or social sharing of moral outrage—are not addressed, leaving the claim underdeveloped.",
+        "reference_index": [
+          1,
+          5
+        ],
+        "missing": "Explanation of cognitive or social psychology principles behind emotional engagement and memory retention"
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response uses vague terms like 'unique strategies' and 'navigating this rapidly changing environment' without specifying what those strategies are.",
+        "explanation": "Phrases like 'news organizations must navigate' or 'necessitating unique strategies' are non-actionable and lack specificity. What strategies? Paywalls? Serialized reporting? Newsletter deep dives? These are left undefined.",
+        "reference_index": [
+          1,
+          5
+        ],
+        "missing": "Concrete strategies news outlets use to extend story lifespan (e.g., follow-up reporting, newsletters, multimedia packages)"
+      },
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The reference to 'overwhelming volume of content' is mentioned multiple times but not analyzed in depth.",
+        "explanation": "While the high volume of content is cited as a reason for short attention spans, there is no exploration of how information overload affects cognitive processing, attention economics, or the 'paradox of choice' in media consumption.",
+        "reference_index": [
+          3,
+          4
+        ],
+        "missing": "Deeper analysis of cognitive limits and attention scarcity in the digital media ecosystem"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 14.5,
+    "overall_judgement": "The response generally aligns with the sources in asserting the short lifespan of news stories, particularly on social media. However, it presents a one-sided view by omitting key nuances and contradictory evidence present in the references, such as the existence of persistent news coverage for major ongoing events (e.g., President Trump) and longer engagement times for long-form content. This creates issues of blurred viewpoints, false consensus, and attribution failure by implying universal brevity of news attention without acknowledging exceptions or differing patterns.",
+    "judgement_details": [
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "News stories today have a remarkably short lifespan, often diminishing from public consciousness within hours or days.",
+        "explanation": "The response presents the short lifespan of news as a universal rule, but reference [8] shows that some news items, such as coverage of President Trump, maintain near-constant public attention, contradicting the claim of uniform brevity. The response fails to acknowledge this exception, creating a false consensus.",
+        "reference_index": [
+          8
+        ],
+        "missing": "The response should have acknowledged that while many stories fade quickly, major political figures or events can sustain prolonged coverage."
+      },
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "Studies reveal that only a small fraction of news shared on blogs and Twitter remains relevant for more than a week, with just 13 percent of blogged stories retaining interest beyond a week and a mere 5 percent on Twitter doing the same.",
+        "explanation": "The response conflates 'retaining interest' with 'remaining in public consciousness' as if they are equivalent measures of lifespan. However, references [14] and [15] show that user engagement duration varies significantly by content length and revisit behavior, suggesting deeper or repeated engagement that contradicts the simplistic 'gone in days' narrative. The response merges different metrics (attention span, share persistence, revisit rates) without distinction.",
+        "reference_index": [
+          14,
+          15
+        ],
+        "missing": "The response should have differentiated between initial virality, sustained attention, and user revisits to avoid conflating different aspects of news engagement."
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "Stories lacking a visceral or emotional hook may not endure long enough to spark extended discourse.",
+        "explanation": "This implies emotional content is the primary driver of longevity, but reference [14] shows that long-form articles receive significantly more engaged time (123 seconds vs. 57 seconds), indicating depth and topic relevance also play a major role. The response ignores this evidence of sustained attention for non-emotional, in-depth content.",
+        "reference_index": [
+          14
+        ],
+        "missing": "The response should have recognized that article length and depth contribute to engagement independently of emotional appeal."
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The frenzy surrounding a news event can amplify quickly as social media allows for instantaneous sharing and discussion among vast networks.",
+        "explanation": "While this is a general observation, the response attributes the McChrystal case entirely to social media amplification, citing reference [0], which describes a 'media firestorm' involving Twitter, Web reports, and cable news. The response downplays the role of traditional media and presents social media as the sole driver, failing to attribute the combined effect accurately.",
+        "reference_index": [
+          0
+        ],
+        "missing": "The response should have attributed the amplification to a combination of social media and traditional media, not solely to social platforms."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 31.3
+  }
+}

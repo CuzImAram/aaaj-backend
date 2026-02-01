@@ -1,0 +1,211 @@
+{
+  "response": "12469dac-dd4a-3c70-bada-ebe86ca22497",
+  "query": "how much support did the patriot act receive?",
+  "correctness_topical": {
+    "grade": 1.5,
+    "overall_judgement": "The response is largely accurate in describing the bipartisan support and voting results for the USA PATRIOT Act, its signing into law, and the controversies surrounding civil liberties. However, it includes a minor factual inaccuracy regarding the Senate vote date and introduces some generalizations not fully substantiated by the references. No major omissions or irrelevant sections were identified.",
+    "judgement_details": [
+      {
+        "type": "factual_error",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "explanation": "The response states that the Senate passed the act with a vote of 98-1 but does not specify the date. Reference [3] and [6] clarify that the Senate passed the final version of the bill on October 25, 2001, not earlier as might be inferred from the phrasing in the response. While not explicitly wrong, the lack of precision could mislead about the timeline.",
+        "reference_index": [
+          3,
+          6
+        ],
+        "statement": "In the Senate, it saw a nearly unanimous approval with a vote of 98-1, where Senator Russ Feingold (D-WI) was the only dissenting vote [0, 1, 2, 3]."
+      },
+      {
+        "type": "generalization",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The response claims the act included 'increased surveillance of electronic communications without traditional court orders,' but the references indicate that court orders are still involved, though under modified standards (e.g., through FISA or subpoenas). The phrasing suggests a complete absence of judicial oversight, which is not supported by the references.",
+        "reference_index": [
+          0,
+          9,
+          18
+        ],
+        "statement": "The act included broad enhancements to law enforcement capabilities, such as roving wiretaps and increased surveillance of electronic communications without traditional court orders, which further fueled debates around privacy and individual rights [9, 18]."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 2,
+    "overall_judgement": "The response is logically coherent overall, presenting a clear sequence of information about the Patriot Act's passage, support, implementation, and subsequent controversy. It follows a logical structure moving from enactment to criticism and legal challenges. However, there are minor issues related to repetition and flow that slightly affect the smooth progression of ideas.",
+    "judgement_details": [
+      {
+        "type": "repetition",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The USA PATRIOT Act received substantial bipartisan support when it was introduced to Congress shortly after the September 11 terrorist attacks in 2001.",
+        "explanation": "This statement is repeated in substance across multiple sentences (e.g., House and Senate vote details), which are presented as separate bullet points. While each adds data, the structure leads to redundancy in emphasizing 'bipartisan support' without sufficient transitional variety.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "type": "structural_inconsistency",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The act has faced legal challenges and calls for revision over the years, leading to amendments through subsequent reauthorization acts [3, 19].",
+        "explanation": "This point is introduced late in the response, but earlier references (e.g., [3, 14]) mention legal challenges and reauthorizations. The placement disrupts the chronological and causal flow, as criticism and legal consequences follow the description of surveillance powers rather than being grouped with initial controversy.",
+        "reference_index": [
+          3,
+          14,
+          19
+        ]
+      },
+      {
+        "type": "causal_flow_disruption",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The rapid and overwhelming approval rate was attributed in part to the urgent security concerns following the attacks, alongside the act's comprehensive measures aimed at strengthening national security and counterterrorism efforts [6, 17].",
+        "explanation": "This explanatory sentence appears after the vote counts and signing into law, but before the discussion of criticism. While logically sound, its placement breaks the narrative momentum between enactment and consequences. It would be more effective earlier or integrated into the introduction of the vote results.",
+        "reference_index": [
+          6,
+          17
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response demonstrates strong stylistic coherence, maintaining a consistent formal and academic tone throughout. The language is objective, precise, and appropriate for an informative, fact-based explanation. There are no discernible shifts in register, voice, or style across the statements.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 25,
+    "overall_judgement": "The response provides a strong focus on the initial passage of the Patriot Act in 2001, detailing the overwhelming bipartisan support, vote counts, and immediate context. It also covers criticism related to civil liberties and surveillance. However, it lacks broad coverage of subsequent legislative actions, particularly the reauthorizations of the Act in 2005, 2006, and beyond, including shifts in political support and key debates during those periods. This omission limits the scope of 'support' analysis to only the initial passage, neglecting evolving congressional and public sentiment over time.",
+    "judgement_details": [
+      {
+        "type": "narrow_temporal_scope",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response focuses almost exclusively on the initial passage of the Patriot Act in 2001 and does not adequately cover later reauthorizations, such as in 2005, 2006, or 2011, which reflect changing levels of political support. This limits the breadth of 'support' analysis over time.",
+        "reference_index": [
+          3,
+          10,
+          14,
+          17,
+          19
+        ],
+        "statement": "The USA PATRIOT Act has faced legal challenges and calls for revision over the years, leading to amendments through subsequent reauthorization acts [3, 19]."
+      },
+      {
+        "type": "missing_legislative_context",
+        "severity": "Unrated",
+        "severity_level": 0,
+        "penalty_value": 0,
+        "explanation": "The response fails to mention specific reauthorization votes, such as the 2006 reauthorization (Senate: 89-10, House: 280-138) or the 2011 extension (Senate: 86-12, House: 275-144), which indicate declining bipartisan support. These data points are crucial for a comprehensive assessment of 'support' beyond the immediate post-9/11 period.",
+        "reference_index": [
+          10,
+          14
+        ],
+        "statement": "Despite its strong Congressional support, the act was met with controversy and criticism, particularly concerning its implications for civil liberties."
+      },
+      {
+        "type": "lack_of_public_and_institutional_response_coverage",
+        "severity": "Unrated",
+        "severity_level": 0,
+        "penalty_value": 0,
+        "explanation": "While the response notes criticism from civil liberties advocates, it does not explore broader institutional responses such as court rulings (e.g., unconstitutionality of secret detentions), ACLU lawsuits, or Senate judicial hearings, which are essential to understanding the full spectrum of support and opposition.",
+        "reference_index": [
+          13,
+          14
+        ],
+        "statement": "The act has faced legal challenges and calls for revision over the years, leading to amendments through subsequent reauthorization acts [3, 19]."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 22,
+    "overall_judgement": "The response provides a solid foundation on the support for the Patriot Act, including key vote counts, bipartisan backing, and context around its passage. However, it lacks deeper exploration of evolving support over time, nuanced political shifts, and more detailed civil liberties debates. While it mentions reauthorizations and criticism, it misses opportunities to elaborate on specific controversies, legal rulings, and public opinion trends that would enhance depth.",
+    "judgement_details": [
+      {
+        "type": "lack_of_temporal_depth",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response mentions the initial 2001 passage support but does not explore how support changed during reauthorizations in 2005, 2006, or 2011.",
+        "explanation": "Although the response notes ongoing controversy and amendments, it omits specific vote counts and political dynamics from later reauthorizations (e.g., 2006 Senate 89-10, 2011 Senate 86-12), which would show a decline in bipartisan unanimity and increasing skepticism.",
+        "reference_index": [
+          10,
+          11
+        ],
+        "missing": "Data on shifting congressional support over time, including comparative analysis of reauthorization votes and political context"
+      },
+      {
+        "type": "superficial_civil_liberties_analysis",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response states that the Patriot Act faced criticism over civil liberties but does not detail specific legal challenges or court rulings that shaped its evolution.",
+        "explanation": "While references mention successful legal challenges (e.g., ACLU lawsuit, 2002 appeals court ruling on secret detentions), the response fails to incorporate these concrete examples, limiting the depth of the civil liberties discussion.",
+        "reference_index": [
+          13,
+          14
+        ],
+        "missing": "Specific court cases, outcomes, and their impact on Patriot Act provisions"
+      },
+      {
+        "type": "lack_of_public_opinion_coverage",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response focuses on legislative and executive actions but omits public opinion or advocacy group responses beyond general mentions of 'critics'.",
+        "explanation": "References suggest strong public concern and activism (e.g., ACLU campaigns, public debates), but the response does not integrate how public sentiment influenced political support or reauthorization debates.",
+        "reference_index": [
+          14,
+          10
+        ],
+        "missing": "Analysis of public opinion, advocacy efforts, and media influence on the Act’s reception"
+      },
+      {
+        "type": "underdeveloped_context_of_passage",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response attributes rapid passage to post-9/11 urgency but does not explore how limited debate and the act’s complexity affected support.",
+        "explanation": "References note the Act was 342 pages long, passed with little debate, and contained vague language—factors that could have influenced both support and opposition. The response does not examine how these procedural aspects shaped legitimacy or long-term acceptance.",
+        "reference_index": [
+          0,
+          5,
+          17
+        ],
+        "missing": "Discussion of legislative process, time constraints, and implications of limited scrutiny"
+      },
+      {
+        "type": "lack_of_partisan_nuance",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response describes bipartisan support but does not analyze intra-party divisions or how Democratic or Republican factions differed in their support.",
+        "explanation": "References indicate some Democrats who initially supported the Act later opposed reauthorizations, and figures like Feingold and Landrieu had distinct positions. The response misses an opportunity to explore partisan dynamics beyond surface-level bipartisanship.",
+        "reference_index": [
+          10,
+          8
+        ],
+        "missing": "Intra-party disagreements and shifts in party-line support over time"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 0,
+    "overall_judgement": "The response demonstrates strong internal consistency. It accurately presents the bipartisan congressional support for the USA PATRIOT Act with specific vote counts, attributes the swift passage to post-9/11 security concerns, and clearly contrasts this support with ongoing criticism regarding civil liberties and constitutional challenges. The differing perspectives—political support versus civil liberties opposition—are well-distinguished and supported by references, with no contradictions or conflation of viewpoints.",
+    "judgement_details": []
+  },
+  "quality_overall": {
+    "grade": 8.8
+  }
+}

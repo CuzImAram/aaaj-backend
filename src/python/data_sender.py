@@ -10,11 +10,11 @@ from pathlib import Path
 from typing import Callable, Iterable, List, Optional, Sequence, Union
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-RAW_RESPONSES_PATH = REPO_ROOT / "data" / "raw" / "responses.json"
+RAW_RESPONSES_PATH = REPO_ROOT / "data" / "raw" / "responses_topic.json"
 OUTPUT_DIR = REPO_ROOT / "data" / "output" / "agent_judgement"
 WEBHOOK_ENV_VAR = "WEBHOOK_N8N_START_AGENTS"
 DEFAULT_RANDOM_COUNT = 1
-REQUEST_TIMEOUT_SECONDS = 180
+REQUEST_TIMEOUT_SECONDS = 600
 
 PostFn = Callable[[dict], List[dict]]
 

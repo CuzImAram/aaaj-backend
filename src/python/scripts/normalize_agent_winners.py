@@ -110,7 +110,7 @@ def main():
     # Target is data/output/compared_ratings_agent_comp/
 
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-    target_dir = os.path.join(base_dir, 'data', 'output_final', 'comp_zeroshot_without_ref', 'compared_ratings_agent_comp')
+    target_dir = os.path.join(base_dir, 'data', 'output', 'compared_ratings_agent_comp')
 
     if not os.path.exists(target_dir):
         logging.error(f"Directory not found: {target_dir}")

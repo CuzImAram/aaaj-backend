@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-JSON_PATH = os.path.join(BASE_DIR, 'data', 'output_final', 'grade', 'krippendorff_topic_all_7.5.json')
-OUTPUT_DIR = os.path.join(BASE_DIR, 'data', 'graphs', 'grade', 'threshold_7_5')
+JSON_PATH = os.path.join(BASE_DIR, 'data', 'output_final', 'comp_fully', 'krippendorff_topic_majority.json')
+OUTPUT_DIR = os.path.join(BASE_DIR, 'data', 'graphs', 'comp_fully', 'majority')
 
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)

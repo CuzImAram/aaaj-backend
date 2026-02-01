@@ -1,0 +1,280 @@
+{
+  "response": "4276b5e2-7b2f-3b7f-be55-da053bff7cbb",
+  "query": "how much support did the patriot act receive?",
+  "correctness_topical": {
+    "grade": 0,
+    "overall_judgement": "The response is largely accurate in describing the support the Patriot Act received, citing correct vote counts and the near-unanimous passage in Congress. However, it includes some irrelevant information and minor inaccuracies regarding the timeline and legislative process. While most claims are supported by the references, there are a few issues related to precision and focus.",
+    "judgement_details": [
+      {
+        "type": "Irrelevance",
+        "severity": "Irrelevance",
+        "severity_level": 1,
+        "penalty_value": 0,
+        "explanation": "The response begins with 'The War on Terror in the U.S.', which is contextually relevant but not directly answering the query about the level of support the Patriot Act received. This sentence serves more as background than a direct answer.",
+        "reference_index": [],
+        "statement": "The War on Terror in the U.S. A month after the September 11 attacks, Bush pushed for a proposal called the Uniting and Strengthening America by Providing Appropriate Tools Required to Intercept and Obstruct Terrorism Act — or the USA PATRIOT Act [1]."
+      },
+      {
+        "type": "Factual Error",
+        "severity": "Factual error",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "explanation": "The response states that the Senate voted 98-1 on the same day as the House vote (implied by proximity), but Reference [6] clarifies that the Senate passed the final version on October 25, 2001, and the House passed the final compromise bill on October 24. The response conflates the timing of the votes without specifying the correct dates, creating a misleading impression of simultaneity.",
+        "reference_index": [
+          6
+        ],
+        "statement": "The House voted 357-66 in favor of the measure, while the Senate voted 98-1 with only Sen. Russ Feingold, D-Wisc, dissenting [0,1,5,6,7,8]."
+      },
+      {
+        "type": "Missing",
+        "severity": "Missing",
+        "severity_level": 3,
+        "penalty_value": 0,
+        "explanation": "The response does not mention that one senator, Mary Landrieu (D-LA), did not vote (neither yea nor nay), as noted in Reference [10]. This is a factual detail about the Senate vote that adds precision to the claim of '98-1'.",
+        "reference_index": [
+          10
+        ],
+        "statement": "The House voted 357-66 in favor of the measure, while the Senate voted 98-1 with only Sen. Russ Feingold, D-Wisc, dissenting [0,1,5,6,7,8]."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Irrelevance",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "explanation": "The description of the law being 342 pages long and amending 15 federal laws, while factually correct, is not directly related to the query about the level of support the Act received. It shifts focus to content rather than legislative backing.",
+        "reference_index": [
+          0,
+          5,
+          8
+        ],
+        "statement": "The massive law, 342 pages long, amends at least 15 separate federal laws, including the Foreign Intelligence Surveillance Act of 1978, the Electronic Communication Privacy Act of 1986, the Computer Fraud and Abuse Act and the Family Education Rights and Privacy Act [1]."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Irrelevance",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "explanation": "Details about roving wiretaps, 'sneak and peek' warrants, and expanded FBI authority, while accurate, pertain to the content and implications of the Act, not the extent of congressional support, which is the focus of the query.",
+        "reference_index": [
+          0,
+          1,
+          2
+        ],
+        "statement": "The law permits roving wiretaps and so-called “sneak and peek” warrants, adds new terrorist crimes, knocks down the wall between foreign and domestic intelligence, amends the definition of domestic terrorism and makes many other changes too numerous to catalog [1]."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Irrelevance",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "explanation": "The claim that the Act was made permanent in 2006, while true, is not directly relevant to the question of how much support the Act received at the time of its initial passage in 2001. It refers to a later reauthorization, which is a separate legislative event.",
+        "reference_index": [
+          1,
+          17
+        ],
+        "statement": "The far-reaching “temporary” act (most of which was made permanent by Congress in 2006) greatly expanded the authority of the FBI and other law enforcement agencies to conduct searches, look at medical and other personal records, such as what materials an individual took out from public libraries, and spy on those suspected of potential terrorist acts without court approval [1,2]."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Irrelevance",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "explanation": "The final sentence about aiding federal authorities in closing borders, detaining terrorists, and cutting off financial resources describes the purpose and effects of the Act, not the level of political support it received.",
+        "reference_index": [
+          2,
+          9
+        ],
+        "statement": "The act and its ancillaries aid federal authorities in their efforts to close off U.S. borders to foreign terrorists, detain and remove terrorists already within U.S. borders, and cut off financial resources utilized by terrorists and terrorist organizations [2]."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 5,
+    "overall_judgement": "The response is logically coherent overall, with a clear focus on the passage and support for the Patriot Act. It begins by contextualizing the Act post-9/11, presents voting data to demonstrate overwhelming support, and then elaborates on the scope and implications of the law. However, there are minor structural and flow issues, including a bullet-point format that lacks smooth transitions and some redundancy in describing the Act's provisions. There are no internal contradictions.",
+    "judgement_details": [
+      {
+        "type": "Structural Issue",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The response uses a bullet-point format without paragraph structure, creating a list-like presentation rather than a flowing narrative.",
+        "explanation": "While bullet points can enhance readability, the entire response is structured as a list with no introductory or concluding paragraph, weakening the logical progression typically expected in a cohesive explanation. This format risks presenting information in isolation rather than as part of a unified argument.",
+        "reference_index": []
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response jumps from voting results to the length and legal amendments of the Act, then back to signing details, without smooth transitions.",
+        "explanation": "After stating the House and Senate votes, the next point discusses the 342-page length and amendment of 15 laws, which interrupts the chronological and logical flow. A smoother transition would maintain focus on legislative passage before expanding on content and implications.",
+        "reference_index": []
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Multiple bullet points repeat the idea that the Act expanded surveillance and search powers of law enforcement.",
+        "explanation": "The expansion of FBI and law enforcement authority is mentioned in both the fifth and seventh bullet points, with nearly identical phrasing about 'conducting searches' and 'spy on those suspected of terrorist acts without court approval.' This constitutes unnecessary repetition.",
+        "reference_index": []
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistent formal and informative tone throughout, using objective language appropriate for a factual historical and legislative overview. There are no significant shifts in tone, complexity, or perspective. The style remains aligned with an academic or encyclopedic exposition, and all statements are supported by citation markers. No major stylistic incoherence is present.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 56,
+    "overall_judgement": "The query asks about the level of support the Patriot Act received, which implies a need to cover both the initial legislative support (votes in Congress) and potentially broader political, public, or long-term support, including reauthorizations and opposition. The response provides detailed information on the initial congressional vote, which is relevant, but fails to fully explore other dimensions of support over time, such as reauthorization votes, public opinion, or evolving political consensus. While it mentions reauthorization briefly in the references, the response itself does not integrate this into the main answer, resulting in a narrow focus on the initial passage.",
+    "judgement_details": [
+      {
+        "type": "Narrow Focus / Tunnel Vision",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response focuses almost exclusively on the initial congressional vote in 2001, detailing the House and Senate margins, but does not broaden to discuss subsequent reauthorizations in 2006 or 2011, which are critical indicators of ongoing political support. This creates a tunnel-vision effect, answering only the most immediate aspect of 'support' without addressing its evolution.",
+        "reference_index": [
+          10
+        ],
+        "statement": "The House passed a “clean” bill on October 24, 2001, which both incorporated and resolved differences between the House and Senate measures. The Senate agreed on the changes the following day, with just one dissenting vote and one nonvoting member."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response omits discussion of public opinion, civil liberties debates, and long-term political controversies surrounding the Act, which are essential to understanding the full spectrum of support and opposition. While references mention ACLU lawsuits, Senate hearings, and criticism over civil liberties, these are absent from the response.",
+        "reference_index": [
+          14
+        ],
+        "statement": "After the USA PATRIOT Act was passed it remained controversial, and began to be questioned by some members of Congress. A number of sections were struck by the courts. Some provisions were challenged by the ACLU, who filed a lawsuit on April 9, 2004."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response does not mention the reauthorization votes in 2006 and 2011, which reflect changing levels of political support over time. These are directly relevant to the query about 'how much support' the Act received and are documented in the references but excluded from the response.",
+        "reference_index": [
+          10
+        ],
+        "statement": "When it came up for reauthorization in 2006, the Senate passed it 89-10 and the house passed it 280-138. And in 2011, the Patriot Act was extended through 2015 on an 86-12 vote in the Senate, and a 275-144 vote in the House."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 22.5,
+    "overall_judgement": "The response provides a factually accurate and detailed account of the Patriot Act's passage, including vote counts, key provisions, and historical context. However, it lacks deeper analysis of the political, social, and institutional factors that contributed to the overwhelming support. It does not explore motivations behind bipartisan backing, public sentiment, media influence, or the role of emergency framing in Congress. While it mentions criticism (e.g., civil liberties concerns), it does not explain *why* support was so strong despite these concerns, nor does it compare the level of support to other similar legislation. The response is rich in descriptive detail but shallow in explanatory depth regarding the *reasons* for the support.",
+    "judgement_details": [
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "statement": "Congress approved the Patriot Act by an overwhelming margin shortly after the infamous terrorist acts.",
+        "explanation": "The response states that Congress approved the act with overwhelming support but does not explain *why* this support existed. It fails to address the political climate, fear-driven urgency, or strategic framing by the Bush administration that led to bipartisan consensus.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Explanation of the causal mechanisms—such as national trauma post-9/11, political pressure to act, or the strategic bundling of provisions—that drove near-unanimous support."
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The House voted 357-66 in favor of the measure, while the Senate voted 98-1 with only Sen. Russ Feingold, D-Wisc, dissenting.",
+        "explanation": "While vote counts are provided, there is no illustrative example of a specific representative or senator explaining their vote, nor any quotation or recorded debate moment that reveals the reasoning behind the broad support.",
+        "reference_index": [
+          0,
+          1,
+          5,
+          6,
+          7,
+          8
+        ],
+        "missing": "Concrete examples from floor debates, public statements, or political commentary that demonstrate the rationale for support beyond raw numbers."
+      },
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The far-reaching “temporary” act (most of which was made permanent by Congress in 2006) greatly expanded the authority of the FBI and other law enforcement agencies...",
+        "explanation": "The response describes the expansion of authority but does not analyze how this expansion translated into political support. It does not explore whether lawmakers supported the act because they believed these powers were necessary, or due to institutional trust in executive authority during crisis.",
+        "reference_index": [
+          1
+        ],
+        "missing": "Nuanced discussion of the relationship between expanded surveillance powers and legislative approval, including potential trade-offs between security and civil liberties as perceived at the time."
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The act and its ancillaries aid federal authorities in their efforts to close off U.S. borders to foreign terrorists, detain and remove terrorists already within U.S. borders, and cut off financial resources utilized by terrorists and terrorist organizations.",
+        "explanation": "The phrase 'aid federal authorities' is vague and non-specific. It does not clarify *how* the act enabled these actions or provide data or case studies showing effectiveness, which could help explain why such support was sustained.",
+        "reference_index": [
+          2
+        ],
+        "missing": "Specific mechanisms or outcomes (e.g., disrupted plots, frozen accounts) that would concretely justify the level of political and public support."
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 11,
+    "overall_judgement": "The response is largely consistent in its presentation of the Patriot Act's passage and support in Congress, citing specific vote counts and bipartisan approval. However, it fails to acknowledge the controversy and criticism surrounding the Act, which is present in the references, leading to a blurred viewpoint by omitting significant opposing perspectives. While the response states facts about legislative support, it presents the Act’s passage and effects without distinguishing between supportive and critical viewpoints, thus creating a one-sided narrative that implies consensus where there was active debate.",
+    "judgement_details": [
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response presents the passage of the Patriot Act as broadly supported without acknowledging the significant controversy and civil liberties concerns highlighted in the references.",
+        "explanation": "The response emphasizes the overwhelming congressional support for the Patriot Act but does not mention the substantial criticism from civil liberties groups, legal challenges, or concerns about constitutional violations (e.g., Fourth Amendment) that are detailed in multiple references ([0], [10], [13], [14]). This creates a conflation of viewpoint by implying general approval without distinguishing between political support and public/civil society opposition.",
+        "reference_index": [
+          0,
+          10,
+          13,
+          14
+        ],
+        "missing": "Criticism from civil liberties organizations like the ACLU, legal challenges, and concerns about indefinite detentions and secret surveillance"
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response implies that the Patriot Act was a necessary and widely accepted response to 9/11 without acknowledging the debate over its civil liberties implications.",
+        "explanation": "By focusing exclusively on the legislative support and law enforcement benefits, the response suggests a false consensus that the Act was uncontroversial. In reality, the references show that the Act faced immediate and sustained opposition from lawmakers like Sen. Feingold and organizations like the ACLU, and that legal rulings (e.g., secret detentions ruled unconstitutional) challenged its provisions.",
+        "reference_index": [
+          0,
+          10,
+          13,
+          14
+        ],
+        "missing": "The existence of legal rulings against the Act and bipartisan skepticism over time"
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The response states that the Act 'greatly expanded the authority of the FBI and other law enforcement agencies' without attributing this assessment to a particular perspective.",
+        "explanation": "While the expansion of authority is factual, the framing lacks attribution to either government proponents or civil liberties critics. For example, the government may view this as 'enhanced tools,' while critics see it as 'overreach.' The response presents the expansion as a neutral or positive fact without indicating that it is a contested interpretation.",
+        "reference_index": [
+          1,
+          2,
+          9
+        ],
+        "missing": "Attribution to either government officials or civil liberties critics regarding the expansion of surveillance powers"
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 16.2
+  }
+}
