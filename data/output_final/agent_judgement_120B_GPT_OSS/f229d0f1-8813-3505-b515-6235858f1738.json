@@ -1,0 +1,195 @@
+{
+  "response": "f229d0f1-8813-3505-b515-6235858f1738",
+  "query": "how much support did the patriot act receive?",
+  "correctness_topical": {
+    "grade": 17,
+    "overall_judgement": "The response correctly reports the Patriot Act receiving strong bipartisan support, but it contains a factual discrepancy with one of the provided sources regarding the exact vote tallies, and it includes several statements that go beyond the specific question of how much support the Act received.",
+    "judgement_details": [
+      {
+        "type": "Factual Error",
+        "severity": "Major",
+        "severity_level": 1,
+        "penalty_value": 15,
+        "explanation": "One source (reference [6]) gives different vote counts (Senate 96‑1, House 337‑79) than the numbers stated in the response (Senate 98‑1, House 357‑66). Therefore the response's vote figures are not consistent with all provided references.",
+        "reference_index": [
+          6
+        ],
+        "statement": "The act passed the House by a vote of 357-66 and the Senate by 98-1, with Senator Russ Feingold (D-WI) being the sole dissenter in the Senate."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The question asks only for the level of support the Patriot Act received. The following sentence discusses the Act’s expanded powers, which, while related to the law, does not answer the support question.",
+        "reference_index": [
+          1,
+          9,
+          16
+        ],
+        "statement": "The act's provisions significantly expanded the powers of U.S. law enforcement and intelligence agencies. These included enhanced surveillance capabilities, eased restrictions on foreign intelligence gathering, and greater authority over financial transactions suspected to involve terrorism."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "Information about periodic reauthorizations and ongoing controversy is beyond the scope of the query about initial support levels.",
+        "reference_index": [
+          12,
+          14
+        ],
+        "statement": "The act has been periodically reauthorized, often with heated debate over its impact on civil liberties, and its legacy remains contentious."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 12.5,
+    "overall_judgement": "The response conveys the correct factual information about the Patriot Act’s congressional support, but its logical coherence is weakened by redundant statements, abrupt topic jumps, and a loosely organized structure lacking clear introduction and conclusion.",
+    "judgement_details": [
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The vote counts and bipartisan support are restated multiple times across paragraphs.",
+        "explanation": "Paragraph 1 cites the House and Senate vote numbers (357‑66, 98‑1) and mentions Senator Feingold as the sole dissenter, and Paragraph 3 repeats the notion of \"rapid passage and extensive support\" without adding new information, causing unnecessary duplication.",
+        "reference_index": [
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The narrative jumps between topics—legislative support, provisions, criticism, and reauthorization—without smooth transitions.",
+        "explanation": "After establishing the vote totals, the text abruptly shifts to the act’s expanded powers and civil‑liberties concerns, then jumps again to reasons for rapid passage and periodic reauthorizations. The lack of connective sentences makes the flow disjointed.",
+        "reference_index": [
+          0,
+          1,
+          4,
+          1,
+          9,
+          16,
+          12,
+          14
+        ]
+      },
+      {
+        "type": "Structural Issue",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The answer does not present a clear introductory framing or a concise concluding summary.",
+        "explanation": "While the content is divided into three paragraphs, there is no explicit opening sentence that sets up the question, nor a final sentence that neatly wraps up the answer, leaving the overall structure loosely organized.",
+        "reference_index": []
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistent formal and academic style throughout, with uniform tone, vocabulary complexity, and third‑person perspective. No tonal, complexity, perspective, or abrupt style shifts are detected.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 0,
+    "overall_judgement": "The response adequately addresses the query about the level of support for the Patriot Act by providing vote counts and contextual information. It does not exhibit tunnel vision, missing major aspects, lack of context, or superficial listing. Therefore, no broad coverage issues are identified.",
+    "judgement_details": []
+  },
+  "coverage_deep": {
+    "grade": 10,
+    "overall_judgement": "The answer provides the basic vote tallies for the PATRIOT Act but remains surface‑level. It mentions broad bipartisan support and expanded powers without giving concrete examples of those provisions, nor does it explain the underlying mechanisms that drove the support or the specifics of how the law changed enforcement capabilities. The language is often vague and generalized, resulting in insufficient depth for the query.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The USA PATRIOT Act received substantial bipartisan support... with broad majorities in both the House of Representatives and the Senate.",
+        "explanation": "The response only cites vote counts and a generic claim of bipartisan support without analyzing party breakdowns, public opinion, or the political context that shaped the vote.",
+        "reference_index": [
+          0,
+          1,
+          4
+        ],
+        "missing": "Nuanced discussion of political dynamics, party positions, and public sentiment surrounding the Act's passage."
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "These included enhanced surveillance capabilities, eased restrictions on foreign intelligence gathering, and greater authority over financial transactions suspected to involve terrorism.",
+        "explanation": "No specific sections, statutes, or real‑world cases are provided to illustrate how these powers were implemented or used.",
+        "reference_index": [
+          1,
+          9,
+          16
+        ],
+        "missing": "Concrete examples such as Section 215 (library records), Section 702 (foreign surveillance), or specific court cases demonstrating the expanded authority."
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "This swift approval was influenced by the urgency to strengthen national security in the wake of the attacks.",
+        "explanation": "The answer states a reason (urgency) but does not explain the mechanisms—e.g., media pressure, executive lobbying, or legislative fast‑track procedures—that translated urgency into overwhelming votes.",
+        "reference_index": [
+          0,
+          2,
+          3
+        ],
+        "missing": "Explanation of the legislative process, lobbying efforts, or public fear dynamics that led to the rapid, near‑unanimous vote."
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The act has been periodically reauthorized, often with heated debate over its impact on civil liberties.",
+        "explanation": "Terms like \"heated debate\" and \"periodically reauthorized\" are vague and lack specifics such as dates, vote margins, or the substantive issues discussed during reauthorizations.",
+        "reference_index": [
+          12,
+          14
+        ],
+        "missing": "Specific reauthorization years, vote counts, and key arguments presented by supporters and opponents during those debates."
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 7,
+    "overall_judgement": "The response contains internal consistency problems: it reports specific congressional vote tallies that conflict with several cited references, yet offers no reconciliation, and it presents a partisan viewpoint (supporters consider the Act crucial) without attributing that opinion to any source.",
+    "judgement_details": [
+      {
+        "type": "Unresolved Conflict",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response states the Senate vote was 98-1 and the House vote was 357-66, but reference [6] reports a Senate vote of 96-1 and a House vote of 337-79, and reference [7] gives the same conflicting numbers.",
+        "explanation": "Different sources provide divergent vote counts, and the answer does not explain or reconcile these discrepancies, leaving contradictory factual information unresolved.",
+        "reference_index": [
+          6,
+          7
+        ],
+        "missing": "Explanation reconciling the differing vote figures"
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The answer claims \"supporters arguing it is crucial for counterterrorism\" without naming who these supporters are or citing a source.",
+        "explanation": "An opinion is presented as a factual statement without attributing it to a specific group, individual, or reference, which constitutes an attribution lapse.",
+        "reference_index": [],
+        "missing": "Source or citation for the supporters' viewpoint"
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 8
+  }
+}

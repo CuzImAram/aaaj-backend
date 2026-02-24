@@ -1,0 +1,211 @@
+{
+  "response": "1f4dfca8-cb29-37f7-8420-218ce966c9d2",
+  "query": "how much support did the patriot act receive?",
+  "correctness_topical": {
+    "grade": 28,
+    "overall_judgement": "The response correctly reports the House and Senate vote totals that appear in most sources, but it contains a factual discrepancy with one source, includes extraneous details unrelated to the query, and omits a nuance about a non‑voting Senate member mentioned in the references.",
+    "judgement_details": [
+      {
+        "type": "Factual Error",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response states that the Senate passed the Patriot Act 98‑1, but reference [6] reports the Senate vote as 96‑1, indicating a conflict with the provided sources.",
+        "reference_index": [
+          6
+        ],
+        "statement": "the Senate passed it 98-1, with Senator Russ Feingold being the sole dissenting voice in the Senate"
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The answer includes detailed discussion of the Act's provisions (e.g., roving wiretaps, \"sneak and peek\" warrants) and civil‑liberties controversies, which are unrelated to the specific question about how much support the Act received.",
+        "reference_index": [
+          0
+        ],
+        "statement": "The Act authorized various measures, such as roving wiretaps and \"sneak and peek\" warrants, which aimed to ensure more effective counterterrorism efforts."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The response adds commentary on the bipartisan nature and broader political implications, which go beyond the quantitative support asked for.",
+        "reference_index": [
+          0
+        ],
+        "statement": "This bipartisan support was driven by the perceived need to enhance national security through expanded governmental powers..."
+      },
+      {
+        "type": "Missing",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "Reference [2] notes that, in addition to the single dissenting Senate vote, there was one non‑voting member. The response does not mention this detail.",
+        "reference_index": [
+          2
+        ],
+        "statement": "The response fails to note that one Senate member did not vote, as indicated by the source."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 6.5,
+    "overall_judgement": "The response is generally coherent and follows a logical order (support → controversy → significance), but it suffers from redundant restatements of the same support‑vs‑controversy contrast and a brief abrupt transition to the broader significance without a clear linking sentence.",
+    "judgement_details": [
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response repeats the contrast between strong bipartisan support and controversy multiple times: \"Despite its wide support in Congress, the PATRIOT Act was controversial...\"; \"The initial strong support for the PATRIOT Act underscored the bipartisan agreement... yet it also highlighted tensions...\"; \"Despite such controversies, the Act's passage demonstrates the immediate post‑9/11 consensus...\"",
+        "explanation": "These sentences convey essentially the same idea three times, which adds unnecessary length and dilutes the impact of the argument.",
+        "reference_index": [
+          1
+        ]
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The final sentence jumps to a broader claim: \"setting a precedent for subsequent legislation and policies in the War on Terror\" without a smooth transition from the discussion of support and controversy.",
+        "explanation": "The abrupt shift to the act's long‑term legislative impact lacks a linking sentence, making the progression feel sudden and slightly disjointed.",
+        "reference_index": [
+          3
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistent formal, academic style throughout, using third‑person objective language and uniform technical vocabulary. No tonal, complexity, perspective, or abrupt style shifts are detected.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 5,
+    "overall_judgement": "The query asks for the overall level of support for the Patriot Act, which includes congressional vote counts as well as broader measures such as public opinion polling. The response supplies detailed congressional vote numbers and contextual discussion but fails to address public sentiment or other measures of support, resulting in a narrow focus and a missing major aspect of the expected answer.",
+    "judgement_details": [
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The answer does not provide information on public opinion or polling data regarding support for the Patriot Act, which is a core component of the question's implied scope beyond congressional votes.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "statement": "The response omits any mention of public support levels or poll results, focusing solely on congressional vote counts."
+      },
+      {
+        "type": "Narrow Focus / Tunnel Vision",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "By concentrating almost exclusively on legislative vote tallies and related controversy, the response narrows the discussion to one sub‑topic and ignores other relevant aspects of overall support such as public sentiment, advocacy group positions, or subsequent re‑authorizations.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "statement": "The answer limits coverage to congressional voting data, neglecting broader measures of support."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 8.5,
+    "overall_judgement": "The response provides vote counts and a broad narrative of bipartisan support, but it often stays at a surface level, omits the mechanisms behind that support, lacks concrete examples of the Act's provisions in action, and uses vague language when mentioning controversy and civil‑liberty concerns.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The Act was passed by an overwhelming majority, reflecting the political climate and urgency following the September 11 terrorist attacks.",
+        "explanation": "The sentence cites the vote totals but does not delve into the nuanced reasons (e.g., public opinion shifts, party leadership pressure, media framing) that led legislators to vote overwhelmingly in favor.",
+        "reference_index": [
+          0
+        ],
+        "missing": "detailed analysis of the political and social factors influencing the vote"
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "This bipartisan support was driven by the perceived need to enhance national security through expanded governmental powers to surveil, investigate, and detain potential terrorist threats.",
+        "explanation": "The response states a perceived need as the cause of support but fails to explain how that perception translated into legislative action—no discussion of fear dynamics, lobbying, media influence, or intra‑party negotiations.",
+        "reference_index": [
+          0,
+          2,
+          9
+        ],
+        "missing": "explanation of the causal chain linking security concerns to congressional voting behavior"
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The Act authorized various measures, such as roving wiretaps and \"sneak and peek\" warrants, which aimed to ensure more effective counterterrorism efforts.",
+        "explanation": "While the provisions are named, the answer does not provide any specific cases, statistics, or court decisions that illustrate how these tools were actually employed after the Act’s passage.",
+        "reference_index": [
+          0,
+          2,
+          9
+        ],
+        "missing": "concrete examples or data showing the use of roving wiretaps and sneak‑and‑peek warrants"
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "Despite its wide support in Congress, the PATRIOT Act was controversial due to concerns about its implications for civil liberties, particularly regarding the Fourth Amendment's protection against unreasonable searches and seizures.",
+        "explanation": "The claim of controversy is generic; it does not specify which groups raised objections, what specific provisions were challenged, or the outcomes of any legal battles, leaving the statement vague.",
+        "reference_index": [
+          0,
+          9
+        ],
+        "missing": "specific details on civil‑liberty concerns, named opponents, and notable legal challenges"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 3.5,
+    "overall_judgement": "The response accurately reports the vote counts and acknowledges controversy, but it includes statements about the motivations behind the bipartisan support and the notion of a post‑9/11 consensus that are presented as facts without any attribution. These constitute attribution failures (and borderline false consensus), as the source of these interpretations is not identified.",
+    "judgement_details": [
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The bipartisan support was driven by the perceived need to enhance national security through expanded governmental powers to surveil, investigate, and detain potential terrorist threats.",
+        "explanation": "The response asserts a specific motivation for the congressional support as an objective fact, but it does not indicate who held this view (e.g., lawmakers, analysts, commentators) or cite a source for the claim.",
+        "reference_index": [],
+        "missing": "Attribution to the individual or source that made this claim."
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "the immediate post-9/11 consensus on prioritizing national security",
+        "explanation": "The phrasing suggests that there was universal agreement across the political spectrum, downplaying the documented dissent and ongoing criticism; it presents a debated viewpoint as if it were unanimously accepted.",
+        "reference_index": [],
+        "missing": "Recognition of the dissenting perspectives and attribution to those who argued against such consensus."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 9.3
+  }
+}

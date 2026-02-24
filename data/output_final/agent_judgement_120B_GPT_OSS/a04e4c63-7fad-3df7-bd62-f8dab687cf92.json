@@ -1,0 +1,192 @@
+{
+  "response": "a04e4c63-7fad-3df7-bd62-f8dab687cf92",
+  "query": "how much support did the patriot act receive?",
+  "correctness_topical": {
+    "grade": 6.5,
+    "overall_judgement": "The response correctly provides the vote counts showing strong congressional support for the Patriot Act, but it contains a factual error regarding the terminology of presidential action, and includes several sections unrelated to the question about support levels.",
+    "judgement_details": [
+      {
+        "type": "Factual Error",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The response states the Act was \"ratified by President Bush on Oct 26, 2001,\" but the sources indicate that President Bush \"signed\" the legislation into law, not ratified it.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "statement": "It was ratified by President Bush on Oct 26, 2001."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The paragraph describes specific provisions such as roving wiretaps and sneak‑and‑peek warrants, which do not answer the query about how much support the Act received.",
+        "reference_index": [
+          0
+        ],
+        "statement": "After the law took effect, it \"permits roving wiretaps and so-called \"sneak and peek\" warrants, adds new terrorist crimes, knocks down the wall between foreign and domestic intelligence, amends the definition of domestic terrorism and makes many other changes too numerous to catalog\"."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The sentence about the Act expanding federal government power is unrelated to the level of congressional support.",
+        "reference_index": [
+          2
+        ],
+        "statement": "It has greatly expanded the power of federal government in the fight against terrorism."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The criticism that the Act violates multiple amendments is not pertinent to the question of support levels.",
+        "reference_index": [
+          0
+        ],
+        "statement": "Some have criticized the Act as it violates \"at least six of the ten original amendments known as the Bill of Rights - the First, Fourth, Fifth, Sixth, Seventh and Eighth Amendments - and possibly the Thirteenth and Fourteenth as well\"."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "Details about criticisms of indefinite detentions and searches are off‑topic for the support question.",
+        "reference_index": [
+          9
+        ],
+        "statement": "When it was put into practice, people criticized its authorization of indefinite detentions of immigrants, searches through throuh home or businesses without permission, and the use of telephone, e-mail, and financial records without a court order."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 1.1,
+    "overall_judgement": "The response provides factual information about the Patriot Act's support and provisions, but suffers from formatting errors, abrupt topic shifts, and some redundant statements that affect logical coherence.",
+    "judgement_details": [
+      {
+        "type": "Structural Issue",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "statement": "Mismatched quotation marks and a typo in the sentence about the House vote (\"357-66 in favor of the emasure, while the Senate voted 98-1\").",
+        "explanation": "The incorrect use of quotes and the misspelling \"emasure\" break the visual structure of the paragraph, making the sentence hard to read and undermining the overall formatting consistency.",
+        "reference_index": [
+          0
+        ]
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The sudden introduction of the September 11 attacks as a factor right after reporting the vote numbers.",
+        "explanation": "The transition from the legislative voting results to the statement \"One of the factors that contributed to the Patriot Act was the September 11 attacks\" lacks a connective bridge, causing an abrupt jump that disrupts the logical flow of ideas.",
+        "reference_index": [
+          1,
+          3
+        ]
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Repeated mention of expanded surveillance powers, specifically the ability to seize telephone and cell‑phone records.",
+        "explanation": "The response first notes that the act \"has greatly expanded the power of federal government\" and later provides \"One example of this is the right to seize telephone and cell phone records...\" This restates essentially the same point shortly after it was already introduced, creating unnecessary redundancy.",
+        "reference_index": [
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistent formal, expository style throughout, using third‑person objective language and a uniform level of technical vocabulary. No tonal, complexity, perspective, or abrupt genre shifts are detected.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 0,
+    "overall_judgement": "The response directly provides the congressional vote counts, which satisfies the core request for how much support the Patriot Act received. It does not exhibit tunnel vision, missing major aspects, lack of context, or superficial listing concerning the specific query.",
+    "judgement_details": []
+  },
+  "coverage_deep": {
+    "grade": 11.5,
+    "overall_judgement": "The response provides a high‑level overview of the Patriot Act’s vote counts and some general statements about its provisions, but it lacks depth. It often names facts without explaining the underlying reasons, omits concrete examples to illustrate abstract claims, and uses vague, non‑specific language, resulting in superficial coverage.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The response briefly states that the Patriot Act received \"overwhelming support\" with vote tallies, but does not discuss political context, party breakdowns, or public opinion trends.",
+        "explanation": "The answer mentions vote numbers but fails to elaborate on why legislators supported the bill, the bipartisan dynamics, or any nuance beyond the raw counts.",
+        "reference_index": [
+          0
+        ],
+        "missing": "contextual analysis of the support"
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "It asserts that the Act \"expanded the power of the federal government\" and \"permits roving wiretaps\" without explaining how these powers function legally.",
+        "explanation": "The answer tells what the Act does but does not detail the legal mechanisms (e.g., changes to FISA, the role of National Security Letters, standards for obtaining warrants) that enable these expansions.",
+        "reference_index": [
+          2
+        ],
+        "missing": "explanation of the legal processes and rationale behind the expanded powers"
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The claim that the Act allows seizure of telephone and cell‑phone records is presented without a specific case or illustration.",
+        "explanation": "Providing an example of a real investigation or court case where such records were obtained would clarify the impact of the provision.",
+        "reference_index": [
+          2
+        ],
+        "missing": "concrete example or case study"
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "Phrases like \"many other changes too numerous to catalog\" and \"greatly expanded the power of federal government\" are vague.",
+        "explanation": "These statements are non‑actionable and do not specify which powers were expanded or how they affect citizens, leaving the reader without clear information.",
+        "reference_index": [
+          0
+        ],
+        "missing": "specific details and precise language"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 0.1,
+    "overall_judgement": "The response generally presents factual vote numbers and acknowledges criticism, but it fails to attribute a quoted criticism about the Patriot Act violating multiple Bill of Rights amendments to its source, leaving the opinion presented without proper attribution.",
+    "judgement_details": [
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "statement": "\"Some have criticized the Act as it violates 'at least six of the ten original amendments known as the Bill of Rights - the First, Fourth, Fifth, Sixth, Seventh and Eighth Amendments - and possibly the Thirteenth and Fourteenth as well'\"",
+        "explanation": "The quoted criticism is presented as a factual statement without indicating who made the claim. The source material attributes this criticism to John Whitehead, founder of the Rutherford Institute, but the response does not name him or any other critic, leaving the opinion unattributed.",
+        "reference_index": [
+          0
+        ],
+        "missing": "attribution of the critic (e.g., John Whitehead) who made the claim"
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 3.5
+  }
+}

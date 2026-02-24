@@ -1,0 +1,225 @@
+{
+  "response": "073682bb-f88c-3952-88cb-2edf249ec4c0",
+  "query": "how much support did the patriot act receive?",
+  "correctness_topical": {
+    "grade": 35,
+    "overall_judgement": "The response does not provide the quantitative support figures requested (House 357‑66, Senate 98‑1) and instead includes extensive, unrelated details about the Act's provisions and criticism, as well as unsourced speculation about why people supported it. These constitute missing essential information, irrelevant material, and a misleading focus.",
+    "judgement_details": [
+      {
+        "type": "Missing",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The query asks for how much support the Patriot Act received. The sources clearly state the vote counts (House 357‑66, Senate 98‑1) but the response never mentions these numbers.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "statement": "Although passed through Congress with widespread support, the Patriot Act received both support and criticism."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response includes lengthy descriptions of the Act's provisions (roving wiretaps, sneak‑and‑peek warrants, etc.) and detailed criticism, which do not answer the specific question about the level of congressional support.",
+        "reference_index": [],
+        "statement": "The law permits roving wiretaps and “sneak and peek” warrants, adds new terrorist crimes, collapses walls between foreign and domestic intelligence, amends the definition of domestic terrorism and makes many other numerous changes. It allows the FBI and other law enforcement agencies to conduct searches, look at medical and other personal records, and spy on those suspected of potential terrorist acts without court approval..."
+      },
+      {
+        "type": "Misleading / Focus",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response adds an unsourced claim about why people supported the Act (“People supported it because the Act defends their homeland…”) which is not present in any reference and may mislead the reader about public motivations.",
+        "reference_index": [],
+        "statement": "People supported it because the Act defends their homeland and people by providing tools to track down terrorists within their borders."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 9,
+    "overall_judgement": "The response presents information about the Patriot Act in a disjointed manner. It lacks a clear overall structure, jumps repeatedly between describing the law's provisions and reiterating the same criticism without smooth transitions, and repeats several points about civil liberties concerns, leading to redundancy. No direct internal contradictions are present, but the organization and flow hinder readability.",
+    "judgement_details": [
+      {
+        "type": "Structural Issue",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The response consists of a series of loosely connected paragraphs that end abruptly without a concluding summary, making the overall organization unclear.",
+        "explanation": "There is no clear introductory framing of the answer, no logical progression from enactment to support levels, and no concluding statement tying the points together, resulting in a weak structural flow.",
+        "reference_index": []
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The text moves from describing the Act's powers to support, then jumps back to critiquing civil liberties multiple times without clear transitions.",
+        "explanation": "After listing the law’s provisions, the paragraph abruptly switches to support and criticism, then returns to similar criticism in subsequent paragraphs, causing the reader to lose the thread of argument.",
+        "reference_index": []
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "Several sentences repeat the same criticism about civil liberties, e.g., \"Civil libertarians criticized the law...\" and later \"The Patriot Act has been criticized for weakening protections of civil liberties...\"",
+        "explanation": "The response restates overlapping criticisms in multiple paragraphs, offering no new information and making the content unnecessarily repetitive.",
+        "reference_index": []
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 3,
+    "overall_judgement": "The response aims for an academic, informational tone but intermittently inserts informal phrasing and overly simple sentences that clash with the surrounding formal, jargon‑heavy exposition. This creates tonal and complexity inconsistencies, though pronoun usage and overall genre remain consistent.",
+    "judgement_details": [
+      {
+        "type": "Tone Clash",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "But it also received the equal or even more criticism.",
+        "explanation": "The phrase \"equal or even more\" is colloquial and informal, contrasting with the otherwise formal, academic tone of the passage.",
+        "reference_index": []
+      },
+      {
+        "type": "Complexity Mismatch",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "People supported it because the Act defends their homeland and people by providing tools to track down terrorists within their borders.",
+        "explanation": "This sentence uses very simple, everyday language, which is jarringly less complex than the surrounding dense legal and policy terminology (e.g., \"roving wiretaps,\" \"sneak and peek\" warrants).",
+        "reference_index": []
+      }
+    ]
+  },
+  "coverage_broad": {
+    "grade": 6.6,
+    "overall_judgement": "The response does not adequately address the query’s core request for the level of support the Patriot Act received. While it mentions congressional vote counts, it omits broader measures of support such as public opinion polls and spends excessive space on extra details, criticisms, and a long list of references without synthesis, leading to missing major aspects and superficial listing.",
+    "judgement_details": [
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The answer fails to provide information on public opinion or broader measures of support beyond the congressional vote counts, which are commonly expected when asking \"how much support did the Patriot Act receive?\"",
+        "reference_index": [],
+        "statement": "The response focuses on legislative votes and criticism but does not mention any public polling or overall popular support data."
+      },
+      {
+        "type": "Superficial Listing",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The answer presents a long list of facts, vote numbers, and reference excerpts without integrating them into a concise, coherent answer to the specific question, making it a scattered enumeration rather than a clear summary.",
+        "reference_index": [],
+        "statement": "The response includes numerous bullet‑like statements and reference blocks (e.g., vote counts, criticisms, provisions) without summarizing the overall support level."
+      },
+      {
+        "type": "Lack of Context",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "explanation": "The answer jumps into detailed descriptions of the Act’s provisions and criticisms without first defining the Patriot Act or explaining why support levels matter, which can confuse readers unfamiliar with the topic.",
+        "reference_index": [],
+        "statement": "It begins with detailed provisions and criticisms without a brief introductory definition of the Patriot Act."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 13.5,
+    "overall_judgement": "The response provides vote tallies but largely fails to give a deep, explanatory answer to how much support the Patriot Act received. It contains surface‑level descriptions of the law, vague generalizations about support vs. criticism, lacks mechanistic explanation of why Congress supported it, and offers no concrete examples of supporters' statements or contextual data beyond raw vote numbers.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The law permits roving wiretaps and “sneak and peek” warrants, adds new terrorist crimes, collapses walls between foreign and domestic intelligence, amends the definition of domestic terrorism and makes many other numerous changes.",
+        "explanation": "This list merely names provisions of the Patriot Act without connecting them to the question of support; it reads like a superficial overview rather than an analysis of the level of legislative backing.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "missing": "Explanation of how these provisions influenced legislators' votes or public opinion."
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "Although passed through Congress with widespread support, the Patriot Act received both support and criticism.",
+        "explanation": "The response states that support existed but does not explain why Congress members voted overwhelmingly in favor—no discussion of post‑9/11 fear, political pressure, or arguments made by proponents.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Reasoning behind the bipartisan vote (e.g., security concerns, party statements, public sentiment)."
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "People supported it because the Act defends their homeland and people by providing tools to track down terrorists within their borders. But it also received the equal or even more criticism.",
+        "explanation": "The phrasing is vague and non‑quantitative; it offers no data on how many lawmakers or constituents held these views, nor does it specify what \"equal or even more criticism\" entails.",
+        "reference_index": [],
+        "missing": "Specific figures, quotes, or examples illustrating the extent of support versus criticism."
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "Civil libertarians criticized the law, saying it would result in overzealous use of wiretaps on individuals and businesses and less judicial scrutiny of the process, as well as unjustified detention of immigrants.",
+        "explanation": "The criticism is mentioned without any concrete examples, such as notable court cases, statements from specific civil‑liberties groups, or incidents that illustrate the concerns.",
+        "reference_index": [
+          13
+        ],
+        "missing": "Concrete examples (e.g., ACLU lawsuit, specific wiretap cases) to substantiate the criticism."
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 4,
+    "overall_judgement": "The response mixes factual voting data with vague qualitative judgments about support and criticism without proper attribution, conflates different measures of support, and makes uncited assertions about public opinion.",
+    "judgement_details": [
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "People supported it because the Act defends their homeland and people by providing tools to track down terrorists within their borders.",
+        "explanation": "The claim about public motivation is presented as fact but no source or speaker is cited, making it an unattributed opinion.",
+        "reference_index": [],
+        "missing": "citation needed for public opinion source"
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "But it also received the equal or even more criticism.",
+        "explanation": "The comparative assessment of criticism level is given without any reference to surveys, studies, or specific critics, leaving the claim unattributed.",
+        "reference_index": [],
+        "missing": "citation needed for evidence of criticism magnitude"
+      },
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "Although passed through Congress with widespread support, the Patriot Act received both support and criticism. ... But it also received the equal or even more criticism.",
+        "explanation": "The response conflates legislative vote totals (quantitative support) with public or expert criticism (qualitative opposition) without distinguishing the different bases for these viewpoints, creating a hybrid and confusing assessment of overall support.",
+        "reference_index": [
+          0,
+          1
+        ],
+        "missing": "clear separation and citation of voting data versus public/expert criticism"
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 12.6
+  }
+}

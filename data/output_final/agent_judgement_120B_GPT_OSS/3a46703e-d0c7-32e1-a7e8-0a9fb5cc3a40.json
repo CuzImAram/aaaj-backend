@@ -1,0 +1,275 @@
+{
+  "response": "3a46703e-d0c7-32e1-a7e8-0a9fb5cc3a40",
+  "query": "how id boeing defraud the government",
+  "correctness_topical": {
+    "grade": 13,
+    "overall_judgement": "The response accurately reflects many of the details present in the sources regarding Boeing's wrongdoing, but it omits key information about the specific charge of conspiracy to defraud the United States and the nature of the deferred prosecution agreement, and includes an irrelevant detail about the Sriwijaya crash plane age and software.",
+    "judgement_details": [
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The response includes a sentence about the Sriwijaya crash plane being 26 years old and not having the MCAS software, which is not related to how Boeing defrauded the government.",
+        "reference_index": [
+          1
+        ],
+        "statement": "The plane in the Sriwijaya crash does not have the software that was at the center of the Max crashes. Boeing added software to the plane's flight computer that would work in the background so the Max would feel to pilots like previous versions of the 737."
+      },
+      {
+        "type": "Missing",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response does not mention that Boeing was charged with a count of conspiracy to defraud the United States, a critical element of how it defrauded the government.",
+        "reference_index": [
+          3
+        ],
+        "statement": "On Jan. 7, Boeing agreed to pay over $2.5 billion to settle Justice Department fraud charges related to its 737 Max. The company was charged with one count of conspiracy to defraud the U.S. related to the plane's certification."
+      },
+      {
+        "type": "Missing",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The response fails to note that the settlement was structured as a deferred prosecution agreement, which is a key aspect of the government's handling of the fraud case.",
+        "reference_index": [
+          3,
+          9
+        ],
+        "statement": "The settlement resolved the criminal charge through a deferred prosecution agreement, allowing charges to be dismissed after a compliance period."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 1.5,
+    "overall_judgement": "The response consists of a series of bullet points that lack a clear introductory or concluding structure, jump between related topics without smooth transitions, and repeatedly restate the same facts, resulting in poor logical coherence.",
+    "judgement_details": [
+      {
+        "type": "Structural Issue",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The response is presented as a flat list of bullet points without an introduction, conclusion, or clear paragraph grouping.",
+        "explanation": "This layout creates a wall‑of‑text effect and prevents the reader from seeing a coherent overall argument or narrative flow.",
+        "reference_index": []
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The bullets jump between topics such as crash details, investigations, technical explanations of MCAS, and settlement figures without smooth transitions.",
+        "explanation": "The ordering forces readers to infer connections between points, and the repeated return to earlier topics disrupts the logical progression.",
+        "reference_index": []
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Key facts are repeated multiple times, for example the February 2020 DOJ investigation and the January 2021 $2.5 billion settlement are each mentioned in several separate bullets.",
+        "explanation": "Redundant statements add unnecessary clutter and reduce the clarity and conciseness of the response.",
+        "reference_index": []
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistent formal, objective style throughout; no tone, complexity, perspective, or abrupt style shifts were found.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 0,
+    "overall_judgement": "The response fixates on the 737 MAX scandal and settlement, ignoring other documented Boeing fraud incidents (e.g., KC‑46 tanker, defense‑contract overcharges). It therefore exhibits tunnel‑vision and omits major aspects of how Boeing has defrauded the U.S. government. Additionally, several later bullet points merely list generic contractor‑fraud schemes without tying them to Boeing, constituting superficial listing.",
+    "judgement_details": [
+      {
+        "type": "Narrow Focus / Tunnel Vision",
+        "severity": "Severe",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "explanation": "The answer concentrates almost exclusively on the 737 MAX investigations and settlement, while the query asks how Boeing defrauded the government broadly. Other known fraud cases (e.g., KC‑46 tanker, cost‑inflation schemes, procurement misconduct) are not addressed.",
+        "reference_index": [
+          0
+        ],
+        "statement": "- Boeing has had a bruising couple of years following two crashes of the Boeing 737 Max... (bullets 1‑10 focus only on the Max case)."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Severe",
+        "severity_level": 1,
+        "penalty_value": 0,
+        "explanation": "Key facets of governmental fraud—such as false cost claims, lobbying abuses, contract bid manipulation, and specific legal statutes—are absent, leaving the answer incomplete relative to the query.",
+        "reference_index": [
+          10,
+          14
+        ],
+        "statement": "- The response lists settlement amounts and investigation outcomes but does not explain the actual fraudulent actions or mechanisms beyond concealment of MCAS information."
+      },
+      {
+        "type": "Superficial Listing",
+        "severity": "Severe",
+        "severity_level": 1,
+        "penalty_value": 0,
+        "explanation": "Later sections (references 10‑15) enumerate generic contractor‑fraud examples and statutes without contextualizing them to Boeing’s conduct, effectively providing a list of terms without substantive explanation.",
+        "reference_index": [
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "statement": "- \"Costs that are submitted for reimbursement under a T&M contract are much greater than was estimated...\" etc., are presented as bullet points without linking them to specific Boeing behavior."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 13,
+    "overall_judgement": "The response provides a collection of factual bullet points and reference citations about Boeing’s legal and regulatory troubles, but it fails to deliver a deep, explanatory answer to the query \"how did Boeing defraud the government?\" It largely names events and outcomes without detailing the underlying fraudulent mechanisms, offering concrete illustrations, or avoiding vague language. Consequently, the response exhibits surface‑level coverage, lacks mechanistic explanation, omits concrete examples of fraudulent conduct, and contains several generalized statements.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "In January 2021, Boeing settled to pay over $2.5 billion after being charged with fraud, including a penalty of $243.6 million, compensation payments to 737 Max airline customers of $1.77 billion and a $500 million fund for the victim's beneficiaries.",
+        "explanation": "The bullet simply reports the settlement amount and charges without analyzing what specific fraudulent actions led to those charges, offering only a high‑level fact.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          8
+        ],
+        "missing": "A detailed breakdown of the fraudulent conduct (e.g., specific false statements to the FAA, internal email excerpts, or falsified test data) that justified the settlement."
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "Boeing convinced the FAA that MCAS could not fail hazardously or catastrophically, and that existing procedures were effective in dealing with malfunctions.",
+        "explanation": "The response states the outcome (FAA being convinced) but does not explain how Boeing achieved this—what arguments, data manipulation, or regulatory loopholes were used.",
+        "reference_index": [
+          4
+        ],
+        "missing": "Explanation of the tactics Boeing employed (e.g., omitted safety data, misrepresented test results, influencing the ODA program) to persuade the FAA."
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Boeing’s employees chose the path of profit over candor by concealing material information from the FAA concerning the operation of its 737 Max airplane and engaging in an effort to cover up their deception.",
+        "explanation": "The claim is broad and lacks a concrete example such as a specific email, document, or meeting where misinformation was provided.",
+        "reference_index": [
+          2
+        ],
+        "missing": "A specific instance (e.g., quoted internal email, altered certification paperwork) that illustrates the concealment."
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "cited numerous instances where Boeing dismissed employee concerns with MCAS, prioritized deadline and budget constraints over safety, and where it lacked transparency in disclosing essential information to the FAA.",
+        "explanation": "Phrases like \"numerous instances\" and \"prioritized deadline and budget constraints\" are non‑actionable and do not specify which concerns were dismissed or what information was hidden.",
+        "reference_index": [
+          0,
+          4,
+          5
+        ],
+        "missing": "Specific details about the dismissed concerns (e.g., safety memos, engineering reports) and the exact information withheld."
+      },
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The FAA found several defects that Boeing deferred to fix, in violation of regulations.",
+        "explanation": "This statement lists a regulatory finding without describing which defects, why they were deferred, or how the deferral constituted fraud.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Identification of the particular defects, the decision‑making process behind deferral, and the impact on safety certification."
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "Various system, maintenance, and training requirements are stipulated, as well as design changes that must be implemented on each aircraft before the FAA issues an airworthiness certificate, without delegation to Boeing.",
+        "explanation": "The sentence is vague about what the requirements are and how their omission or alteration contributed to fraudulent behavior.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Concrete examples of omitted or altered requirements and how that enabled fraudulent certification."
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 9.1,
+    "overall_judgement": "The response provides a factual overview of Boeing's 737 MAX issues and the fraud settlement, but it blurs distinct investigative perspectives, omits citations for some specific claims, presents DOJ allegations as universally accepted facts, and leaves the legal outcome of the settlement ambiguous, resulting in several internal consistency flaws.",
+    "judgement_details": [
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The response merges findings from the DOJ, House investigation, and FAA into a single narrative without distinguishing their separate roles or any dissenting views.",
+        "explanation": "By presenting these sources as a unified story, it blurs the distinct perspectives and investigative scopes, making it unclear which agency made which claim.",
+        "reference_index": [
+          0,
+          4,
+          5
+        ],
+        "missing": "Explicit differentiation of viewpoints"
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "statement": "The claim that \"Various system, maintenance and training requirements are stipulated...\" lacks a citation.",
+        "explanation": "No reference is provided for this specific detail, leaving its source unidentified and preventing verification.",
+        "reference_index": [],
+        "missing": "Citation for the claim"
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The statement \"Boeing’s employees chose the path of profit over candor...\" is presented as an established fact.",
+        "explanation": "It reflects the DOJ’s allegation but is presented without indicating it is an allegation, implying universal agreement across all perspectives.",
+        "reference_index": [
+          2
+        ],
+        "missing": "Attribution to the source as an allegation rather than a settled fact"
+      },
+      {
+        "type": "Unresolved Conflict",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response mentions Boeing was charged with fraud and settled, but does not clarify whether Boeing admitted guilt or if the settlement was made without admission.",
+        "explanation": "Leaving this ambiguous creates a conflict between the implication of guilt and the legal nuance of a settlement, which could mislead the reader about the outcome.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          8
+        ],
+        "missing": "Clarification of settlement terms (admission of guilt vs no admission)"
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 6.7
+  }
+}

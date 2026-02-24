@@ -1,0 +1,207 @@
+{
+  "response": "2565fa1b-70ef-3e87-9628-6e0c6bdaa888",
+  "query": "is sexual assault considered social injustice",
+  "correctness_topical": {
+    "grade": 30,
+    "overall_judgement": "The response does not directly answer whether sexual assault is considered a social injustice. It provides a list of gender‑based violence types and a historical account of how rape/sexual assault became recognized as a social problem, but it never explicitly links sexual assault to the concept of social injustice. The exhaustive list is unnecessary for the query, and the focus on historical social‑problem status diverts from the core question.",
+    "judgement_details": [
+      {
+        "type": "Missing",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The response never explicitly states that sexual assault is considered a social injustice, even though reference [0] defines gender violence as a form of social injustice and includes sexual assault within that category.",
+        "reference_index": [
+          0
+        ],
+        "statement": "No statement directly answering the query is present."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The detailed enumeration of gender‑based violence types is not required to answer whether sexual assault is a social injustice and adds irrelevant information.",
+        "reference_index": [
+          0
+        ],
+        "statement": "Situations of gender violence are assaults, rapes, forced prostitution, employment discrimination, physical and sexual violence, castration, human trafficking, sexual harassment, and harassment [0]."
+      },
+      {
+        "type": "Misleading / Focus",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "The response focuses on the historical recognition of rape/sexual assault as a social problem rather than addressing its status as a social injustice, which may mislead the user about the answer to the original question.",
+        "reference_index": [
+          11,
+          18
+        ],
+        "statement": "Before the 1970s, rape and sexual assault certainly existed and were very common, but they were generally ignored and not considered a social problem [11]."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 0.5,
+    "overall_judgement": "The response consists of three bullet points that loosely address the query but lack a clear introductory answer and exhibit a somewhat abrupt shift from defining gender violence to historical context, resulting in a minor flow issue.",
+    "judgement_details": [
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The transition from the definition of gender violence in bullet 1 to the historical note in bullet 2 is abrupt and not smoothly connected.",
+        "explanation": "Bullet 1 lists types of gender violence without linking it to the subsequent historical discussion, causing the reader to experience a sudden topic jump rather than a cohesive argument.",
+        "reference_index": [
+          1,
+          2
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistent academic and formal tone throughout, uses uniformly complex vocabulary appropriate for the subject, and stays in third‑person objective voice without shifting perspective or genre. No stylistic inconsistencies were detected.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 11,
+    "overall_judgement": "The response answers the query by mentioning historical recognition of sexual assault as a social problem, but it lacks a clear definition of social injustice, omits broader systemic explanations and implications, and concentrates narrowly on historical framing rather than providing a comprehensive overview of why sexual assault qualifies as social injustice.",
+    "judgement_details": [
+      {
+        "type": "Lack of Context",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The answer jumps directly into examples of gender violence without first defining what constitutes a social injustice, leaving the reader without a foundational understanding of the core concept.",
+        "reference_index": [],
+        "statement": "In our societies with a macho tradition, gender violence affects women in particular..."
+      },
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The response does not discuss systemic causes, power structures, legal ramifications, or remedial measures that are essential to explain why sexual assault is considered a social injustice.",
+        "reference_index": [],
+        "statement": "The answer focuses on historical recognition and lists forms of gender violence, but omits analysis of societal mechanisms that render sexual assault an injustice."
+      },
+      {
+        "type": "Narrow Focus / Tunnel Vision",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "explanation": "The reply centers almost entirely on the historical shift in perception of sexual assault, neglecting broader perspectives such as intersectionality, policy responses, and ethical dimensions that would provide a full overview of the issue.",
+        "reference_index": [],
+        "statement": "Before the 1970s, rape and sexual assault certainly existed... In short, sexual violence against women has become a social problem."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 15,
+    "overall_judgement": "The response answers the query with a few high‑level statements but provides only surface‑level descriptions. It repeatedly names concepts (gender violence, social problem) without explaining underlying mechanisms, offers no concrete examples or data, and uses vague summarising language. Consequently, the answer lacks depth, concrete illustration, causal explanation, and specificity.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The response lists categories of gender violence and states that \"sexual violence against women has become a social problem\" without elaborating on what makes it a social injustice.",
+        "explanation": "It merely names phenomena and labels them as social problems without providing nuanced discussion, definitions, or contextual analysis.",
+        "reference_index": [
+          0,
+          11,
+          18
+        ],
+        "missing": "detailed exposition of the concepts and their societal implications"
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The answer notes that the women’s movement of the late 1970s “focused on rape and sexual assault as serious crimes” leading to public awareness, but does not explain how or why this shift occurred.",
+        "explanation": "It fails to describe the social, political, or legal mechanisms (e.g., activism, legislation, media coverage) that transformed sexual assault into a recognized social injustice.",
+        "reference_index": [
+          11,
+          18
+        ],
+        "missing": "explanation of causative processes and influencing factors"
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The response mentions that rape and sexual assault “entered the public consciousness” and that “legal policymakers began to give them more attention” without citing any specific laws, court cases, policy reforms, or statistical evidence.",
+        "explanation": "Concrete examples (e.g., the establishment of rape crisis centers, the passage of the Violence Against Women Act, notable protest actions) are absent, leaving the claim unsupported.",
+        "reference_index": [
+          11,
+          18
+        ],
+        "missing": "specific historical examples, data points, or case studies"
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "Phrases such as \"In short, sexual violence against women became a social problem\" and \"generally ignored and not considered a social problem\" are used without precise qualifiers.",
+        "explanation": "These statements are broad and non‑actionable, lacking details about the scope of ignorance, the entities involved, or the criteria that define a social problem.",
+        "reference_index": [
+          11,
+          18
+        ],
+        "missing": "precise qualifiers, quantitative information, and concrete descriptors"
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 7.5,
+    "overall_judgement": "The response mixes the concepts of \"social injustice\" and \"social problem\" without clarifying their distinction, presents the view that sexual violence is universally recognized as a social problem without noting differing scholarly perspectives, and states conclusions without explicit attribution to the sources or scholars proposing them.",
+    "judgement_details": [
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The answer treats \"social injustice\" and \"social problem\" as interchangeable, using a definition of gender violence as social injustice [0] and then describing the historical emergence of sexual violence as a social problem [11, 18] without distinguishing the two concepts.",
+        "explanation": "By not separating the theoretical framing of social injustice from the sociological framing of a social problem, the response creates a hybrid concept that may mislead readers about the nature of the issue.",
+        "reference_index": [
+          0,
+          11,
+          18
+        ],
+        "missing": "Clear differentiation between the terms \"social injustice\" and \"social problem\" and an explanation of how each framework applies to sexual assault."
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The response states that \"sexual violence against women has become a social problem\" as an uncontested fact.",
+        "explanation": "While many scholars and activists view it as a social problem, there are ongoing debates in sociology about whether a condition must be widely recognized to count as a social problem. Presenting the claim without noting these debates implies unanimous agreement.",
+        "reference_index": [
+          18
+        ],
+        "missing": "Acknowledgment of alternative sociological perspectives that argue the status of a condition as a social problem can be independent of public recognition."
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The historical claims about pre‑1970s ignorance of sexual assault and its later recognition are presented as objective facts.",
+        "explanation": "These claims derive from specific feminist and sociological analyses, yet the response does not attribute them to particular scholars or studies, leaving the origin of the viewpoint implicit.",
+        "reference_index": [
+          11,
+          18
+        ],
+        "missing": "Explicit attribution to the authors or works (e.g., Allison & Wrightsman, Rubington & Weinberg) that formulated the historical narrative."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 11.8
+  }
+}

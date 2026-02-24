@@ -1,0 +1,234 @@
+{
+  "response": "4276b5e2-7b2f-3b7f-be55-da053bff7cbb",
+  "query": "how much support did the patriot act receive?",
+  "correctness_topical": {
+    "grade": 4,
+    "overall_judgement": "The response correctly reports the vote counts (House 357‑66, Senate 98‑1) that demonstrate the Patriot Act's strong congressional support, matching the reference sources. No factual inaccuracies are found. However, the answer includes several statements about the Act's provisions, effects, and related events that are not directly relevant to the question of how much support the legislation received, resulting in irrelevant content.",
+    "judgement_details": [
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "Describes specific powers granted by the Act (e.g., roving wiretaps, ‘sneak and peek’ warrants) which do not answer the question about the level of congressional support.",
+        "reference_index": [
+          1
+        ],
+        "statement": "The law permits roving wiretaps and so-called “sneak and peek” warrants, adds new terrorist crimes, knocks down the wall between foreign and domestic intelligence, amends the definition of domestic terrorism and makes many other changes too numerous to catalog [1]."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "Provides a broad description of how the Act expanded FBI and law‑enforcement authority, which is unrelated to the amount of support it received.",
+        "reference_index": [
+          1
+        ],
+        "statement": "The far-reaching “temporary” act (most of which was made permanent by Congress in 2006) greatly expanded the authority of the FBI and other law enforcement agencies to conduct searches, look at medical and other personal records, such as what materials an individual took out from public libraries, and spy on those suspected of potential terrorist acts without court approval."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "Mentions the Act’s role in border security, detention, and financial measures, which are not pertinent to the support question.",
+        "reference_index": [
+          2
+        ],
+        "statement": "The act and its ancillaries aid federal authorities in their efforts to close off U.S. borders to foreign terrorists, detain and remove terrorists already within U.S. borders, and cut off financial resources utilized by terrorists and terrorist organizations [2]."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "Opening sentence about the War on Terror and the proposal’s name adds context but does not address the level of support.",
+        "reference_index": [
+          1
+        ],
+        "statement": "The War on Terror in the U.S. A month after the September 11 attacks, Bush pushed for a proposal called the Uniting and Strengthening America by Providing Appropriate Tools Required to Intercept and Obstruct Terrorism Act — or the USA PATRIOT Act [1]."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 1.5,
+    "overall_judgement": "The response consists of a series of bullet points that present facts about the Patriot Act but lack a clear introductory framing and concluding statement. The points jump between distinct topics (origin of the name, vote counts, length of the law, specific powers, and later permanence) without smooth transitions, making the flow feel disjointed. Additionally, the information about congressional support is presented redundantly, first as a general statement of \"overwhelming margin\" and then repeated with the exact vote tallies.",
+    "judgement_details": [
+      {
+        "type": "Structural Issue",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The response is presented as a list of bullet points with no introductory overview or concluding summary.",
+        "explanation": "Without an opening that sets context or a closing that ties the information together, the answer feels incomplete and poorly organized, impairing readability and logical framing.",
+        "reference_index": []
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The bullet points shift abruptly between topics such as the act's name, vote counts, length of the law, and its provisions.",
+        "explanation": "These jumps occur without transitional phrasing, causing the reader to move from one idea to another without a clear logical sequence, which disrupts the narrative flow.",
+        "reference_index": []
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Congressional support is mentioned twice: first as an \"overwhelming margin\" and then again with the specific House (357-66) and Senate (98-1) vote numbers.",
+        "explanation": "Repeating the same support information in two separate bullet points adds unnecessary redundancy and does not provide additional insight.",
+        "reference_index": []
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistent formal, academic style throughout. It does not exhibit tonal clashes, complexity mismatches, perspective shifts, or abrupt style changes. Consequently, no stylistic coherence issues are identified.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 2.5,
+    "overall_judgement": "The response answers the vote counts for congressional support but ignores other major aspects of the question such as public opinion or broader measures of support. Additionally, the answer is presented as a series of bullet statements that list facts without providing explanatory context, resulting in superficial coverage of the topic.",
+    "judgement_details": [
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The query asks how much support the Patriot Act received, which can include public opinion polls, overall bipartisan backing, and other measures of support. The response only gives congressional vote numbers and omits any discussion of public support or broader contextual metrics.",
+        "reference_index": [],
+        "statement": "The answer does not mention public opinion data or other indicators of support beyond the congressional vote counts."
+      },
+      {
+        "type": "Superficial Listing",
+        "severity": "Severe",
+        "severity_level": 3,
+        "penalty_value": 0,
+        "explanation": "The response provides a list of bullet points that state facts (vote counts, provisions, dates) without elaborating on their significance or connecting them to the concept of 'support', making the coverage superficial.",
+        "reference_index": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "statement": "- The War on Terror ...\n- Congress approved the Patriot Act ...\n- The House voted 357-66 ...\n- The massive law, 342 pages long ...\n- President George W. Bush signed the bill ...\n- The law permits roving wiretaps ...\n- The far‑reaching “temporary” act ...\n- The act and its ancillaries aid federal authorities ..."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 9.5,
+    "overall_judgement": "The response provides vote counts and a brief overview of the Patriot Act’s passage, but it remains superficial. It does not explain the reasons behind the strong congressional support, omits contextual factors, and fails to offer deeper insight into the political climate that drove the votes.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The answer only lists vote tallies (e.g., House 357‑66, Senate 98‑1) without discussing the broader bipartisan dynamics or political context.",
+        "explanation": "While numbers are given, there is no nuance about party breakdowns, public sentiment, or the urgency felt after 9/11 that contributed to the vote totals.",
+        "reference_index": [
+          0
+        ],
+        "missing": "Contextual analysis of why such overwhelming support occurred."
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The response fails to explain why Congress gave the Patriot Act such overwhelming support.",
+        "explanation": "It states the act was approved by large margins but does not describe the mechanisms—such as post‑9/11 national security fears, executive pressure, or bipartisan agreements—that led to that level of support.",
+        "reference_index": [
+          2
+        ],
+        "missing": "Explanation of the underlying reasons and motivations driving the vote."
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "Phrases like \"overwhelming margin\" are used without precise quantification beyond the vote counts.",
+        "explanation": "The term \"overwhelming\" is vague; while vote numbers are provided, the answer does not clarify how this compares to typical legislative voting patterns or what \"overwhelming\" signifies in this context.",
+        "reference_index": [],
+        "missing": "Comparative perspective or clarification of what constitutes an \"overwhelming\" margin."
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 18,
+    "overall_judgement": "The response mixes consistent vote figures with conflicting ones from the provided references, blends unrelated policy details into the answer, and includes several statements without proper attribution, leading to unresolved conflicts, conflation of viewpoints, false consensus, and attribution failures.",
+    "judgement_details": [
+      {
+        "type": "Unresolved Conflict",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The Senate voted 98-1 in favor of the Patriot Act.",
+        "explanation": "Reference [6] reports the Senate vote as 96-1, while other references state 98-1, and the response does not acknowledge this discrepancy.",
+        "reference_index": [
+          0,
+          6
+        ],
+        "missing": "none"
+      },
+      {
+        "type": "Unresolved Conflict",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The House voted 357-66 in favor of the measure.",
+        "explanation": "Reference [6] gives a different House vote count (337‑79), showing conflicting data that the response fails to resolve.",
+        "reference_index": [
+          0,
+          6
+        ],
+        "missing": "none"
+      },
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "Details about Guantanamo Bay, NSA secret authorizations, and other post‑9/11 actions are presented alongside the vote numbers as if they directly explain the level of support for the Patriot Act.",
+        "explanation": "The response blends disparate policy points (e.g., detention camps, NSA surveillance) that are not directly related to congressional support, creating a confusing hybrid narrative.",
+        "reference_index": [
+          1
+        ],
+        "missing": "none"
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The far‑reaching “temporary” act greatly expanded the authority of the FBI and other law enforcement agencies...",
+        "explanation": "This evaluative claim is presented without any citation or indication of who makes this assessment.",
+        "reference_index": [],
+        "missing": "citation needed"
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "Congress approved the Patriot Act by an overwhelming margin shortly after the infamous terrorist acts.",
+        "explanation": "The wording suggests near‑universal agreement, ignoring the documented dissent (e.g., Senator Feingold’s vote) and the fact that the margin, while large, was not unanimous.",
+        "reference_index": [
+          0
+        ],
+        "missing": "none"
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 6.3
+  }
+}

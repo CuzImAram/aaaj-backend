@@ -1,0 +1,216 @@
+{
+  "response": "76383f16-2c78-3dde-95b4-1b6496589b1c",
+  "query": "how often do people blame time on poor diet",
+  "correctness_topical": {
+    "grade": 3,
+    "overall_judgement": "The response generally aligns with the references regarding time scarcity influencing poor diet, but it fails to provide any quantitative measure of how often people blame time, includes extraneous discussion on physical activity, and attributes health‑issue claims to a reference that does not support them, making parts of the answer less focused and somewhat misleading.",
+    "judgement_details": [
+      {
+        "type": "Missing",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The query asks for how often people blame time for poor diet, but the response only says \"frequently\" without providing any quantitative data (e.g., percentages or survey results) that appear in the sources.",
+        "reference_index": [],
+        "statement": "Time constraints are frequently cited as a significant factor in poor dietary choices..."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The paragraph about time poverty affecting general health behaviors such as physical activity extends beyond the specific question of how often time is blamed for poor diet.",
+        "reference_index": [
+          3,
+          10,
+          11
+        ],
+        "statement": "The pervasive pressure of balancing work, family, and social responsibilities leads to a chronic state of time poverty, which not only impacts dietary habits but also general health behaviors, such as physical activity levels [3,10,11]."
+      },
+      {
+        "type": "Misleading / Focus",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "explanation": "The claim that fast‑food consumption contributes to obesity and cardiovascular disease is cited to reference [0], which only discusses time‑crunched schedules and does not mention those health outcomes, making the citation inaccurate.",
+        "reference_index": [
+          0,
+          9,
+          18
+        ],
+        "statement": "the habitual consumption of fast and processed foods significantly contributes to the development of health issues such as obesity and cardiovascular diseases [0,9,18]."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 1,
+    "overall_judgement": "The response presents a generally coherent argument about time constraints influencing poor diet, but it suffers from minor redundancy and occasional abrupt transitions that slightly disrupt the logical flow.",
+    "judgement_details": [
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Repeated emphasis on \"busy lifestyle\" and \"time scarcity\" across multiple sentences.",
+        "explanation": "The concepts of a busy lifestyle and time scarcity are restated several times without adding new information, leading to unnecessary repetition.",
+        "reference_index": []
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Abrupt shift from discussing general time poverty effects to a brief optimistic claim by experts without a clear transition.",
+        "explanation": "The paragraph moves from problems caused by time constraints directly to experts asserting diet feasibility, which creates a sudden change in tone and focus, making the transition feel jarring.",
+        "reference_index": []
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 0,
+    "overall_judgement": "The response maintains a consistently formal and academic style throughout, using appropriate terminology, third‑person perspective, and a uniform tone. No tonal, complexity, perspective, or abrupt style inconsistencies are detected.",
+    "judgement_details": []
+  },
+  "coverage_broad": {
+    "grade": 3,
+    "overall_judgement": "The response addresses the role of time constraints in poor dietary choices but fails to provide the core quantitative information the query seeks—how frequently people attribute their diet problems to lack of time. It also jumps straight into discussion without first defining what it means to \"blame time\" for diet, leaving the context insufficient.",
+    "judgement_details": [
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The query asks for how often people blame time for a poor diet, which requires quantitative prevalence (e.g., percentages, survey results). The response provides qualitative descriptions and implications but does not supply any concrete frequency data.",
+        "reference_index": [],
+        "statement": "Time constraints are frequently cited as a significant factor in poor dietary choices..."
+      },
+      {
+        "type": "Lack of Context",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "explanation": "The answer begins with statements about time constraints being cited without first defining or explaining what \"blaming time\" entails, which would help readers understand the scope of the discussion.",
+        "reference_index": [],
+        "statement": "Time constraints are frequently cited as a significant factor in poor dietary choices, with many individuals blaming their busy schedules..."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 9.5,
+    "overall_judgement": "The response provides a high‑level overview of how time constraints influence dietary choices but repeatedly falls short of deep coverage. It surfaces relevant concepts without unpacking them, omits concrete illustrations or data, does not explain the underlying mechanisms, and relies on vague, generic statements.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The response mentions terms such as “time poverty,” “busy schedules,” and “fast‑food culture” without defining them or exploring their nuances.",
+        "explanation": "Readers are told these concepts exist but are given no detailed description, differentiation, or contextual depth, leaving the discussion superficial.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          8
+        ],
+        "missing": "In‑depth definitions and nuanced discussion of each concept."
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "It states that limited time “prompts people to opt for fast food” and that “time scarcity influences dietary choices,” but does not explain why or how this decision process occurs.",
+        "explanation": "The causal chain (e.g., psychological stress, reduced planning capacity, economic trade‑offs) is never articulated, so the ‘why’ and ‘how’ remain hidden.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          8,
+          9,
+          10,
+          11
+        ],
+        "missing": "Explanation of the mechanisms linking time scarcity to specific food‑choice behaviors."
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "While the response references “working parents” and “students,” it provides no concrete anecdote, case study, or quantitative illustration of these groups’ eating patterns.",
+        "explanation": "Abstract group mentions without a specific scenario or data point fail to ground the argument, making the claim less persuasive.",
+        "reference_index": [
+          0,
+          5,
+          8
+        ],
+        "missing": "Specific real‑world examples or statistical evidence demonstrating the pattern."
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "Phrases such as “experts assert that it is possible,” “people blame their busy schedules,” and “addressing time scarcity is crucial” are vague and lack actionable detail.",
+        "explanation": "The statements are non‑actionable and rely on generic qualifiers (“experts,” “people”) without naming sources or offering concrete guidance.",
+        "reference_index": [
+          2,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15
+        ],
+        "missing": "Specific expert citations, detailed recommendations, or measurable criteria."
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 5.1,
+    "overall_judgement": "The response blends several ideas from different sources without clear attribution, resulting in blurred viewpoints and several statements presented as universally accepted facts without identifying who holds them. This leads to attribution failures and a false consensus effect, though no direct contradictory claims are found.",
+    "judgement_details": [
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The opening paragraph cites [0,1,2] while merging distinct concepts such as \"busy schedules\", \"fast‑food culture\", and \"cost‑effectiveness\" into a single claim.",
+        "explanation": "Each reference discusses different facets (time pressure, economic factors, cultural habits). Combining them without distinguishing which idea comes from which source creates a hybrid statement that blurs the original viewpoints.",
+        "reference_index": [
+          0,
+          1,
+          2
+        ],
+        "missing": "clear mapping of each idea to its specific source"
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "statement": "The sentence \"Despite these challenges, experts assert that it is possible to maintain a nutritious diet even with a busy lifestyle\" is presented without citing any expert or study.",
+        "explanation": "A claim attributed to \"experts\" is given as fact, but no reference or name is provided, leaving the origin of the statement unspecified.",
+        "reference_index": [],
+        "missing": "citation of the expert(s) or research supporting the claim"
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The claim \"Addressing time scarcity and its influence on dietary choices is crucial\" is stated as an uncontested truth.",
+        "explanation": "The importance of addressing time scarcity is presented as universally agreed upon, despite the literature showing debate about the relative impact of time versus income, culture, or other factors.",
+        "reference_index": [],
+        "missing": "acknowledgement that the significance of time scarcity is debated and citation of differing viewpoints"
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 3.8
+  }
+}

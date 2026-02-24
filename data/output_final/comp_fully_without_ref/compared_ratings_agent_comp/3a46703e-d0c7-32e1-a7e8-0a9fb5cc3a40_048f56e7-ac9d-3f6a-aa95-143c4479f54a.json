@@ -1,0 +1,33 @@
+[
+  {
+    "correctness_topical": {
+      "agent_winner": "a",
+      "explantion": "Response b contains a factual error by claiming Boeing was \"found guilty\" of False Claims Act violations, which is not supported by the sources. Response a has no factual errors; it only omits some details (the conspiracy charge and deferred prosecution agreement), which are less severe than a factual error. According to the hierarchy of failures, a factual error outweighs missing information, so response a is topically superior."
+    },
+    "coherence_logical": {
+      "agent_winner": "a",
+      "explantion": "Both answers suffer from structural issues, unclear flow, and some redundancy, but response a uses bullet points that give a minimal visual hierarchy, making it easier to follow than response b's single dense paragraph. The jumps between topics are still present in a, but the bullet format reduces the cognitive load compared to b's zig‑zag chronological narrative. Since neither answer contains an internal contradiction, the response with the less severe structural and flow problems—response a—wins on logical coherence."
+    },
+    "coherence_stylistic": {
+      "agent_winner": "a",
+      "explantion": "Response a maintains a consistent formal, objective tone throughout with no reported stylistic flaws. Response b is flagged for an abrupt style shift (changing from factual narrative to meta‑instructions) and a perspective shift, which are high‑severity errors that break stylistic coherence. According to the hierarchy, the presence of an Abrupt Style Shift makes response b the loser, so response a is the superior answer."
+    },
+    "coverage_broad": {
+      "agent_winner": "a",
+      "explantion": "Both responses suffer from Narrow Focus / Tunnel Vision and Missing Major Aspect, which are the most severe scope failures. However, response b also exhibits a Lack of Context, a secondary high‑severity error that response a does not have. Since response a avoids this additional flaw, it provides slightly broader coverage of the query despite its superficial listing, making it the better of the two."
+    },
+    "coverage_deep": {
+      "agent_winner": "b",
+      "explantion": "Both responses suffer from surface‑level coverage and lack mechanistic detail, but response b provides a broader set of concrete fraud examples (e.g., the Towed Decoy System price inflation and Chinook helicopter remanufacturing cases) whereas response a focuses mainly on the MCAS issue without offering additional illustrations. Since the hierarchy places Lack of Examples after Lack of Mechanism, the response with more concrete examples is judged superior."
+    },
+    "consistency_internal": {
+      "agent_winner": "a",
+      "explantion": "Both responses suffer from the same high‑severity errors—blurred viewpoints/conflation, unresolved conflict, and false consensus—so they each breach the \"death sentence\" criterion. However, Response b adds a wider set of attribution failures and conflates multiple, unrelated legal matters (the 2010 Towed Decoy System case, the 2012 Chinook billing case, and the 2020‑2021 737 MAX investigation) into a single narrative, increasing the degree of blurring and misinformation. Response a’s conflation is limited to the MAX investigations and its attribution failures are fewer. Therefore, despite sharing the same categories of error, Response a maintains a comparatively lower overall internal inconsistency, making it the better answer."
+    },
+    "quality_overall": {
+      "agent_winner": "a",
+      "score_a": 1.78,
+      "score_b": 0.39
+    }
+  }
+]

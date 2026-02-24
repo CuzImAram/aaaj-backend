@@ -1,0 +1,305 @@
+{
+  "response": "bae66841-6b65-307f-90e7-d071b5b17bc6",
+  "query": "how often do people blame time on poor diet",
+  "correctness_topical": {
+    "grade": 31.5,
+    "overall_judgement": "The response does not provide any quantitative information about how often people attribute poor diet to lack of time, which is the core of the query. It also includes extensive health‑consequence details that are not asked for, making parts of the answer irrelevant and potentially misleading about the focus of the question.",
+    "judgement_details": [
+      {
+        "type": "Missing",
+        "severity": "Major",
+        "severity_level": 2,
+        "penalty_value": 25,
+        "explanation": "The query asks for how often people blame time for poor diet, but the response provides no statistic, percentage, or frequency measure. None of the supplied references contain such quantitative data, and the response fails to address this central request.",
+        "reference_index": [],
+        "statement": "The response does not include any data on the frequency or proportion of people who cite time as a reason for their poor diet."
+      },
+      {
+        "type": "Irrelevance",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "explanation": "The response includes detailed commentary on health consequences of fast food (e.g., cardiovascular disease, blood pressure) which are unrelated to the specific question about how often people blame time.",
+        "reference_index": [
+          1,
+          2
+        ],
+        "statement": "Parts of the answer discussing health risks like cardiovascular disease and high blood pressure are not pertinent to the question of how often people attribute poor diet to lack of time."
+      },
+      {
+        "type": "Misleading / Focus",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "By emphasizing health impacts and presenting them as central points, the answer shifts focus away from the requested frequency information, potentially giving the impression that such health details are the main answer to the query.",
+        "reference_index": [
+          0
+        ],
+        "statement": "The structure of the response leads the reader away from the core query about frequency, making the answer misleading in focus."
+      }
+    ]
+  },
+  "coherence_logical": {
+    "grade": 7.5,
+    "overall_judgement": "The response is presented as three long bullet points but fails to directly answer the query, contains disjointed transitions, repeats the same idea about time constraints, and includes contradictory statements about the feasibility of healthy eating for busy people.",
+    "judgement_details": [
+      {
+        "type": "Structural Issue",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The response lacks an explicit answer to the question and does not include an introductory or concluding sentence; it consists only of three long bullet points.",
+        "explanation": "The answer jumps straight into examples without stating how often people blame time for poor diet, leaving the overall structure incomplete and unfocused.",
+        "reference_index": []
+      },
+      {
+        "type": "Unclear Flow/Jumping",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The second bullet abruptly shifts from cheapness of fast food to overscheduled lifestyles and then to health consequences.",
+        "explanation": "There are no smooth transitions between these ideas, making the paragraph feel disjointed and hindering logical progression.",
+        "reference_index": [
+          1
+        ]
+      },
+      {
+        "type": "Repetition/Redundancy",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "Both the first and second bullets repeat the idea that a time‑crunched schedule leads people to choose fast food.",
+        "explanation": "Similar phrasing about lack of time and reliance on fast food appears in multiple places, unnecessarily duplicating the same point.",
+        "reference_index": [
+          0,
+          1
+        ]
+      },
+      {
+        "type": "Internal Contradiction",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "Bullet 3 claims that a busy lifestyle can coexist with healthy meal preparation, while Bullets 1 and 2 emphasize that busy people lack time and knowledge to eat healthily.",
+        "explanation": "These statements directly oppose each other, creating an internal contradiction within the response.",
+        "reference_index": [
+          0,
+          1,
+          2
+        ]
+      }
+    ]
+  },
+  "coherence_stylistic": {
+    "grade": 1.5,
+    "overall_judgement": "The response attempts a semi‑formal, research‑style overview but intersperses casual colloquial language and overly simple phrasing, creating tonal and complexity inconsistencies.",
+    "judgement_details": [
+      {
+        "type": "Tone Clash",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "The passage shifts from formal academic language (e.g., \"cardiovascular disease\", \"low-sodium diet\") to casual, conversational expressions such as \"supersized fries may be the reason why their pants are tight\" and \"Yes, it is food\".",
+        "explanation": "Mixing scholarly diction with slang and informal remarks jars the reader and undermines a consistent authoritative tone.",
+        "reference_index": []
+      },
+      {
+        "type": "Complexity Mismatch",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The text alternates between high‑level health terminology (\"cardiovascular disease\", \"low‑sodium diet\") and very simple, everyday language (\"pants are tight\", \"quick and convenient ones\").",
+        "explanation": "This oscillation makes the intended audience unclear and disrupts the flow, as the reader must adjust between technical and layperson registers repeatedly.",
+        "reference_index": []
+      }
+    ]
+  },
+  "coverage_broad": {
+    "grade": 4.1,
+    "overall_judgement": "The response does not address the core aspect of the query – how often people attribute poor diet to lack of time. It lacks quantitative prevalence data, provides no clear introductory definition of the concept, and largely presents a collection of excerpts without synthesizing them, resulting in missing major aspects and lack of context.",
+    "judgement_details": [
+      {
+        "type": "Missing Major Aspect",
+        "severity": "Severe",
+        "severity_level": 2,
+        "penalty_value": 0,
+        "explanation": "The query asks for the frequency or prevalence of people blaming time for poor diet, but the response never provides any statistics, percentages, or study results that quantify how often this attribution occurs.",
+        "reference_index": [],
+        "statement": "The response discusses reasons and consequences of time‑crunched diets but never states how often people actually blame time."
+      },
+      {
+        "type": "Lack of Context",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "explanation": "There is no introductory definition or explanation of what it means to \"blame time\" for a poor diet, so the answer jumps straight into anecdotes and references without grounding the reader.",
+        "reference_index": [],
+        "statement": "The answer starts with examples of busy schedules leading to fast‑food choices without first defining the concept of blaming time."
+      },
+      {
+        "type": "Superficial Listing",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "explanation": "Numerous reference excerpts are listed verbatim without synthesis or explanation of how each supports the answer, resulting in a superficial collection of statements rather than an integrated response.",
+        "reference_index": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "statement": "The response includes many quoted passages (e.g., from [0], [1], [2], etc.) but does not explain their relevance to the frequency of blaming time."
+      }
+    ]
+  },
+  "coverage_deep": {
+    "grade": 15,
+    "overall_judgement": "The response provides a broad, repetitive discussion of time pressure and poor diet but lacks depth. It is largely superficial, offers no concrete data or detailed mechanisms, supplies no specific examples or statistics, and relies on vague generalizations, resulting in poor deep coverage.",
+    "judgement_details": [
+      {
+        "type": "Surface-Level / Shallow",
+        "severity": "Minor",
+        "severity_level": 3,
+        "penalty_value": 1,
+        "statement": "The answer only lists generic observations (e.g., \"a time‑crunched schedule can lead people to make poor diet choices\") without nuanced analysis or differentiation of contexts.",
+        "explanation": "It mentions concepts like fast food, busy lifestyles, and blame of time, but does not delve into the complexities, variations among populations, or broader implications, resulting in a superficial treatment of the topic.",
+        "reference_index": [
+          0,
+          1,
+          2
+        ],
+        "missing": "Nuanced discussion of how time pressure interacts with other factors (e.g., socioeconomic status, cultural norms) and deeper insight into the phenomenon."
+      },
+      {
+        "type": "Lack of Examples",
+        "severity": "Moderate",
+        "severity_level": 3,
+        "penalty_value": 6,
+        "statement": "The response fails to provide concrete examples, statistics, or study findings that quantify how often people attribute poor diet to lack of time.",
+        "explanation": "While anecdotes about a working mother are included, there is no data (e.g., survey percentages, study results) or real‑world case studies that illustrate the frequency of the blame, leaving the claim unsupported.",
+        "reference_index": [
+          0,
+          1,
+          5,
+          15
+        ],
+        "missing": "Specific quantitative examples (e.g., \"X% of respondents in Y study cited time as the main reason for poor diet\") or detailed case studies."
+      },
+      {
+        "type": "Lack of Mechanism",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The answer states that time scarcity leads to unhealthy eating but does not explain why or how this causal relationship occurs.",
+        "explanation": "There is no discussion of psychological mechanisms (e.g., decision fatigue, stress‑induced cravings), logistical constraints (e.g., meal‑prep time calculations), or economic trade‑offs that link time pressure to dietary choices.",
+        "reference_index": [
+          0,
+          1,
+          10
+        ],
+        "missing": "Explanation of underlying mechanisms such as decision‑making processes, habit formation, or time‑cost analyses."
+      },
+      {
+        "type": "Vagueness / Generalization",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "The language throughout is vague, using broad terms like \"people\", \"many\", and \"often\" without precise qualifiers.",
+        "explanation": "Phrases such as \"people do not know the consequences\" or \"most Americans are overscheduled\" are unsubstantiated and non‑actionable, making it unclear how widespread the blame attribution actually is.",
+        "reference_index": [
+          1,
+          3,
+          8,
+          14
+        ],
+        "missing": "Specific qualifiers, measurable descriptors, and actionable insights that would replace vague generalizations."
+      }
+    ]
+  },
+  "consistency_internal": {
+    "grade": 9.6,
+    "overall_judgement": "The response mixes multiple sources and viewpoints without clear separation, presents several claims as universally accepted, and fails to attribute many statements to their original sources. It also contains contradictory implications about the possibility of maintaining a healthy diet despite time constraints, leading to blurred viewpoints, false consensus, attribution failures, and an unresolved conflict.",
+    "judgement_details": [
+      {
+        "type": "Blurred Viewpoints / Conflation",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "The paragraph combines Georgia Thomas's optimistic quote about managing a busy lifestyle with earlier claims that time scarcity forces people to eat unhealthy fast food, without distinguishing her view as a distinct perspective.",
+        "explanation": "By merging the positive anecdotal perspective with the general argument about time‑driven poor diet, the response creates a hybrid view that confuses whether the ability to eat healthily is realistic or exceptional.",
+        "reference_index": [
+          2
+        ],
+        "missing": "Clear separation of the quoted expert opinion from the general discussion."
+      },
+      {
+        "type": "Unresolved Conflict",
+        "severity": "Moderate",
+        "severity_level": 2,
+        "penalty_value": 4,
+        "statement": "It states that fast‑food consumption is driven by lack of time and leads to health problems, yet later claims, via Georgia Thomas, that it is possible to live a busy lifestyle and still prepare healthy meals.",
+        "explanation": "These two statements present opposing conclusions about the feasibility of healthy eating under time constraints without reconciling or explaining the discrepancy.",
+        "reference_index": [
+          0,
+          2
+        ],
+        "missing": "An explanation reconciling the conflict or indicating that the latter is a minority viewpoint."
+      },
+      {
+        "type": "False Consensus",
+        "severity": "Minor",
+        "severity_level": 2,
+        "penalty_value": 0.5,
+        "statement": "“Everyone is just busy in building their future ignoring the fact that this might be interrupted by diseases caused by their poor eating habits.”",
+        "explanation": "The sentence presents the claim as if all people share this behavior and ignorance, ignoring any evidence of differing opinions or behaviors.",
+        "reference_index": [
+          4
+        ],
+        "missing": "Citation of surveys or studies demonstrating the extent of this belief, or acknowledgment of variability."
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Minor",
+        "severity_level": 1,
+        "penalty_value": 0.1,
+        "statement": "“People often claim it is cheaper to eat at a restaurant than to prepare a meal at home.”",
+        "explanation": "The statement is presented as a factual observation without indicating who makes this claim or providing a source, leaving the origin unspecified.",
+        "reference_index": [
+          1
+        ],
+        "missing": "Explicit attribution to a study, survey, or expert who reported this perception."
+      },
+      {
+        "type": "Attribution Failure",
+        "severity": "Moderate",
+        "severity_level": 1,
+        "penalty_value": 2.5,
+        "statement": "“They are unaware of how the extra fat in their diet can lead to cardiovascular disease.”",
+        "explanation": "This health claim is asserted without referencing any specific research or authority, making it appear as an unqualified fact.",
+        "reference_index": [
+          1
+        ],
+        "missing": "Citation of epidemiological studies or expert statements supporting the claim."
+      }
+    ]
+  },
+  "quality_overall": {
+    "grade": 12.4
+  }
+}
