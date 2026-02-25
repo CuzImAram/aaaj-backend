@@ -41,8 +41,8 @@ def plot_dimension(dimension_name, data, global_alpha=None):
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
 
-    output_path = os.path.join(OUTPUT_DIR, f'{dimension_name}.png')
-    plt.savefig(output_path)
+    output_path = os.path.join(OUTPUT_DIR, f'{dimension_name}.pdf')
+    plt.savefig(output_path, format='pdf')
     plt.close()
     print(f"Saved graph for {dimension_name} to {output_path}")
 
