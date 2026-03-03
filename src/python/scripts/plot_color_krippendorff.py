@@ -143,7 +143,7 @@ def plot_graph(topics_subset, filename, title_suffix, topic_data, dimensions):
 
     plt.tight_layout()
     out_file = os.path.join(OUTPUT_DIR, filename)
-    plt.savefig(out_file, dpi=300)
+    plt.savefig(out_file, format='pdf')
     plt.close()
     print(f"Graph saved to {out_file}")
 
@@ -194,7 +194,7 @@ def main():
     topics.sort()
 
     # 1. Plot ALL topics
-    plot_graph(topics, 'krippendorff_color_plot_all.png', '(All Topics)', topic_data, dimensions)
+    plot_graph(topics, 'krippendorff_color_plot_all.pdf', '(All Topics)', topic_data, dimensions)
 
     # 2. Plot chunks of 13
     CHUNK_SIZE = 13
@@ -204,7 +204,7 @@ def main():
         chunk_topics = topics[i:i + CHUNK_SIZE]
         start_idx = i + 1
         end_idx = i + len(chunk_topics)
-        filename = f'krippendorff_color_plot_{start_idx}-{end_idx}.png'
+        filename = f'krippendorff_color_plot_{start_idx}-{end_idx}.pdf'
         title = f'(Topics {start_idx}-{end_idx})'
         plot_graph(chunk_topics, filename, title, topic_data, dimensions)
 
